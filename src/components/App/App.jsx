@@ -15,12 +15,13 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../Map/Map';
+import MyGarden from '../MyGarden/MyGarden';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import MyGarden from '../MyGarden/MyGarden';
 
 function App() {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ function App() {
             exact
             path="/info"
           >
-            <InfoPage />
+            <MyGarden />
           </ProtectedRoute>
 
           <Route
