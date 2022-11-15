@@ -19,9 +19,9 @@ import MyGarden from '../MyGarden/MyGarden';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import TopoMap from '../TopoMap/TopoMap';
 
 import './App.css';
-import MyGarden from '../MyGarden/MyGarden';
 
 function App() {
   const dispatch = useDispatch();
@@ -62,11 +62,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows MyGarden else shows LoginPage
             exact
             path="/mygarden"
           >
             <MyGarden />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Map else shows LoginPage
+            exact
+            path="/topomap"
+          >
+            <TopoMap />
           </ProtectedRoute>
 
           <Route

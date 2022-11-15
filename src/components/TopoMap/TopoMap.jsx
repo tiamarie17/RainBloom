@@ -2,12 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { MapContainer, TileLayer, useMap, Marker, Popup} from 'react-leaflet';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
 
-function Map(){
+
+function TopoMap(){
 
     function LocationMarker() {
 
@@ -46,4 +43,4 @@ function Map(){
       
   );
 }
-export default Map;
+export default TopoMap;
