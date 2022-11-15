@@ -42,3 +42,4 @@ CREATE TABLE "garden_design" (
 	"garden_location" varchar(1000) NOT NULL,
 	"user_id" int NOT NULL
 );
+
