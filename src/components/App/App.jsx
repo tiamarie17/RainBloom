@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TopoMap from '../TopoMap/TopoMap';
+import Faq from '../Faq/Faq';
 
 import './App.css';
 
@@ -75,6 +76,14 @@ function App() {
             path="/topomap"
           >
             <TopoMap />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Map else shows LoginPage
+            exact
+            path="/faq"
+          >
+            <Faq />
           </ProtectedRoute>
 
           <Route
