@@ -23,9 +23,8 @@ CREATE TABLE "user" (
 
 CREATE TABLE "uploads" (
 	"id" SERIAL PRIMARY KEY,
-	"image_url" varchar(1000) NOT NULL,
-	"description" varchar(1000) NOT NULL,
-	"garden_id" INT NOT NULL
+	"image_url" varchar(1000) NOT NULL, 
+	"user_id" INT
 );
 
 CREATE TABLE "plants_garden_design" (

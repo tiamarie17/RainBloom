@@ -19,7 +19,7 @@ function Upload(){
             formData.append('uploaded_file', file);
         }
         
-        axios.post("/api/upload", formData)
+        axios.post("/gallery", formData)
             .then(res =>{
                 console.log('in post axios client, res is', res);
                 dispatch({
@@ -29,11 +29,6 @@ function Upload(){
             .catch(err =>{
                 console.log('error in axios post client, error is', err);
             })
-
-        // dispatch({
-        //     type: 'UPLOAD_IMAGE',
-        //     payload: selectedFile
-        // })
 
     }
 
@@ -55,6 +50,8 @@ function Upload(){
         <input type="submit" value="Upload" className="btn btn-default"/>            
         </form>
         </>
+
+        // To do: render images  here
     
     );
 
