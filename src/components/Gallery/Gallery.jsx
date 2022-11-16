@@ -23,7 +23,7 @@ function Upload(){
             .then(res =>{
                 console.log('in post axios client, res is', res);
                 dispatch({
-                    type: 'FETCH_SHELF'
+                    type: 'FETCH_GALLERY'
                 })
             })
             .catch(err =>{
