@@ -7,15 +7,35 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
 
 function Faq() {
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+
+   const ExpandMore = styled((props) => {
+        const { expand, ...other } = props;
+        return <IconButton {...other} />;
+      })(({ theme, expand }) => ({
+        transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shortest,
+        }),
+      }));
+
     return (
         <>
         <h1>FAQs</h1>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 330 }}>
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          FAQ
+        <Typography variant="body1" color="text.primary">
+          What is a rain garden?
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -30,14 +50,10 @@ function Faq() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+          <Typography paragraph color="text.secondary">
+            A rain garden is a garden that is designed to capture runoff water from your yard. 
+            It typically has a depression in the middle and contains plants that 
+            can tolerate being flooded occassionally. 
           </Typography>
         </CardContent>
       </Collapse>
@@ -46,3 +62,5 @@ function Faq() {
         </>
     );
 }
+
+export default Faq;
