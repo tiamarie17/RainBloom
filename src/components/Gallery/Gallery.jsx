@@ -44,12 +44,17 @@ function Upload(){
 
     console.log('in upload');
     return(
+
+        <>
+
+        <h3>My Garden Gallery</h3>
     
         <form onSubmit={handleUpload}>
         <input type="file" className="form-control-file" name="uploaded_file" onChange = {changeHandler} multiple/>
         {/* <input type="text" className="form-control" placeholder="description" name="description"/> */}
         <input type="submit" value="Upload" className="btn btn-default"/>            
         </form>
+        </>
     
     );
 
