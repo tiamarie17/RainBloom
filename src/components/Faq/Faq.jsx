@@ -58,6 +58,207 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          How do rain gardens benefit the environment?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer here! 
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          What are the benefits of planting native plants in my garden?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer 
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          What are some local programs that support people with building rain gardens?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+           Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          How much manual labor is involved in creating the rain garden?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+          What are some additional resources for calculating the size and depth of my rain garden?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+        Where can I purchase native plants locally?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+        Where can I purchase compost, mulch and erosion control products locally?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+
+    <Card sx={{ maxWidth: 330 }}>
+      <CardContent>
+        <Typography variant="body1" color="text.primary">
+        Who should I call before I start digging?
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+            Answer
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
         
         </>
     );

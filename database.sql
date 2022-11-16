@@ -24,7 +24,7 @@ CREATE TABLE "user" (
 CREATE TABLE "uploads" (
 	"id" SERIAL PRIMARY KEY,
 	"image_url" varchar(1000) NOT NULL, 
-	"user_id" INT
+	"user_id" INT REFERENCES "user"
 );
 
 CREATE TABLE "plants_garden_design" (
