@@ -8,9 +8,6 @@ function Upload(){
     const dispatch = useDispatch();
     const [selectedFile, setSelectedFile] = useState('');
 
-    const gallery = useSelector((store) => {
-        return store.gallery;
-    })
 
     const user = useSelector((store)=> {
         return store.user;
@@ -54,10 +51,15 @@ function Upload(){
     const removeImage = (galleryItem) => {
         console.log('in removeImage');
         dispatch({
-            type: 'REMOVE_IMAGE',
+            type:'REMOVE_IMAGE',
             payload: galleryItem.id
         })
     }
+
+    const gallery = useSelector((store) => {
+        return store.gallery;
+    })
+    
 
     return(
 
@@ -75,6 +77,7 @@ function Upload(){
                     {gallery.map(galleryItem => (
                         <tr key={galleryItem.id}>
                             <td><img src={galleryItem.image_url.replace("public/", "")}/></td>
+                            {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
                             <td>{user.id === galleryItem.user_id && 
                                 <button onClick={() => removeImage(galleryItem)}>Remove</button>}
                             </td>

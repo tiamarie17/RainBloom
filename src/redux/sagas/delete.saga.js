@@ -4,11 +4,11 @@ import axios from 'axios';
 function* removeImage(action) {
 
     try {
-        console.log('in removeImage', action);
-        const deletedImage = action.payload
+        console.log('in removeImage', action.payload);
+        const deletedImage = action.payload;
 
         console.log('deletedImage is', deletedImage);
-        // POST the payload to the server
+        
         yield axios.delete(`/api/gallery/${deletedImage}`);
 
         // trigger a GET request

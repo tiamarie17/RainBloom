@@ -89,13 +89,10 @@ router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), funct
   if (req.isAuthenticated()) {
     const sqlText = `
     DELETE FROM "uploads"
-    WHERE "user_id" = $1;
+    WHERE "id" = $1;
     `;
 
-    const sqlParams = req.user.id
-    console.log('sqlParams is', sqlParams);
-
-    pool.query(sqlText, sqlParams)
+    pool.query(sqlText, [req.params.id])
       .then(result => res.sendStatus(200))
       .catch(err => res.sendStatus(500));
   } else {
