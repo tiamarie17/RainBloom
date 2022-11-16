@@ -47,7 +47,10 @@ router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), funct
        console.log('user', req.user);
        console.log('req.files is', req.files);
 
-       let sqlText = `
+    // Allow an array of any number of images between 1-12 to be inserted into separate rows
+    //Send user id in the paths variable as well
+
+    let sqlText = `
     INSERT INTO "uploads" ("image_url", "user_id")
     VALUES`
 
@@ -76,5 +79,29 @@ router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), funct
         })
 
 });
+
+
+ //Delete an image from the gallery if it's something the logged in user added
+ 
+ router.delete('/:id', (req, res) => {
+    console.log('in delete router');
+
+  if (req.isAuthenticated()) {
+    const sqlText = `
+    DELETE FROM "uploads"
+    WHERE "user_id" = $1;
+    `;
+
+    const sqlParams = req.user.id
+    console.log('sqlParams is', sqlParams);
+
+    pool.query(sqlText, sqlParams)
+      .then(result => res.sendStatus(200))
+      .catch(err => res.sendStatus(500));
+  } else {
+    res.sendStatus(401);
+  }
+});
+
 
 module.exports = router;
