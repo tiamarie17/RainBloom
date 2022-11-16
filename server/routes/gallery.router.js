@@ -41,21 +41,21 @@ router.get('/', (req, res) => {
   
 });
 
-router.post('/', upload.array('uploaded_file', 12), rejectUnauthenticated, function (req, res) {
+router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), function (req, res) {
        console.log('in /gallery POST router');
        console.log('is authenticated?', req.isAuthenticated());
        console.log('user', req.user);
        console.log('req.files is', req.files);
 
        let sqlText = `
-    INSERT INTO "uploads" ("image_url")
+    INSERT INTO "uploads" ("image_url", "user_id")
     VALUES`
 
     let paths = req.files.map(file => file.path)
 
     for (let i = 0;  i < req.files.length; i++) {
         
-        sqlText += `($${i+1})`;
+        sqlText += `($${i+1}, ${req.user.id})`;
 
         if(i !== req.files.length-1){
             sqlText += ",";
@@ -64,15 +64,14 @@ router.post('/', upload.array('uploaded_file', 12), rejectUnauthenticated, funct
         }
     }
 
-    let sqlParams = [req.user.id];
-    console.log('sqlParams is', sqlParams);
+    // let sqlParams = [req.user.id];
+    // console.log('sqlParams is', sqlParams);
 
     console.log('basesqltext is', sqlText);
     console.log('paths is',paths);
 
-    pool.query(sqlText, paths, sqlParams)
+    pool.query(sqlText, paths)
         .then((result)=>{
-            res.send(result.rows);
             res.sendStatus(200);
         })
         .catch((err)=> {
