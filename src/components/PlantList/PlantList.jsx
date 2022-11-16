@@ -23,22 +23,17 @@ const MenuProps = {
 };
 
 const goals = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  'Butterflies',
+  'Hummingbirds',
+  'Pollinators',
+  'Birds',
+  'Deer-resistant',
 ];
 
-function getStyles(name, personName, theme) {
+function getStyles(goal, goalName, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      goalName.indexOf(goal) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium,
   };
@@ -74,7 +69,7 @@ return(
 
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
