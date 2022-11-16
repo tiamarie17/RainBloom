@@ -45,7 +45,6 @@ router.post('/', upload.array('uploaded_file', 12), rejectUnauthenticated, funct
        console.log('in /gallery POST router');
        console.log('is authenticated?', req.isAuthenticated());
        console.log('user', req.user);
-       console.log('access level', req.user.access_level);
 
        let base_sqlText = `
     INSERT INTO "uploads" ("image_url")
@@ -75,11 +74,6 @@ router.post('/', upload.array('uploaded_file', 12), rejectUnauthenticated, funct
             console.log('in upload POST router error, error is', err);
         })
 
-
-
-  //queryText = `` //WHERE "user_id"=$1;
-
-  //queryParams = [req.user.id];
 });
 
 module.exports = router;
