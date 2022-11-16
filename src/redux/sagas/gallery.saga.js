@@ -1,7 +1,7 @@
 import { put, takeLatest } from "@redux-saga/core/effects";
 import axios from "axios";
 
-function* shelfSaga() {
+function* gallerySaga() {
     yield takeLatest('FETCH_GALLERY', fetchGallery);
 }
 
@@ -19,4 +19,4 @@ function* fetchGallery(){
   
  
 
-export default shelfSaga;
+export default gallerySaga;
