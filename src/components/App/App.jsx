@@ -63,6 +63,14 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/gallery"
+          >
+            <Gallery />
+          </ProtectedRoute>
+
+          <ProtectedRoute
             // logged in shows MyGarden else shows LoginPage
             exact
             path="/mygarden"
