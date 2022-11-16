@@ -19,7 +19,7 @@ function Upload(){
             formData.append('uploaded_file', file);
         }
         
-        axios.post("/gallery", formData)
+        axios.post("/api/gallery", formData)
             .then(res =>{
                 console.log('in post axios client, res is', res);
                 dispatch({
