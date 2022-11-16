@@ -2,7 +2,7 @@
 /* Style the navigation menu */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: darkseagreen;
   position: relative;
 }
 
@@ -21,12 +21,14 @@
 }
 
 /* Style the hamburger menu */
-.topnav a.icon {
-  background: black;
+.icon {
+  background: darkseagreen;
   display: block;
   position: absolute;
   right: 0;
   top: 0;
+  margin-right: 14px;
+  margin-top: 14px;
 }
 
 /* Add a grey background color on mouse-over */
@@ -40,3 +42,18 @@
   background-color: #04AA6D;
   color: white;
 }
+
+.logout{
+  border: none;
+  background-color: darkseagreen;
+  color: white;
+  font-size: 17px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+  padding-left: 16px;
+
+}
+
+
+
+

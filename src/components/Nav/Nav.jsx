@@ -25,11 +25,30 @@ function Nav() {
 
   return (
     <div className="topnav">
-
-      {/* Navigation links (hidden by default) */}
-      <div id="myLinks">
         <Link className="navTitle" to="/home">
           <h2>RainBloom</h2>
+        </Link>
+      {/* Navigation links (hidden by default) */}
+      <div id="myLinks">
+
+      <Link className="navLink" to="/about">
+          About
+        </Link>
+
+        <Link className="navLink" to="/faq">
+          FAQ
+        </Link>
+
+        <Link className="navLink" to="/build">
+          Build A Garden
+        </Link>
+
+        <Link className="navLink" to="/mygarden">
+          My Garden
+        </Link>
+
+        <Link className="navLink" to="/gallery">
+          Gallery
         </Link>
 
         {/* If no user is logged in, show these links */}
@@ -46,16 +65,15 @@ function Nav() {
               Home
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton className="logout" />
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
       {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
-      <ReorderIcon onClick={onClickHandler}></ReorderIcon>
+      <div className = "icon">
+      <ReorderIcon size="large" sx={({fontSize: "3rem"})} onClick={onClickHandler}></ReorderIcon>
+      </div>
     </div>
 
   );
