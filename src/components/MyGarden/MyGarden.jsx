@@ -17,6 +17,8 @@ function MyGarden() {
   return (
     <>
     <h1>My Garden</h1>
+    <h2>Weather API</h2>
+    <h2>Plants in My Garden</h2>
     <button onClick={goToMap}>See Topo Map</button>
     </>
   );
