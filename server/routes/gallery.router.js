@@ -64,9 +64,6 @@ router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), funct
         }
     }
 
-    // let sqlParams = [req.user.id];
-    // console.log('sqlParams is', sqlParams);
-
     console.log('basesqltext is', sqlText);
     console.log('paths is',paths);
 
