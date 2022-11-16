@@ -21,6 +21,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import TopoMap from '../TopoMap/TopoMap';
 import Faq from '../Faq/Faq';
+import Gallery from '../Gallery/Gallery';
+import PlantList from '../PlantList/PlantList';
+
 
 import './App.css';
 
