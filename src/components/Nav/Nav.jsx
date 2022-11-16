@@ -1,18 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import ReorderIcon from '@mui/icons-material/Reorder';
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  const onClickHandler = () => {
+    let x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+// const[mobileMenu, setMobileMenu] = useState(false);
+// const onCLickHandler = () => {
+//     setMobileMenu(!mobileMenu)
+// }
+
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">RainBloom</h2>
-      </Link>
-      <div>
+    <div className="topnav">
+
+      {/* Navigation links (hidden by default) */}
+      <div id="myLinks">
+        <Link className="navTitle" to="/home">
+          <h2>RainBloom</h2>
+        </Link>
+
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links
@@ -20,7 +39,6 @@ function Nav() {
             Login / Register
           </Link>
         )}
-
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
@@ -36,8 +54,15 @@ function Nav() {
           About
         </Link>
       </div>
+      {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
+      <ReorderIcon onClick={onClickHandler}></ReorderIcon>
     </div>
+
   );
+
 }
 
 export default Nav;
+
+
+
