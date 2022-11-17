@@ -45,19 +45,23 @@ function getStyles(goal, goalName, theme) {
 
 function PlantList() {
 
- //declaring variable to track input of soil dropdown menu
-  const [soil, setSoil] = useState('');
+    //declaring variable to track input of soil dropdown menu
+    const [soil, setSoil] = useState('');
 
-  const handleSoilChange = (event) => {
-    setSoil(event.target.value);
-  };
-  //declaring variable to track input of sunlight dropdown menu
-  const [sunlight, setSunlight] = useState('');
+    const handleSoilChange = (event) => {
+        setSoil(event.target.value);
+    };
 
-  const handleSunlightChange = (event) => {
-    setSunlight(event.target.value);
-  };
-    
+    console.log('soil is', soil);
+
+    //declaring variable to track input of sunlight dropdown menu
+    const [sunlight, setSunlight] = useState('');
+
+    const handleSunlightChange = (event) => {
+        setSunlight(event.target.value);
+    };
+    console.log('sunlight is', sunlight);
+
     // Declaring variables to track value of goals selected
     const theme = useTheme();
     const [goalName, setGoalName] = useState([]);
@@ -72,98 +76,61 @@ function PlantList() {
         );
     };
 
+    console.log('goals are', goalName);
+
     return (
         <>
             <h3>Choose Plants For Your Garden:</h3>
-            <div>
-                {/* Soil dropdown menu */}
+
+            <form>
+                <select onChange={handleSoilChange}>
+                    <option defaultValue="Choose">Choose</option>
+                    <option value="loam" >Loam</option>
+                    <option value="clay" >Clay</option>
+                    <option value="sand" >Sand</option>
+                    <option value="all soils">Unsure</option>
+                </select>
+
+                <select onChange={handleSunlightChange}>
+                    <option defaultValue="Choose">Choose</option>
+                    <option value="full sun" >Full sun</option>
+                    <option value="light shade" >Light shade</option>
+                    <option value="medium shade" >Medium shade</option>
+                    <option value="full shade">Full shade</option>
+                    <option value="mixed sun shade">Mixed sun shade</option>
+                </select>
+                        {/* Goals multiple select dropdown menu */}
             <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-simple-select-required-label">Soil Type</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={soil}
-                        label="Soil Type *"
-                        onChange={handleSoilChange}
-                    >    
-                        <MenuItem value={soil}>loam</MenuItem>
-                        <MenuItem value={soil}>sand</MenuItem>
-                        <MenuItem value={soil}>clay</MenuItem>
-                        <MenuItem value={soil}>all soils</MenuItem>
-                    </Select>
-                    <FormHelperText>Required</FormHelperText>
-                    </FormControl>
+                <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
+                <Select
+                    labelId="demo-multiple-chip-label"
+                    id="demo-multiple-chip"
+                    multiple
+                    value={goalName}
+                    onChange={handleGoalChange}
+                    input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                    renderValue={(selected) => (
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                            {selected.map((value) => (
+                                <Chip key={value} label={value} />
+                            ))}
+                        </Box>
+                    )}
+                    MenuProps={MenuProps}
+                >
+                    {goals.map((goal) => (
+                        <MenuItem
+                            key={goal}
+                            value={goal}
+                            style={getStyles(goal, goalName, theme)}
+                        >
+                            {goal}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+            </form>
 
-
-                    {/* Sunlight dropdown menu */}
-            <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-simple-select-required-label">Sunlight Amount</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={sunlight}
-                        label="Soil Type *"
-                        onChange={handleSunlightChange}
-                    >
-                        <MenuItem value={sunlight}>full sun</MenuItem>
-                        <MenuItem value={sunlight}>light shade</MenuItem>
-                        <MenuItem value={sunlight}>medium shade</MenuItem>
-                        <MenuItem value={sunlight}>full shade</MenuItem>
-                        <MenuItem value={sunlight}>mixed sun shade</MenuItem>
-                    </Select>
-                    <FormHelperText>Required</FormHelperText>
-                    </FormControl>
-
-                {/* Goals multiple select dropdown menu */}
-                <FormControl sx={{ m: 1, width: 300 }}>
-                    <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
-                    <Select
-                        labelId="demo-multiple-chip-label"
-                        id="demo-multiple-chip"
-                        multiple
-                        value={goalName}
-                        onChange={handleGoalChange}
-                        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                        renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                                {selected.map((value) => (
-                                    <Chip key={value} label={value} />
-                                ))}
-                            </Box>
-                        )}
-                        MenuProps={MenuProps}
-                    >
-                        {goals.map((goal) => (
-                            <MenuItem
-                                key={goal}
-                                value={goal}
-                                style={getStyles(goal, goalName, theme)}
-                            >
-                                {goal}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-
-      <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel variant="standard" htmlFor="uncontrolled-native">
-          Age
-        </InputLabel>
-        <NativeSelect
-          defaultValue={30}
-          inputProps={{
-            name: 'age',
-            id: 'uncontrolled-native',
-          }}
-        >
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
-        </NativeSelect>
-      </FormControl>
-    </Box>
-            </div>
         </>
     );
 
