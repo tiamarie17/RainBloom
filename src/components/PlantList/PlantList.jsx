@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import FormHelperText from '@mui/material/FormHelperText';
+import NativeSelect from '@mui/material/NativeSelect';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -71,13 +72,6 @@ function PlantList() {
         );
     };
 
-
-    //   const [checked, setChecked] = useState(true);
-
-    //   const handleChange = (event) => {
-    //     setChecked(event.target.checked);
-    // }
-
     return (
         <>
             <h3>Choose Plants For Your Garden:</h3>
@@ -91,10 +85,7 @@ function PlantList() {
                         value={soil}
                         label="Soil Type *"
                         onChange={handleSoilChange}
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
+                    >    
                         <MenuItem value={soil}>loam</MenuItem>
                         <MenuItem value={soil}>sand</MenuItem>
                         <MenuItem value={soil}>clay</MenuItem>
@@ -106,17 +97,14 @@ function PlantList() {
 
                     {/* Sunlight dropdown menu */}
             <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-simple-select-required-label">Soil Type</InputLabel>
+            <InputLabel id="demo-simple-select-required-label">Sunlight Amount</InputLabel>
                     <Select
                         labelId="demo-simple-select-required-label"
                         id="demo-simple-select-required"
-                        value={soil}
+                        value={sunlight}
                         label="Soil Type *"
                         onChange={handleSunlightChange}
                     >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
                         <MenuItem value={sunlight}>full sun</MenuItem>
                         <MenuItem value={sunlight}>light shade</MenuItem>
                         <MenuItem value={sunlight}>medium shade</MenuItem>
@@ -156,21 +144,26 @@ function PlantList() {
                         ))}
                     </Select>
                 </FormControl>
-            </div>
 
-            {/* <h3>Check any goals you have for your garden</h3>
-    <FormGroup>
-    <FormControlLabel control={<Checkbox checked={checked[0] && checked[1]}
-      indeterminate={checked[0] !== checked[1]}onChange ={handleChange} inputProps={{'aria-label': 'controlled'}} />} label="Butterflies" />
-      <FormControlLabel control={<Checkbox checked={checked[0] && checked[1]}
-      indeterminate={checked[0] !== checked[1]} onChange ={handleChange} inputProps={{'aria-label': 'controlled'}} />} label="Hummingbirds" />
-      <FormControlLabel control={<Checkbox checked={checked[0] && checked[1]}
-      indeterminate={checked[0] !== checked[1]} onChange ={handleChange} inputProps={{'aria-label': 'controlled'}} />} label="Birds" />
-      <FormControlLabel control={<Checkbox checked={checked[0] && checked[1]}
-      indeterminate={checked[0] !== checked[1]} onChange ={handleChange} inputProps={{'aria-label': 'controlled'}} />} label="Pollinators" />
-      <FormControlLabel control={<Checkbox checked={checked[0] && checked[1]}
-      indeterminate={checked[0] !== checked[1]} onChange ={handleChange} inputProps={{'aria-label': 'controlled'}} />} label="Deer Resistant" />
-    </FormGroup> */}
+      <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel variant="standard" htmlFor="uncontrolled-native">
+          Age
+        </InputLabel>
+        <NativeSelect
+          defaultValue={30}
+          inputProps={{
+            name: 'age',
+            id: 'uncontrolled-native',
+          }}
+        >
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
+        </NativeSelect>
+      </FormControl>
+    </Box>
+            </div>
         </>
     );
 
