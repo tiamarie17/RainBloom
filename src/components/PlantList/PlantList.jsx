@@ -78,11 +78,18 @@ function PlantList() {
 
     console.log('goals are', goalName);
 
+    const handleFormSubmit = (event) => {
+        console.log('in handleFormSubmit');
+        event.preventDefault();
+
+        
+    }
+
     return (
         <>
             <h3>Choose Plants For Your Garden:</h3>
 
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <select onChange={handleSoilChange}>
                     <option defaultValue="all soils">Soil Type</option>
                     <option value="loam" >Loam</option>
@@ -106,6 +113,7 @@ function PlantList() {
                     labelId="demo-multiple-chip-label"
                     id="demo-multiple-chip"
                     multiple
+                    // required
                     value={goalName}
                     onChange={handleGoalChange}
                     input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
@@ -129,6 +137,7 @@ function PlantList() {
                     ))}
                 </Select>
             </FormControl>
+            <button type="submit">Search</button>
             </form>
 
         </>
