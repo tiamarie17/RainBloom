@@ -4,7 +4,7 @@ import axios from "axios";
 // POST request to send search input to database
 function* sendSearchInput(action) {
     try {
-        yield axios.post('/api/search', action.payload)
+        yield axios.post('/api/search', action.payload);
 
         yield put({ type:'FETCH_PLANTS' });
     } catch (err) {
