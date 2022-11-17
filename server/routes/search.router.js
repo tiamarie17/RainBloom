@@ -5,8 +5,9 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 // GET router to fetch search results
 router.get('/', (req, res) => {
+
     if (req.isAuthenticated()) {
-      console.log('/build GET route');
+      console.log('/search GET route');
       console.log('is authenticated?', req.isAuthenticated());
       console.log('user', req.user);
       
@@ -31,10 +32,9 @@ router.get('/', (req, res) => {
   router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /search POST router');
 
+     let sqlText;
 
- let sqlText;
-
- pool.query(sqlText, paths)
+     pool.query(sqlText, paths)
      .then((result)=>{
          res.sendStatus(200);
      })

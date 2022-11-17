@@ -1,7 +1,4 @@
 import { React, useState } from 'react';
-// import Checkbox from '@mui/material/Checkbox';
-// import FormGroup from '@mui/material/FormGroup';
-// import FormControlLabel from '@mui/material/FormControlLabel';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -10,9 +7,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-import FormHelperText from '@mui/material/FormHelperText';
-import NativeSelect from '@mui/material/NativeSelect';
 import { useDispatch } from 'react-redux';
+import { PinDrop } from '@mui/icons-material';
+// import { useSearchParams } from 'react-router-dom';
+
+
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -47,14 +47,17 @@ function PlantList() {
     //declaring dispatch variable
     const dispatch = useDispatch();
 
+    
+    // const [searchParams] = useSearchParams('');
+    // console.log('searchParams.entries is', searchParams.entries);
+
     //declaring variable to track input of soil dropdown menu
     const [soil, setSoil] = useState('');
 
     const handleSoilChange = (event) => {
         setSoil(event.target.value);
     };
-
-    console.log('soil is', soil);
+        console.log('soil is', soil);
 
     //declaring variable to track input of sunlight dropdown menu
     const [sunlight, setSunlight] = useState('');
@@ -62,9 +65,17 @@ function PlantList() {
     const handleSunlightChange = (event) => {
         setSunlight(event.target.value);
     };
-    console.log('sunlight is', sunlight);
+        console.log('sunlight is', sunlight);
 
-    // Declaring variables to track value of goals selected
+        
+    //declaring variable to track boolean value of checkbox
+    // const [checked, setChecked] = useState(true);
+          
+    //         const handleCheckBoxChange = (event) => {
+    //           setChecked(event.target.checked);
+    //         };
+
+    //Declaring variables to track value of goals selected
     const theme = useTheme();
     const [goalName, setGoalName] = useState([]);
 
