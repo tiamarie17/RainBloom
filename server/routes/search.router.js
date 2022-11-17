@@ -31,10 +31,12 @@ router.get('/', (req, res) => {
 
   router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /search POST router');
+    console.log('req.query.params is', req.query.params);
 
-     let sqlText;
 
-     pool.query(sqlText, paths)
+    //  let sqlText;
+
+     pool.query()
      .then((result)=>{
          res.sendStatus(200);
      })
