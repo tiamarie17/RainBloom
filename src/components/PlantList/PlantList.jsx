@@ -84,7 +84,7 @@ function PlantList() {
 
             <form>
                 <select onChange={handleSoilChange}>
-                    <option defaultValue="Choose">Choose</option>
+                    <option defaultValue="all soils">Soil Type</option>
                     <option value="loam" >Loam</option>
                     <option value="clay" >Clay</option>
                     <option value="sand" >Sand</option>
@@ -92,7 +92,7 @@ function PlantList() {
                 </select>
 
                 <select onChange={handleSunlightChange}>
-                    <option defaultValue="Choose">Choose</option>
+                    <option defaultValue="mixed sun shade">Sunlight amount</option>
                     <option value="full sun" >Full sun</option>
                     <option value="light shade" >Light shade</option>
                     <option value="medium shade" >Medium shade</option>
