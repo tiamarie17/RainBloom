@@ -12,6 +12,7 @@ import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import FormHelperText from '@mui/material/FormHelperText';
 import NativeSelect from '@mui/material/NativeSelect';
+import { useDispatch } from 'react-redux';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -41,9 +42,10 @@ function getStyles(goal, goalName, theme) {
     };
 }
 
-
-
 function PlantList() {
+
+    //declaring dispatch variable
+    const dispatch = useDispatch();
 
     //declaring variable to track input of soil dropdown menu
     const [soil, setSoil] = useState('');
@@ -78,11 +80,23 @@ function PlantList() {
 
     console.log('goals are', goalName);
 
+    const searchInput = {
+        soil_type: soil,
+        sunlight_amount: sunlight,
+        goals: goalName,
+    };
+
     const handleFormSubmit = (event) => {
         console.log('in handleFormSubmit');
         event.preventDefault();
 
-        
+        dispatch({
+            type: 'SEND_PLANT_SEARCH',
+            payload: searchInput,
+            
+        });
+
+
     }
 
     return (
