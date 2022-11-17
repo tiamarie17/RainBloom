@@ -91,7 +91,7 @@ function PlantList() {
         event.preventDefault();
 
         dispatch({
-            type: 'SEND_PLANT_SEARCH',
+            type: 'SEND_SEARCH_INPUT',
             payload: searchInput,
             
         });
