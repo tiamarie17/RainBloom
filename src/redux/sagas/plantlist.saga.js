@@ -14,7 +14,7 @@ function* sendSearchInput(action) {
 
 function* plantListSaga() {
     yield takeLatest('SEND_SEARCH_INPUT', sendSearchInput);
-    yield takeLatest('FETCH_PLANTS', fetchPlants);
+    // yield takeLatest('FETCH_PLANTS', fetchPlants);
 }
 
 export default plantListSaga;

@@ -3,6 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
+// GET router to fetch search results
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
       console.log('/build GET route');
@@ -23,5 +24,24 @@ router.get('/', (req, res) => {
   }
     
   });
+
+  //POST router to send search results to database
+  //Conditional rendering to look for matching search results
+
+  router.post('/', rejectUnauthenticated, function (req, res) {
+    console.log('in /search POST router');
+
+
+ let sqlText;
+
+ pool.query(sqlText, paths)
+     .then((result)=>{
+         res.sendStatus(200);
+     })
+     .catch((err)=> {
+         console.log('in search POST router error, error is', err);
+     })
+
+});
 
   module.exports = router;

@@ -39,7 +39,7 @@ function Nav() {
           FAQ
         </Link>
 
-        <Link className="navLink" to="/build">
+        <Link className="navLink" to="/search">
           Build A Garden
         </Link>
 

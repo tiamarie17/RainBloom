@@ -76,7 +76,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/build"
+            path="/search"
           >
             <PlantList />
           </ProtectedRoute>
