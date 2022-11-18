@@ -8,6 +8,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import { useDispatch, useSelector } from 'react-redux';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
 
 
 //Defining mui chip styling
@@ -43,13 +51,13 @@ function getStyles(goal, goalName, theme) {
 
 function PlantList() {
 
-    const searchResults = useSelector((store)=> {
+    const searchResults = useSelector((store) => {
         return store.plantList;
     })
 
     const dispatch = useDispatch();
 
-    const serachResults = useSelector((store)=>{
+    const serachResults = useSelector((store) => {
         return store.plantList;
     })
 
@@ -62,7 +70,7 @@ function PlantList() {
     const handleSoilChange = (event) => {
         setSoil(event.target.value);
     };
-        console.log('soil is', soil);
+    console.log('soil is', soil);
 
 
     const [sunlight, setSunlight] = useState('');
@@ -70,9 +78,9 @@ function PlantList() {
     const handleSunlightChange = (event) => {
         setSunlight(event.target.value);
     };
-        console.log('sunlight is', sunlight);
+    console.log('sunlight is', sunlight);
 
-        
+
     const theme = useTheme();
     const [goalName, setGoalName] = useState([]);
 
@@ -95,7 +103,7 @@ function PlantList() {
         goals: goalName,
     };
 
-    
+
     const handleFormSubmit = (event) => {
         console.log('in handleFormSubmit');
         event.preventDefault();
@@ -103,7 +111,7 @@ function PlantList() {
         dispatch({
             type: 'SEND_SEARCH_INPUT',
             payload: searchInput,
-            
+
         });
 
 
@@ -114,6 +122,25 @@ function PlantList() {
         console.log('in addToGarden');
     }
 
+    //add mui cards and variable to track click of expand button on card
+
+    const [expanded, setExpanded] = useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+
+    const ExpandMore = styled((props) => {
+        const { expand, ...other } = props;
+        return <IconButton {...other} />;
+    })(({ theme, expand }) => ({
+        transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
+    }));
 
     return (
         <>
@@ -136,60 +163,79 @@ function PlantList() {
                     <option value="full shade">Full shade</option>
                     <option value="mixed sun shade">Mixed sun shade</option>
                 </select>
-                        {/* Goals multiple select dropdown menu */}
-            <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
-                <Select
-                    labelId="demo-multiple-chip-label"
-                    id="demo-multiple-chip"
-                    multiple
-                    // required
-                    value={goalName}
-                    onChange={handleGoalChange}
-                    input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                    renderValue={(selected) => (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} />
-                            ))}
-                        </Box>
-                    )}
-                    MenuProps={MenuProps}
-                >
-                    {goals.map((goal) => (
-                        <MenuItem
-                            key={goal}
-                            value={goal}
-                            style={getStyles(goal, goalName, theme)}
-                        >
-                            {goal}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-            <button type="submit">Search</button>
+                {/* Goals multiple select dropdown menu */}
+                <FormControl sx={{ m: 1, width: 300 }}>
+                    <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
+                    <Select
+                        labelId="demo-multiple-chip-label"
+                        id="demo-multiple-chip"
+                        multiple
+                        // required
+                        value={goalName}
+                        onChange={handleGoalChange}
+                        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                        renderValue={(selected) => (
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                {selected.map((value) => (
+                                    <Chip key={value} label={value} />
+                                ))}
+                            </Box>
+                        )}
+                        MenuProps={MenuProps}
+                    >
+                        {goals.map((goal) => (
+                            <MenuItem
+                                key={goal}
+                                value={goal}
+                                style={getStyles(goal, goalName, theme)}
+                            >
+                                {goal}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+                <button type="submit">Search</button>
             </form>
 
             {/* Render search results below */}
             <div>
-            <h1>Suggested Plants:</h1>
-        
-                    {searchResults.map(result => (
-                        <ul key={result.id}>
-                            <li><img src={result.image}/></li>
-                            <li>Common name: {result.common_name}</li>
-                            <li>Botanical name: {result.botanical_name}</li>
-                            <li>Soil Type: {result.soil_type}</li>
-                            <li>Spacing: {result.spacing}</li>
-                            <li>Location in Rain Garden: {result.plant_location}</li>
-                            <li>Inundation Tolerance:{result.inundation_amount}</li>
-                            <li>
-                                <button onClick={() => addToGarden(result)}>Add to Garden</button>
-                            </li>
-                        </ul>
-                    ))}
-        
-        </div>
+                <h1>Suggested Plants:</h1>
+
+                {searchResults.map(result => (
+                    
+                    <Card sx={{ maxWidth: 330 }} key={result.id}>
+                        <CardContent>
+                         <Typography variant="body1" color="text.primary">
+                         <img src={result.image} />
+                        Common name: {result.common_name}
+                        Botanical name: {result.botanical_name}
+                        <button onClick={() => addToGarden(result)}>Add to Garden</button>
+                         </Typography>
+                       </CardContent>
+                       <CardActions disableSpacing>
+                         <ExpandMore
+                           expand={expanded}
+                           onClick={handleExpandClick}
+                           aria-expanded={expanded}
+                           aria-label="show more"
+                         >
+                           <ExpandMoreIcon />
+                         </ExpandMore>
+                       </CardActions>
+                       <Collapse in={expanded} timeout="auto" unmountOnExit>
+                       <CardContent>
+                           <Typography paragraph color="text.secondary">
+                           Soil Type: {result.soil_type}
+                        Spacing: {result.spacing}
+                        Location in Rain Garden: {result.plant_location}
+                        Inundation Tolerance:{result.inundation_amount}
+                           </Typography>
+                         </CardContent>
+                       </Collapse>
+                    </Card>
+                ))}
+
+            </div>
 
         </>
     );
