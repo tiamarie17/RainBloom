@@ -1,6 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 import Map from '../TopoMap/TopoMap';
+const axios = require("axios");
 
 
 function MyGarden() {
