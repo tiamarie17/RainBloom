@@ -202,40 +202,40 @@ function PlantList() {
                 <h1>Suggested Plants:</h1>
 
                 {searchResults.map(result => (
-                    
+
                     <Card sx={{ maxWidth: 330 }} key={result.id}>
                         <CardContent>
-                         <Typography variant="body1" color="text.primary">
-                         <img src={result.image} />
-                        <ul>
-                            <li>Common name: {result.common_name}</li>
-                            <li>Botanical name: {result.botanical_name}</li>
-                            <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li>
-                        </ul>
-                         </Typography>
-                       </CardContent>
-                       <CardActions disableSpacing>
-                         <ExpandMore
-                           expand={expanded}
-                           onClick={handleExpandClick}
-                           aria-expanded={expanded}
-                           aria-label="show more"
-                         >
-                           <ExpandMoreIcon />
-                         </ExpandMore>
-                       </CardActions>
-                       <Collapse in={expanded} timeout="auto" unmountOnExit>
-                       <CardContent>
-                           <Typography paragraph color="text.secondary">
-                           <ul>
-                            <li>Soil Type: {result.soil_type}</li>
-                            <li>Spacing: {result.spacing}</li>
-                            <li>Location in Rain Garden: {result.plant_location}</li>
-                            <li>Inundation Tolerance: {result.inundation_amount} inches</li>
-                            </ul>
-                           </Typography>
-                         </CardContent>
-                       </Collapse>
+                            <Typography variant="body1" color="text.primary">
+                                <img src={result.image} />
+                                <ul>
+                                    <li>Common name: {result.common_name}</li>
+                                    <li>Botanical name: {result.botanical_name}</li>
+                                    <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li>
+                                </ul>
+                            </Typography>
+                        </CardContent>
+                        <CardActions disableSpacing>
+                            <ExpandMore
+                                expand={expanded}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
+                            >
+                                <ExpandMoreIcon />
+                            </ExpandMore>
+                        </CardActions>
+                        <Collapse in={expanded} timeout="auto" unmountOnExit>
+                            <CardContent>
+                                <Typography paragraph color="text.secondary">
+                                    <ul>
+                                        <li>Soil Type: {result.soil_type}</li>
+                                        <li>Spacing: {result.spacing}</li>
+                                        <li>Location in Rain Garden: {result.plant_location}</li>
+                                        <li>Inundation Tolerance: {result.inundation_amount} inches</li>
+                                    </ul>
+                                </Typography>
+                            </CardContent>
+                        </Collapse>
                     </Card>
                 ))}
 

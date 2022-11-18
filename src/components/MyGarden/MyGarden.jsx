@@ -1,6 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
-import Map from '../TopoMap/TopoMap';
+import Map from '../Location/Location';
 const axios = require("axios");
 
 

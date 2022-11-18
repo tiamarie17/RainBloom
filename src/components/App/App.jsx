@@ -19,7 +19,7 @@ import MyGarden from '../MyGarden/MyGarden';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import TopoMap from '../TopoMap/TopoMap';
+import Location from '../Location/Location';
 import Faq from '../Faq/Faq';
 import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
@@ -92,9 +92,9 @@ function App() {
           <ProtectedRoute
             // logged in shows Map else shows LoginPage
             exact
-            path="/topomap"
+            path="/location"
           >
-            <TopoMap />
+            <Location />
           </ProtectedRoute>
 
           <ProtectedRoute

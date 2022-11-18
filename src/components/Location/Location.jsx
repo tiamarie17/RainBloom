@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, useMap, useMapEvents, Marker, Popup} from 'rea
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 
-function TopoMap(){
+function Location(){
       return (
         <>
         <MapContainer 
@@ -23,4 +23,4 @@ function TopoMap(){
 
   }
       
-export default TopoMap;
+export default Location;
