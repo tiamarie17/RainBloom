@@ -16,6 +16,7 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
+import {useHistory} from 'react-router-dom';
 
 
 //Defining mui chip styling
@@ -57,9 +58,8 @@ function PlantList() {
 
     const dispatch = useDispatch();
 
-    const serachResults = useSelector((store) => {
-        return store.plantList;
-    })
+    const history = useHistory();
+
 
     console.log('searchResults is', searchResults);
 
@@ -141,6 +141,11 @@ function PlantList() {
             duration: theme.transitions.duration.shortest,
         }),
     }));
+
+    const handleNext = () => {
+        console.log('in handleNext');
+        history.push('/location');
+    }
 
     return (
         <>
@@ -240,6 +245,8 @@ function PlantList() {
                 ))}
 
             </div>
+
+            <button onClick={handleNext}>Next</button>
 
         </>
     );

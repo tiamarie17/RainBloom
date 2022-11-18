@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import ReorderIcon from '@mui/icons-material/Reorder';
 
+
 function Nav() {
   const user = useSelector((store) => store.user);
+
 
   /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
   const onClickHandler = () => {
