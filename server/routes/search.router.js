@@ -44,9 +44,9 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     goalString = `(${goalString});`
     console.log(goalString);
 
-    let original = `SELECT * FROM plants WHERE soil_type = \'${soil}\' AND sunlight_amount = \'${sunlight}\'`;
+    let baseSql = `SELECT * FROM plants WHERE soil_type = \'${soil}\' AND sunlight_amount = \'${sunlight}\'`;
 
-    let sqlText = `${original} AND ${goalString}`
+    let sqlText = `${baseSql} AND ${goalString}`
 
     console.log('sqlText is', sqlText);
 
