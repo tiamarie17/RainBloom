@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-// GET router to fetch search results
+// GET router to fetch plants selected
 router.get('/', (req, res) => {
 
     if (req.isAuthenticated()) {
