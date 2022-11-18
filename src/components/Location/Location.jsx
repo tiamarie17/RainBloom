@@ -2,10 +2,19 @@ import React, {useState, useEffect} from 'react';
 import { MapContainer, TileLayer, useMap, useMapEvents, Marker, Popup} from 'react-leaflet';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
+import {useHistory} from 'react-router-dom';
 
 function Location(){
+
+    const history = useHistory();
+
+    const size = () =>{
+      console.log('in size function');
+      history.push('/size');
+    }
       return (
         <>
+        <button onClick={size}>Next</button>
         <MapContainer 
           center={[37.0902, -95.7129]} 
           zoom={3} 
@@ -17,6 +26,7 @@ function Location(){
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
         </MapContainer>
+      
         </>
         
     );

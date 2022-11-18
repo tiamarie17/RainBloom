@@ -118,8 +118,13 @@ function PlantList() {
     }
 
     //add plant to garden when user click 'Add to Garden' button
-    const addToGarden = () => {
+    const addToGarden = (result) => {
         console.log('in addToGarden');
+        console.log('result is', result);
+        dispatch({
+            type: 'ADD_TO_GARDEN',
+            payload: result
+        })
     }
 
     //add mui cards and variable to track click of expand button on card
@@ -246,7 +251,7 @@ function PlantList() {
 
             </div>
 
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext(result)}>Next</button>
 
         </>
     );
