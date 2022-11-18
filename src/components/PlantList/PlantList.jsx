@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import {useSelector} from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -8,9 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import { useDispatch } from 'react-redux';
-import { PinDrop } from '@mui/icons-material';
-import { useSearchParams } from 'react-router-dom';
-
 
 
 
@@ -44,12 +42,12 @@ function getStyles(goal, goalName, theme) {
 
 function PlantList() {
 
-    //declaring dispatch variable
+    const searchResults = useSelector((store)=> {
+        return store.plantList;
+    })
+
     const dispatch = useDispatch();
 
-    
-    // const [searchParams] = useSearchParams('');
-    // console.log('searchParams.entries is', searchParams.entries);
 
     //declaring variable to track input of soil dropdown menu
     const [soil, setSoil] = useState('');
@@ -68,12 +66,6 @@ function PlantList() {
         console.log('sunlight is', sunlight);
 
         
-    //declaring variable to track boolean value of checkbox
-    // const [checked, setChecked] = useState(true);
-          
-    //         const handleCheckBoxChange = (event) => {
-    //           setChecked(event.target.checked);
-    //         };
 
     //Declaring variables to track value of goals selected
     const theme = useTheme();
@@ -108,6 +100,10 @@ function PlantList() {
         });
 
 
+    }
+
+    const addToGarden = () => {
+        console.log('in addToGarden');
     }
 
     return (
@@ -164,6 +160,30 @@ function PlantList() {
             </FormControl>
             <button type="submit">Search</button>
             </form>
+
+            {/* Render search results below */}
+            <div>
+            <h1>Suggested Plants:</h1>
+            <table>
+                <tbody>
+                    {searchResults.map(result => (
+                        <tr key={result.id}>
+                            <td><img src={result.image.replace("public/", "")}/></td>
+                            <td>{result.common_name}</td>
+                            <td>{result.botanical_name}</td>
+                            <td>{result.botanical_name}</td>
+                            <td>{result.soil_type}</td>
+                            <td>{result.spacing}</td>
+                            <td>{result.plant_location}</td>
+                            <td>{result.inundation_amount}</td>
+                            <td>{user.id === result.user_id && 
+                                <button onClick={() => addToGarden(result)}>Add to Garden</button>}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
 
         </>
     );

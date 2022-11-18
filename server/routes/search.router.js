@@ -29,7 +29,6 @@ router.get('/', (req, res) => {
 });
 
 //POST router to send search results to database
-//Conditional rendering to look for matching search results
 
 router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /search POST router');
