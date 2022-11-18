@@ -10,7 +10,7 @@ import Chip from '@mui/material/Chip';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-
+//Defining mui chip styling
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -22,6 +22,7 @@ const MenuProps = {
     },
 };
 
+//Declaring mui multiselect options
 const goals = [
     'Butterflies',
     'Hummingbirds',
@@ -30,6 +31,7 @@ const goals = [
     'deerresistant',
 ];
 
+//styling mui chip box
 function getStyles(goal, goalName, theme) {
     return {
         fontWeight:
@@ -54,7 +56,7 @@ function PlantList() {
     console.log('searchResults is', searchResults);
 
 
-    //declaring variable to track input of soil dropdown menu
+    //declaring variables to track input of soil, sunlight, and goals
     const [soil, setSoil] = useState('');
 
     const handleSoilChange = (event) => {
@@ -62,7 +64,7 @@ function PlantList() {
     };
         console.log('soil is', soil);
 
-    //declaring variable to track input of sunlight dropdown menu
+
     const [sunlight, setSunlight] = useState('');
 
     const handleSunlightChange = (event) => {
@@ -71,8 +73,6 @@ function PlantList() {
         console.log('sunlight is', sunlight);
 
         
-
-    //Declaring variables to track value of goals selected
     const theme = useTheme();
     const [goalName, setGoalName] = useState([]);
 
@@ -88,12 +88,14 @@ function PlantList() {
 
     console.log('goals are', goalName);
 
+    //wrapping up inputs from form into an object to send to database on form submit
     const searchInput = {
         soil_type: soil,
         sunlight_amount: sunlight,
         goals: goalName,
     };
 
+    
     const handleFormSubmit = (event) => {
         console.log('in handleFormSubmit');
         event.preventDefault();
@@ -107,9 +109,11 @@ function PlantList() {
 
     }
 
+    //add plant to garden when user click 'Add to Garden' button
     const addToGarden = () => {
         console.log('in addToGarden');
     }
+
 
     return (
         <>
