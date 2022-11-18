@@ -93,7 +93,7 @@ VALUES ('Maidenhair Fern', 'Adiantum pedatum', 'loam', '18"', 'bottom', 6, 'imag
 ('Solomons Seal', 'Polygonatum biflorum', 'loam', '18"', 'back', 12, 'images/solomonsseal.jpg', 'medium shade', false, false, false, false, false),
 ('Yellow Coneflower', 'Ratibida pinnata', 'all soils', '18"', 'back', 6, 'images/yellowconeflower.jpg', 'full sun', false, false, true, true, false),
 ('Black Eyed Susan', 'Rudbeckia hirta', 'all soils', '18"', 'side', 0, 'images/blackeyedsusan.png', 'full sun', false, false, true, true, false),
-('Greenheaded Coneflower', 'Rudbeckia laciniata', 'all soils', '18"', 'bottom', 12, 'images/greenheadedconeflower.png', 'mixed sun shade', false, false, true, true, false),
+('Greenheaded Coneflower', 'Rudbeckia laciniata', 'all soils', '18"', 'bottom', 12, 'images/greenheadedconeflower.jpg', 'mixed sun shade', false, false, true, true, false),
 ('Showy Goldrenrod', 'Solidago speciosa', 'all soils', '18"', 'side', 6, 'images/showygoldenrod,jpg', '', false, false, true, false, false),
 ('Wood Grass', 'Soghastrum nutans', 'all soils', '18"', 'bottom', 9, 'images/woodgrass.png', 'light shade', false, false, false, true, false),
 ('Ironweed', 'Vernonia fasiculata', 'all soils', '18"', 'bottom', 12, 'images/ironweed.jpg', 'light shade', false, false, true, false, false),

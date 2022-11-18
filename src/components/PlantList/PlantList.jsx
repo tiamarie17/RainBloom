@@ -27,7 +27,7 @@ const goals = [
     'Hummingbirds',
     'Pollinators',
     'Birds',
-    'Deer-resistant',
+    'deerresistant',
 ];
 
 function getStyles(goal, goalName, theme) {
@@ -169,25 +169,23 @@ function PlantList() {
             {/* Render search results below */}
             <div>
             <h1>Suggested Plants:</h1>
-            <table>
-                <tbody>
+        
                     {searchResults.map(result => (
-                        <tr key={result.id}>
-                            <td><img src={result.image.replace("public/", "")}/></td>
-                            <td>{result.common_name}</td>
-                            <td>{result.botanical_name}</td>
-                            <td>{result.botanical_name}</td>
-                            <td>{result.soil_type}</td>
-                            <td>{result.spacing}</td>
-                            <td>{result.plant_location}</td>
-                            <td>{result.inundation_amount}</td>
-                            <td>
+                        <ul key={result.id}>
+                            <li><img src={result.image}/></li>
+                            <li>{result.common_name}</li>
+                            <li>{result.botanical_name}</li>
+                            <li>{result.botanical_name}</li>
+                            <li>{result.soil_type}</li>
+                            <li>{result.spacing}</li>
+                            <li>{result.plant_location}</li>
+                            <li>{result.inundation_amount}</li>
+                            <li>
                                 <button onClick={() => addToGarden(result)}>Add to Garden</button>
-                            </td>
-                        </tr>
+                            </li>
+                        </ul>
                     ))}
-                </tbody>
-            </table>
+        
         </div>
 
         </>
