@@ -10,16 +10,9 @@ function* retrieveSearchResults(action) {
     console.log('in retrieveSearchResults saga, action.payload is', action.payload);
     
     let searchQuery=action.payload;
-
-    axios.post('/api/search', {
-        data: searchQuery
-      })
         
     try {
-
-        yield axios.post('/api/search', {data: searchQuery});
        
-
         const response = yield axios.post('/api/search', {data: searchQuery});
         console.log('response.data is', response.data);
 
