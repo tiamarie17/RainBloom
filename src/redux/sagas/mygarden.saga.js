@@ -25,3 +25,5 @@ function* addToGarden(action) {
 function* mygardenSaga() {
     yield takeLatest('ADD_TO_GARDEN', addToGarden);
 }
+
+export default mygardenSaga;
