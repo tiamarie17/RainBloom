@@ -6,13 +6,26 @@ function* sendSearchInput(action) {
     console.log('in sendSearchInput saga, action.payload is', action.payload);
     let searchQuery=action.payload;
     
-    try {
-        yield axios.post('/api/search', {data: searchQuery});
-
-        yield put({ type:'FETCH_PLANTS' });
-    } catch (err) {
-        console.log('Error with posting new item to plantlist', err);
-    }
+    // try {
+    //     response = yield axios.post('/api/search', {data: searchQuery});
+    //     console.log(response)
+    //     yield put({ type:'FETCH_PLANTS'});
+    // } catch (err) {
+    //     console.log('Error with posting new item to plantlist', err);
+    // }
+    axios.post('/api/search', {
+        data: searchQuery
+      })
+      .then(function (response) {
+        console.log(response);
+        dispatch({
+            type: 'STORE_RESULTS',
+            payload: response.data
+        })
+      })
+      .catch((error) => {
+        console.log('Error with posting new item to plantlist', error);
+      });
 }
 
 function* plantListSaga() {
