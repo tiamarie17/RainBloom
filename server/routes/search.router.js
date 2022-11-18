@@ -13,7 +13,9 @@ router.get('/', (req, res) => {
 
         //query text
 
-        pool.query(queryText, [req.user.id]).then((result) => {
+        pool.query(queryText, [req.user.id])
+        
+        .then((result) => {
             res.send(result.rows);
         }).catch((error) => {
             console.log(error);
@@ -52,7 +54,8 @@ router.post('/', rejectUnauthenticated, function (req, res) {
 
     pool.query(sqlText)
         .then((result) => {
-            res.sendStatus(200);
+            res.status(200).send(result.rows);
+            
         })
         .catch((err) => {
             console.log('in search POST router error, error is', err);
