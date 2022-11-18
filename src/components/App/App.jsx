@@ -23,6 +23,7 @@ import Location from '../Location/Location';
 import Faq from '../Faq/Faq';
 import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
+import Size from '../Size/Size';
 
 
 import './App.css';
@@ -95,6 +96,14 @@ function App() {
             path="/location"
           >
             <Location />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Map else shows LoginPage
+            exact
+            path="/size"
+          >
+            <Size />
           </ProtectedRoute>
 
           <ProtectedRoute
