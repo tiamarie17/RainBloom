@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import {useSelector} from 'react-redux';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -8,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -47,6 +46,12 @@ function PlantList() {
     })
 
     const dispatch = useDispatch();
+
+    const serachResults = useSelector((store)=>{
+        return store.plantList;
+    })
+
+    console.log('searchResults is', searchResults);
 
 
     //declaring variable to track input of soil dropdown menu
@@ -176,8 +181,8 @@ function PlantList() {
                             <td>{result.spacing}</td>
                             <td>{result.plant_location}</td>
                             <td>{result.inundation_amount}</td>
-                            <td>{user.id === result.user_id && 
-                                <button onClick={() => addToGarden(result)}>Add to Garden</button>}
+                            <td>
+                                <button onClick={() => addToGarden(result)}>Add to Garden</button>
                             </td>
                         </tr>
                     ))}

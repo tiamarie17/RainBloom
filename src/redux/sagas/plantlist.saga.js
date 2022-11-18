@@ -5,9 +5,9 @@ import axios from "axios";
 
 // POST request to send search input to database
 
-function* sendSearchInput(action) {
+function* retrieveSearchResults(action) {
 
-    console.log('in sendSearchInput saga, action.payload is', action.payload);
+    console.log('in retrieveSearchResults saga, action.payload is', action.payload);
     
     let searchQuery=action.payload;
 
@@ -18,13 +18,12 @@ function* sendSearchInput(action) {
     try {
 
         yield axios.post('/api/search', {data: searchQuery});
-        //console.log(response.data)
-        yield put({ type:'STORE_RESULTS'});
+       
 
-        response = yield axios.post('/api/search', {data: searchQuery});
-        console.log('response is', response);
+        const response = yield axios.post('/api/search', {data: searchQuery});
+        console.log('response.data is', response.data);
 
-        yield put({ type:'STORE_PLANTS', payload: response.data});
+        yield put({ type:'STORE_RESULTS', payload: response.data});
 
     } catch (err) {
         console.log('Error with posting new item to plantlist', err);
@@ -33,7 +32,7 @@ function* sendSearchInput(action) {
 }
 
 function* plantListSaga() {
-    yield takeLatest('SEND_SEARCH_INPUT', sendSearchResults);
+    yield takeLatest('SEND_SEARCH_INPUT', retrieveSearchResults);
 
 }
 
