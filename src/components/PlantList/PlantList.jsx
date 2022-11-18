@@ -207,9 +207,11 @@ function PlantList() {
                         <CardContent>
                          <Typography variant="body1" color="text.primary">
                          <img src={result.image} />
-                        Common name: {result.common_name}
-                        Botanical name: {result.botanical_name}
-                        <button onClick={() => addToGarden(result)}>Add to Garden</button>
+                        <ul>
+                            <li>Common name: {result.common_name}</li>
+                            <li>Botanical name: {result.botanical_name}</li>
+                            <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li>
+                        </ul>
                          </Typography>
                        </CardContent>
                        <CardActions disableSpacing>
@@ -225,10 +227,12 @@ function PlantList() {
                        <Collapse in={expanded} timeout="auto" unmountOnExit>
                        <CardContent>
                            <Typography paragraph color="text.secondary">
-                           Soil Type: {result.soil_type}
-                        Spacing: {result.spacing}
-                        Location in Rain Garden: {result.plant_location}
-                        Inundation Tolerance:{result.inundation_amount}
+                           <ul>
+                            <li>Soil Type: {result.soil_type}</li>
+                            <li>Spacing: {result.spacing}</li>
+                            <li>Location in Rain Garden: {result.plant_location}</li>
+                            <li>Inundation Tolerance: {result.inundation_amount} inches</li>
+                            </ul>
                            </Typography>
                          </CardContent>
                        </Collapse>
