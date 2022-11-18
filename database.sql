@@ -3,11 +3,7 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
+
 
  CREATE TABLE "plants" (
 	"id" SERIAL PRIMARY KEY,
@@ -33,19 +29,20 @@ CREATE TABLE "uploads" (
 	"user_id" INT REFERENCES "user"
 );
 
-CREATE TABLE "plants_garden_design" (
+CREATE TABLE "plants_garden" (
 	"id" SERIAL PRIMARY KEY,
 	"garden_id" serial NOT NULL,
-	"plant_id" serial NOT NULL,
-	"plants_in_garden" varchar(1000) NOT NULL
+	"plant_id" serial NOT NULL
 );
 
-CREATE TABLE "garden_design" (
+CREATE TABLE "garden" (
 	"id" SERIAL PRIMARY KEY,
 	"size" int NOT NULL,
 	"depth" int NOT NULL,
 	"garden_location" varchar(1000) NOT NULL,
-	"user_id" int NOT NULL
+	"user_id" int NOT NULL,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
 );
 
 

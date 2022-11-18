@@ -34,9 +34,21 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /mygarden POST router');
     console.log('req.body.data is', req.body.data);
 
-    //query text here
+    let id = req.body.data.id;
+    console.log('id is', id);
+    let name = req.body.data.common_name;
+    console.log('name is', name);
+    let user = req.user.id
 
-    pool.query(sqlText)
+    let sqlText =   `
+        INSERT INTO "plant_garden_design" ("plant_id", "user_id")
+        VALUES ($1, $2);
+    `;
+
+    sqlParams = [id,]
+    
+
+    pool.query(sqlText, sqlParams)
         .then((result) => {
             res.sendStatus(200);
             

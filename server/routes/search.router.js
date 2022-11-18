@@ -47,7 +47,19 @@ router.post('/', rejectUnauthenticated, function (req, res) {
 
     let baseSql = `SELECT * FROM plants WHERE soil_type = \'${soil}\' AND sunlight_amount = \'${sunlight}\'`;
 
+    // sql = `
+    // ///......
+    // AND Butterflies = $1
+    // AND Banans = $2
+    // `
+    // params = [goal.contains('Butterflies'), goals.contains('bananas')];
+
     let sqlText = `${baseSql} AND ${goalString}`
+
+    // if (goals.contains('Butterflies')) {
+    //     sqlText += 'OR Butterflies = True'
+    // }
+    // ...
 
     console.log('sqlText is', sqlText);
 
