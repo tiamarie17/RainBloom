@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 
   router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /search POST router');
-    console.log('req.query.params is', req.query.params);
+    console.log('req.body is', req.body);
 
 
     //  let sqlText;

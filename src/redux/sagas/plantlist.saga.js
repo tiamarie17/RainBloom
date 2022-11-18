@@ -7,7 +7,7 @@ function* sendSearchInput(action) {
     let searchQuery=action.payload;
     
     try {
-        yield axios.post('/api/search',{params: searchQuery});
+        yield axios.post('/api/search', {data: searchQuery});
 
         yield put({ type:'FETCH_PLANTS' });
     } catch (err) {
