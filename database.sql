@@ -17,7 +17,13 @@ CREATE TABLE "user" (
 	"spacing" varchar(200) NOT NULL,
 	"plant_location" varchar(500) NOT NULL,
 	"inundation_amount" INT NOT NULL,
-	"image" varchar(255) NOT NULL
+	"image" varchar(255) NOT NULL,
+	"sunlight_amount" (255) NOT NULL,
+	"hummingbirds" BOOLEAN,
+	"deer_resistant" BOOLEAN,
+	"butterflies" BOOLEAN,
+	"birds" BOOLEAN,
+	"pollinators" BOOLEAN,
 );
 
 
