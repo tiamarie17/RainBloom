@@ -173,13 +173,12 @@ function PlantList() {
                     {searchResults.map(result => (
                         <ul key={result.id}>
                             <li><img src={result.image}/></li>
-                            <li>{result.common_name}</li>
-                            <li>{result.botanical_name}</li>
-                            <li>{result.botanical_name}</li>
-                            <li>{result.soil_type}</li>
-                            <li>{result.spacing}</li>
-                            <li>{result.plant_location}</li>
-                            <li>{result.inundation_amount}</li>
+                            <li>Common name: {result.common_name}</li>
+                            <li>Botanical name: {result.botanical_name}</li>
+                            <li>Soil Type: {result.soil_type}</li>
+                            <li>Spacing: {result.spacing}</li>
+                            <li>Location in Rain Garden: {result.plant_location}</li>
+                            <li>Inundation Tolerance:{result.inundation_amount}</li>
                             <li>
                                 <button onClick={() => addToGarden(result)}>Add to Garden</button>
                             </li>
