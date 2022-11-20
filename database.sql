@@ -37,9 +37,9 @@ CREATE TABLE "plants_user" (
 
 CREATE TABLE "user" (
 	"id" SERIAL PRIMARY KEY,
-	"size" int NOT NULL,
-	"depth" int NOT NULL,
-	"garden_location" varchar(1000) NOT NULL,
+	"size" int,
+	"depth" int,
+	"garden_location" varchar(1000),
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
