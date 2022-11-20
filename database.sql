@@ -29,18 +29,17 @@ CREATE TABLE "uploads" (
 	"user_id" INT REFERENCES "user"
 );
 
-CREATE TABLE "plants_garden" (
+CREATE TABLE "plants_user" (
 	"id" SERIAL PRIMARY KEY,
-	"garden_id" serial NOT NULL,
+	"user_id" serial NOT NULL,
 	"plant_id" serial NOT NULL
 );
 
-CREATE TABLE "garden" (
+CREATE TABLE "user" (
 	"id" SERIAL PRIMARY KEY,
 	"size" int NOT NULL,
 	"depth" int NOT NULL,
 	"garden_location" varchar(1000) NOT NULL,
-	"user_id" int NOT NULL,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );

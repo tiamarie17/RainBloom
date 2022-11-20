@@ -37,10 +37,8 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('req.body.data.id is,', req.body.data.id);
     console.log('req.user.id is', req.user.id);
 
-
-
     let sqlText =   `
-        INSERT INTO "plant_garden" ("plant_id", "user_id")
+        INSERT INTO "plant_garden" ("plant_id", "user_"id)
         VALUES ($1, $2);
     `;
 
