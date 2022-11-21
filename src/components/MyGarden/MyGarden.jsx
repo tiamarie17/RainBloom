@@ -85,7 +85,6 @@ function MyGarden() {
   return (
     <>
     <h1>My Garden</h1>
-    <h2>Weather API</h2>
     <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
      <div>
