@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import FormData from 'form-data';
 import axios from "axios";
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
 function Upload(){
 
@@ -79,7 +81,10 @@ function Upload(){
                             <td><img src={galleryItem.image_url.replace("public/", "")}/></td>
                             {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
                             <td>{user.id === galleryItem.user_id && 
-                                <button onClick={() => removeImage(galleryItem)}>Remove</button>}
+                                <IconButton onClick = {() => removeImage(galleryItem)} size ="large" aria-label="add to favorites">
+                                <DeleteIcon />
+                                </IconButton>}
+                                {/* <button onClick={() => removeImage(galleryItem)}>Remove</button> */}
                             </td>
                         </tr>
                     ))}
