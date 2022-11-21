@@ -40,15 +40,10 @@ function MyGarden() {
   })
   console.log('myPlants is', myPlants);
 
-  const goToMap = () => {
-      console.log('in goToMap');
-      history.push('/location');
-  }
-
     //add mui cards and variable to track click of expand button on card
 
     const [expanded, setExpanded] = useState(false);
-
+  
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -65,7 +60,10 @@ function MyGarden() {
         }),
     }));
 
-
+    const goToMap = () => {
+      console.log('in goToMap');
+      history.push('/location');
+  }
     
     const removePlant = (plant) => {
       console.log('in removePlant');
@@ -77,11 +75,11 @@ function MyGarden() {
 
   const editNote = (plant) => {
       console.log('in editNote');
-      setPlantClicked(plant.id);
-      history.push('/edit');
+      
+      history.push(`/edit/${plant.id}`);
   }
 
-  const [plantClicked, setPlantClicked] = useState('');
+  
 
   return (
     <>
