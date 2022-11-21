@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 
 });
 
-//POST router to send search results to database
+//POST router to send selected plant to database
 
 router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /mygarden POST router');

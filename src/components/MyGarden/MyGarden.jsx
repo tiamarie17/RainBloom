@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
+// import EditIcon from '@mui/icons-material/Edit';
 
 
 
@@ -98,9 +99,13 @@ function MyGarden() {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <IconButton onClick={()=> removePlant(plant)} size ="large" aria-label="add to favorites">
+                            <IconButton onClick={()=> removePlant(plant)} size ="large" aria-label="add to garden">
                                 <DeleteIcon />
                             </IconButton>
+
+                            {/* <IconButton onClick={()=> editPlant(plant)} size ="large" aria-label="edit plant note">
+                                <EditIcon />
+                            </IconButton> */}
 
                             <ExpandMore
                                 expand={expanded}

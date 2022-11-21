@@ -25,6 +25,7 @@ import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
 import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
+import EditNote from '../EditNote/EditNote';
 
 
 import './App.css';
@@ -73,6 +74,14 @@ function App() {
             path="/gallery"
           >
             <Gallery />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/edit"
+          >
+            <EditNote />
           </ProtectedRoute>
 
           <ProtectedRoute
