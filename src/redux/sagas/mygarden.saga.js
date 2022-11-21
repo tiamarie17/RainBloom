@@ -23,10 +23,10 @@ function* addToGarden(action) {
 }
 
 function* fetchMyGarden(){
-    console.log('in fetchGarden');
+    console.log('in fetchMyGarden');
   
     let response = yield axios.get('/api/mygarden');
-    console.log('GET response:', response)
+    console.log('GET saga response:', response)
   
     yield put({
         type: 'SET_MY_GARDEN',

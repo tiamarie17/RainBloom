@@ -1,7 +1,7 @@
 import React from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import Map from '../Location/Location';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,17 +10,28 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
+import { styled } from '@mui/material/styles';
 
 
 
 
 function MyGarden() {
 
+    console.log('in MyGarden function');
+
+    const dispatch = useDispatch(); 
+
   // TODO: Render weather API info here
 
-  
+  //Load user's plants in garden on page load
+  useEffect(() => {
+    dispatch({
+        type: 'FETCH_MY_GARDEN'
+    });
+}, []);
 
   const history = useHistory();
+
 
   const myPlants= useSelector((store) =>{
       return store.myGardenPlants;
@@ -32,13 +43,32 @@ function MyGarden() {
       history.push('/topomap');
   }
 
+    //add mui cards and variable to track click of expand button on card
+
+    const [expanded, setExpanded] = useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+
+    const ExpandMore = styled((props) => {
+        const { expand, ...other } = props;
+        return <IconButton {...other} />;
+    })(({ theme, expand }) => ({
+        transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+            duration: theme.transitions.duration.shortest,
+        }),
+    }));
 
 
   return (
     <>
     <h1>My Garden</h1>
     <h2>Weather API</h2>
-    <h2>Plants in My Garden</h2>
+    <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
      <div>
 

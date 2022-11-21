@@ -7,26 +7,29 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/', (req, res) => {
 
     if (req.isAuthenticated()) {
-        console.log('/mygarden GET route');
+        console.log('in mygarden GET route');
         console.log('is authenticated?', req.isAuthenticated());
         console.log('user', req.user);
 
         let sqlText = `
-        SELECT * FROM "plants" 
-        JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
-        JOIN "user" ON "user"."id" = "plants_user"."user_id"
-        WHERE "user"."id" = 1;`;
+                    
+            SELECT "plants"."common_name", "plants"."botanical_name", "plants"."image", "plants"."soil_type", "plants"."spacing", 
+            "plants"."inundation_amount", "plants"."plant_location", "plants"."sunlight_amount", "plants"."id" 
+            FROM "plants" 
+            JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
+            JOIN "user" ON "user"."id" = "plants_user"."user_id"
+            WHERE "user"."id" = $1;`;
 
         let sqlParams = [req.user.id];
 
         pool.query(sqlText, sqlParams)
-        
-        .then((result) => {
-            res.send(result.rows);
-        }).catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
+
+            .then((result) => {
+                res.send(result.rows);
+            }).catch((error) => {
+                console.log(error);
+                res.sendStatus(500);
+            });
 
     } else {
         res.sendStatus(403);
@@ -43,18 +46,18 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('plant _id is,', req.body.data.id);
     console.log('user_id', req.user.id);
 
-    let sqlText =   `
+    let sqlText = `
         INSERT INTO "plants_user" ("plant_id", "user_id")
         VALUES ($1, $2);
     `;
 
     sqlParams = [req.body.data.id, req.user.id];
-    
+
 
     pool.query(sqlText, sqlParams)
         .then((result) => {
             res.sendStatus(200);
-            
+
         })
         .catch((err) => {
             console.log('in mygarden POST router error, error is', err);
