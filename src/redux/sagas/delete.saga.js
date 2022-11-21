@@ -20,28 +20,9 @@ function* removeImage(action) {
     }
 }
 
-function* removePlant(action) {
-
-    try {
-        console.log('in removePlant', action.payload);
-        const deletedPlant = action.payload;
-
-        console.log('deletedPlant is', deletedPlant);
-        
-        yield axios.delete(`/api/gallery/${deletedPlant}`);
-
-        // trigger a GET request
-        yield put({
-            type: 'FETCH_MY_GARDEN'
-        });
-    } catch (err) {
-        console.log('delete failed, error is', err);
-    }
-}
 
 function* deleteSaga() {
     yield takeLatest('REMOVE_IMAGE', removeImage);
-    yield takeLatest('REMOVE_PLANT', removePlant)
 }
 
 export default deleteSaga;

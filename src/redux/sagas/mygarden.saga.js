@@ -22,6 +22,7 @@ function* addToGarden(action) {
    
 }
 
+//GET request to render all plants in garden
 function* fetchMyGarden(){
     console.log('in fetchMyGarden');
   
@@ -35,10 +36,32 @@ function* fetchMyGarden(){
   }
 
 
+  //DELETE Request to remove a plant from garden
+  function* removePlant(action) {
+
+    try {
+        console.log('in removePlant', action.payload);
+        const deletedPlant = action.payload;
+
+        console.log('deletedPlant is', deletedPlant);
+        
+        yield axios.delete(`/api/mygarden/${deletedPlant}`);
+
+        // trigger a GET request
+        yield put({
+            type: 'FETCH_MY_GARDEN'
+        });
+    } catch (err) {
+        console.log('delete failed, error is', err);
+    }
+}
+
+
 
 function* mygardenSaga() {
     yield takeLatest('ADD_TO_GARDEN', addToGarden);
     yield takeLatest ('FETCH_MY_GARDEN', fetchMyGarden);
+    yield takeLatest('REMOVE_PLANT', removePlant);
 }
 
 export default mygardenSaga;
