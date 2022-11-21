@@ -21,40 +21,31 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     //creating base SQL text with placeholders for soil and sunlight
     let sqlText = 'SELECT * FROM plants WHERE soil_type = $1 AND sunlight_amount = $2 AND (';
 
+    let array = [];
+
     //adding onto SQL string if the goals array contains certain goals
-    if (goals[0] = 'Butterflies'){
-        sqlText += 'Butterflies = True';
-
-    }else if (goals.includes('Butterflies')){
-        sqlText += ' OR Butterflies = True';
+    if (goals.includes('Butterflies')){
+        array.push('Butterflies = True');
     }
 
-    if (goals[0] = 'Hummingbirds'){
-        sqlText += 'Hummingbirds = True';
-
-    }else if (goals.includes('Hummingbirds')){
-        sqlText += ' OR Hummingbirds = True';
+    if (goals.includes('Hummingbirds')){
+        array.push('Hummingbirds = True');
     }
-    if (goals[0] = 'Pollinators'){
-        sqlText += 'Pollinators = True';
-
-    }else if (goals.includes('Pollinators')){
-        sqlText += ' OR Pollinators = True';
-    }
-    if (goals[0] = 'deerresistant'){
-        sqlText += 'deerresistant = True';
-
-    }else if (goals.includes('deerresistant')){
-        sqlText += ' OR deerresistant = True';
-    }
-    if (goals[0] = 'Birds'){
-        sqlText += 'Birds = True';
-
-    }else if (goals.includes('Birds')){
-        sqlText += ' OR Birds = True';
+    if (goals.includes('Pollinators')){
+        array.push('Pollinators = True');
     }
 
-    sqlText += ')';
+    if (goals.includes('deerresistant')){
+        array.push('deerresistant = True');
+    }
+    if (goals.includes('Birds')){
+        array.push('Birds = True');
+    }
+
+    arrayString = array.join(" OR ");
+    console.log('arrayString is', arrayString);
+
+    sqlText += arrayString + ');';
     console.log('sqlText is', sqlText);
 
     // sql = `
@@ -70,7 +61,6 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     //     sqlText += 'OR Butterflies = True'
     // }
     // ...
-
 
     let sqlParams = [soil, sunlight];
     console.log('sqlParams is', sqlParams);
