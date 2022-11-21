@@ -26,6 +26,7 @@
 CREATE TABLE "uploads" (
 	"id" SERIAL PRIMARY KEY,
 	"image_url" varchar(1000) NOT NULL, 
+	"description" varchar(1000),
 	"user_id" INT REFERENCES "user"
 );
 
