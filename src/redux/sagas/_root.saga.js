@@ -6,6 +6,7 @@ import gallerySaga from './gallery.saga';
 import deleteSaga from './delete.saga';
 import plantListSaga from './plantlist.saga';
 import mygardenSaga from './mygarden.saga';
+import editSaga from './edit.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,6 +24,7 @@ export default function* rootSaga() {
     deleteSaga(),
     plantListSaga(),
     mygardenSaga(),
+    editSaga(),
 
   ]);
 }
