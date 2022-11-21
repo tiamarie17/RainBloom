@@ -22,8 +22,23 @@ function* addToGarden(action) {
    
 }
 
+function* fetchMyGarden(){
+    console.log('in fetchGarden');
+  
+    let response = yield axios.get('/api/mygarden');
+    console.log('GET response:', response)
+  
+    yield put({
+        type: 'SET_MY_GARDEN',
+        payload: response.data
+    })
+  }
+
+
+
 function* mygardenSaga() {
     yield takeLatest('ADD_TO_GARDEN', addToGarden);
+    yield takeLatest ('FETCH_MY_GARDEN', fetchMyGarden);
 }
 
 export default mygardenSaga;

@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
         let sqlText = `
         SELECT * FROM "plants" 
         JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
-        WHERE "plants_user"."user_id" = $1;`;
+        JOIN "user" ON "user"."id" = "plants_user"."user_id"
+        WHERE "user"."id" = 1;`;
 
         let sqlParams = [req.user.id];
 
