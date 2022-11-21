@@ -129,7 +129,7 @@ function MyGarden() {
                                         <li>Location in Rain Garden: {plant.plant_location}</li>
                                         <li>Inundation Tolerance: {plant.inundation_amount} inches</li>
                                     </ul>
-                                    <AddNoteForm />
+                                    <AddNoteForm plant ={plant} />
                                 </Typography>
                             </CardContent>
                         </Collapse>

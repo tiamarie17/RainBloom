@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import {useEffect} from 'react';
 
-function AddNoteForm(props){
+function AddNoteForm({plant}){
     console.log('in AddNoteForm');
 
      const [notes, setNotes] = useState({notes: ''});
@@ -12,7 +12,7 @@ function AddNoteForm(props){
      const handleSubmitNote = (event) => {
         console.log('in handleSubmitEdit');
         event.preventDefault();
-        props.addNote(notes)
+       
         clearNoteField();
     
     
@@ -29,7 +29,7 @@ function AddNoteForm(props){
         onChange={(event) => setNotes({notes: event.target.value})}
         type="text" 
         placeholder = "Add notes here!"
-        value = {notes.notes}
+        value = {plant.notes}
         />
         <button type="submit">Add Note</button>
     </form>
