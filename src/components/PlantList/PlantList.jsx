@@ -16,7 +16,9 @@ import Collapse from '@mui/material/Collapse';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
+import { Button } from "@mui/material";
 
 
 //Defining mui chip styling
@@ -220,11 +222,18 @@ function PlantList() {
                                 <ul>
                                     <li>Common name: {result.common_name}</li>
                                     <li>Botanical name: {result.botanical_name}</li>
-                                    <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li>
+                                    {/* <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li> */}
                                 </ul>
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
+                            {/* Add to Garden button */}
+                            <Button onClick = {() => addToGarden(result)}>Add to Garden
+                            <IconButton size ="large" aria-label="add to favorites">
+                                <LocalFloristIcon />
+                            </IconButton>
+                            </Button>
+
                             <ExpandMore
                                 expand={expanded}
                                 onClick={handleExpandClick}
