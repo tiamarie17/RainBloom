@@ -9,7 +9,7 @@ function Upload(){
 
     const dispatch = useDispatch();
     const [selectedFile, setSelectedFile] = useState('');
-
+    const [description, setDescription] = useState('');
 
     const user = useSelector((store)=> {
         return store.user;
@@ -30,6 +30,7 @@ function Upload(){
 
         for (const file of selectedFile.files){
             formData.append('uploaded_file', file);
+            formData.append('description', description);
         }
         
         axios.post("/api/gallery", formData)
@@ -45,9 +46,14 @@ function Upload(){
 
     }
 
-    const changeHandler = (event) => {
-        console.log('in changeHandler');
+    const fileChangeHandler = (event) => {
         setSelectedFile({files: event.target.files});
+    
+    }
+
+    const descriptionChangeHandler = (event) => {
+        setDescription(event.target.value);
+
     }
 
     const removeImage = (galleryItem) => {
@@ -67,8 +73,8 @@ function Upload(){
 
         <>
         <form onSubmit={handleUpload}>
-        <input type="file" className="form-control-file" name="uploaded_file" onChange = {changeHandler} multiple/>
-        {/* <input type="text" className="form-control" placeholder="description" name="description"/> */}
+        <input type="file" className="form-control-file" name="uploaded_file" onChange = {fileChangeHandler}/>
+        <input type="text" className="form-control" placeholder="description" name="description" onChange = {descriptionChangeHandler}/>
         <input type="submit" value="Upload" className="btn btn-default"/>            
         </form>
 

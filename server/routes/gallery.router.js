@@ -41,36 +41,46 @@ router.get('/', (req, res) => {
   
 });
 
-router.post('/', rejectUnauthenticated, upload.array('uploaded_file', 12), function (req, res) {
+router.post('/', rejectUnauthenticated, upload.single('uploaded_file'), function (req, res) {
        console.log('in /gallery POST router');
        console.log('is authenticated?', req.isAuthenticated());
        console.log('user', req.user);
        console.log('req.files is', req.files);
+       console.log('req.body is', req.body);
+       console.log('req.body.description is', req.body.description);
+
+
+       let sqlText = `
+            INSERT INTO "uploads" ("image_url", "user_id", "description")
+            VALUES ($1, $2, $3);
+       `;
+
+       let sqlParams = [req.file.path, req.user.id, req.body.description]
+
 
     // Allow an array of any number of images between 1-12 to be inserted into separate rows
     //Send user id in the paths variable as well
 
-    let sqlText = `
-    INSERT INTO "uploads" ("image_url", "user_id")
-    VALUES`
+    // let sqlText = `
+    // INSERT INTO "uploads" ("image_url", "user_id")
+    // VALUES`
 
-    let paths = req.files.map(file => file.path)
+    // let sqlParams = req.files.map(file => file.path)
 
-    for (let i = 0;  i < req.files.length; i++) {
+    // for (let i = 0;  i < req.files.length; i++) {
         
-        sqlText += `($${i+1}, ${req.user.id})`;
+    //     sqlText += `($${i+1}, ${req.user.id})`;
 
-        if(i !== req.files.length-1){
-            sqlText += ",";
-        }else{
-            sqlText += `;`;
-        }
-    }
+    //     if(i !== req.files.length-1){
+    //         sqlText += ",";
+    //     }else{
+    //         sqlText += `;`;
+    //     }
+    // }
 
-    console.log('basesqltext is', sqlText);
-    console.log('paths is',paths);
+     
 
-    pool.query(sqlText, paths)
+    pool.query(sqlText, sqlParams)
         .then((result)=>{
             res.sendStatus(200);
         })
