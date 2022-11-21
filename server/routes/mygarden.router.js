@@ -34,15 +34,15 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     console.log('in /mygarden POST router');
     console.log('req.body.data is', req.body.data);
 
-    console.log('req.body.data.id is,', req.body.data.id);
-    console.log('req.user.id is', req.user.id);
+    console.log('plant _id is,', req.body.data.id);
+    console.log('user_id', req.user.id);
 
     let sqlText =   `
-        INSERT INTO "plant_garden" ("plant_id", "user_"id)
+        INSERT INTO "plants_user" ("plant_id", "user_id")
         VALUES ($1, $2);
     `;
 
-    sqlParams = [req.body.id, req.user.id];
+    sqlParams = [req.body.data.id, req.user.id];
     
 
     pool.query(sqlText, sqlParams)
@@ -51,7 +51,7 @@ router.post('/', rejectUnauthenticated, function (req, res) {
             
         })
         .catch((err) => {
-            console.log('in search POST router error, error is', err);
+            console.log('in mygarden POST router error, error is', err);
         })
 
 });

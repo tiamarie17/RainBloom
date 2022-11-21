@@ -42,25 +42,14 @@ router.post('/', rejectUnauthenticated, function (req, res) {
         array.push('Birds = True');
     }
 
+    //separating string with "OR"
+
     arrayString = array.join(" OR ");
     console.log('arrayString is', arrayString);
 
     sqlText += arrayString + ');';
     console.log('sqlText is', sqlText);
 
-    // sql = `
-    // ///......
-    // AND Butterflies = $1
-    // AND Banans = $2
-    // `
-    // params = [goal.contains('Butterflies'), goals.contains('bananas')];
-
-    // let sqlText = `${baseSql} AND ${goalString}`
-
-    // if (goals.contains('Butterflies')) {
-    //     sqlText += 'OR Butterflies = True'
-    // }
-    // ...
 
     let sqlParams = [soil, sunlight];
     console.log('sqlParams is', sqlParams);
