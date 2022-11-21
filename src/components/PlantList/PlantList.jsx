@@ -123,6 +123,8 @@ function PlantList() {
     const addToGarden = (result) => {
         console.log('in addToGarden');
         console.log('result is', result);
+        alert('Plant added!');
+
         dispatch({
             type: 'ADD_TO_GARDEN',
             payload: result
@@ -260,7 +262,7 @@ function PlantList() {
 
             </div>
 
-            <button onClick={() => handleNext(result)}>Next</button>
+            <button onClick={handleNext}>Go to Location</button>
 
         </>
     );

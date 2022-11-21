@@ -14,7 +14,7 @@ function Location(){
     }
       return (
         <>
-        <button onClick={size}>Next</button>
+        <button onClick={size}>Go to Rain Garden Size</button>
         <MapContainer 
           center={[37.0902, -95.7129]} 
           zoom={3} 

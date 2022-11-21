@@ -41,7 +41,7 @@ function MyGarden() {
 
   const goToMap = () => {
       console.log('in goToMap');
-      history.push('/topomap');
+      history.push('/location');
   }
 
     //add mui cards and variable to track click of expand button on card

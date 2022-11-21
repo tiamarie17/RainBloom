@@ -14,7 +14,7 @@ function Size(){
 
     <h1>Rain Garden Size info here!</h1>
 
-    <button onClick={installation}>Next</button>
+    <button onClick={installation}>Go to Installation</button>
     </>);
 }
 
