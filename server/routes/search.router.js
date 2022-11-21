@@ -21,36 +21,42 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     //creating base SQL text with placeholders for soil and sunlight
     let sqlText = 'SELECT * FROM plants WHERE soil_type = $1 AND sunlight_amount = $2 AND (';
 
-    let array = [];
+    let goalsArray = [];
 
     //adding onto SQL string if the goals array contains certain goals
+    //pushing strings into an array
+
     if (goals.includes('Butterflies')){
-        array.push('Butterflies = True');
+        goalsArray.push('Butterflies = True');
     }
 
     if (goals.includes('Hummingbirds')){
-        array.push('Hummingbirds = True');
+        goalsArray.push('Hummingbirds = True');
     }
     if (goals.includes('Pollinators')){
-        array.push('Pollinators = True');
+        goalsArray.push('Pollinators = True');
     }
 
     if (goals.includes('deerresistant')){
-        array.push('deerresistant = True');
+        goalsArray.push('deerresistant = True');
     }
     if (goals.includes('Birds')){
-        array.push('Birds = True');
+        goalsArray.push('Birds = True');
     }
 
-    //separating string with "OR"
+    //separating strings in array with the word "OR" 
 
-    arrayString = array.join(" OR ");
-    console.log('arrayString is', arrayString);
+    goalString = goalsArray.join(" OR ");
+    console.log('goalString is', goalString);
 
-    sqlText += arrayString + ');';
+    //adding the base sql text to the goals sqltext
+    //adding a closing parenthesis at the end of the string
+
+    sqlText += goalString + ');';
     console.log('sqlText is', sqlText);
 
 
+    //sending soil and sunlight variables as sqlParams
     let sqlParams = [soil, sunlight];
     console.log('sqlParams is', sqlParams);
 
