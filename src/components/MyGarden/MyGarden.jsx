@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 // import EditIcon from '@mui/icons-material/Edit';
+import AddNoteForm from '../AddNoteForm/AddNoteForm';
 
 
 
@@ -73,14 +74,14 @@ function MyGarden() {
       })
   }
 
-  const editNote = (plant) => {
-      console.log('in editNote');
-      
-      history.push(`/edit/${plant.id}`);
-  }
+
+//   const editNote = () => {
+//      console.log('in editNote');
+//      history.push(`/edit/${plant.id}`);
+
+//   }
 
   
-
   return (
     <>
     <h1>My Garden</h1>
@@ -99,7 +100,6 @@ function MyGarden() {
                                 <ul>
                                     <li>Common name: {plant.common_name}</li>
                                     <li>Botanical name: {plant.botanical_name}</li>
-                                    <li><button onClick={() => editNote(plant)}>Edit Note</button></li>
                                 </ul>
                             </Typography>
                         </CardContent>
@@ -130,6 +130,7 @@ function MyGarden() {
                                         <li>Location in Rain Garden: {plant.plant_location}</li>
                                         <li>Inundation Tolerance: {plant.inundation_amount} inches</li>
                                     </ul>
+                                    <AddNoteForm />
                                 </Typography>
                             </CardContent>
                         </Collapse>

@@ -26,7 +26,7 @@ import PlantList from '../PlantList/PlantList';
 import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
 import EditNote from '../EditNote/EditNote';
-import AddNoteForm from '../AddNoteForm/AddNoteForm';
+// import AddNoteForm from '../AddNoteForm/AddNoteForm';
 
 
 import './App.css';
@@ -77,13 +77,13 @@ function App() {
             <Gallery />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
             path="/add"
           >
             <AddNoteForm />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage

@@ -6,8 +6,10 @@ import {useEffect} from 'react';
 
 function EditNote() {
     console.log('in EditNote');
+    const dispatch = useDispatch();
     const params = useParams();
     console.log('params is', params);
+
 
     // useEffect(()=>{
     //     dispatch({
@@ -17,39 +19,22 @@ function EditNote() {
 
     // }, [params.id]);
 
-    const dispatch = useDispatch();
-
-    // const [notes, setNotes] = useState({notes: ''});
-
-    const handleEditOnChange = (event) => {
-        setNotes({notes: event.target.value});
-    };
-  
-    const handleSubmitEdit = (event) => {
-        event.preventDefault();
-        console.log('in handleSubmitEdit');
-        dispatch ({
-            type: 'EDIT_NOTE',
-            payload: {
-                        notes: event.target.value,
-                        id: params.id
-                    }
-        })
-        // clearNoteField();
     
-    }
 
-    // const clearNoteField = () => {
-    //     setNotes({notes: ''});
-    // }
+   
+
+    // const handleEditOnChange = (event) => {
+    //     setNotes({notes: event.target.value});
+    // };
+  
+
 
     console.log('in EditNote');
     return(
     <>
-    <form onSubmit = {handleSubmitEdit}>
+    <form>
         <input 
         type="text" 
-        placeholder = "Add notes here!"
         />
         <button type="submit">Save</button>
     </form>
