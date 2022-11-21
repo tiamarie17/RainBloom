@@ -3,15 +3,14 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('in edit PUT route');
     // Update a note on an individual plant
-    const plantId = req.body.id;
-    const notes = req.body.notes;
-    console.log('notes is', notes);
-    console.log('plantId is', plantId);
+    console.log('req.params is', req.params);
+    console.log('req.body is', req.body);
 
     const sqlText = `UPDATE "plants_user" SET "notes" = $1 WHERE "plants_user"."plant_id" = $2`;
-    pool.query(sqlText, [notes, plantId])
+    pool.query(sqlText)
         .then((result) => {
             res.sendStatus(200);
         })

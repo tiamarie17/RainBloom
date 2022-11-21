@@ -13,6 +13,7 @@ const galleryRouter = require('./routes/gallery.router');
 const searchRouter = require('./routes/search.router');
 const mygardenRouter = require('./routes/mygarden.router');
 const editRouter = require('./routes/edit.router');
+const addNoteRouter = require('./routes/addnote.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/gallery', galleryRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/mygarden', mygardenRouter);
 app.use('/api/edit', editRouter);
+app.use('/api/add', addNoteRouter);
 
 // Serve static files
 app.use(express.static('build'));
