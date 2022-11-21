@@ -11,9 +11,14 @@ router.get('/', (req, res) => {
         console.log('is authenticated?', req.isAuthenticated());
         console.log('user', req.user);
 
-        //query text
+        let sqlText = `
+        SELECT * FROM "plants" 
+        JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
+        WHERE "plants_user"."user_id" = $1;`;
 
-        pool.query(queryText, [req.user.id])
+        let sqlParams = [req.user.id];
+
+        pool.query(sqlText, sqlParams)
         
         .then((result) => {
             res.send(result.rows);
