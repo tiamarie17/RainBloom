@@ -18,6 +18,7 @@ import AddNoteForm from '../AddNoteForm/AddNoteForm';
 
 
 
+
 function MyGarden() {
 
     console.log('in MyGarden function');
@@ -87,58 +88,50 @@ function MyGarden() {
     <h1>My Garden</h1>
     <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
-     <div>
-
-
                 {myPlants.map(plant => (
-
-                    <Card sx={{ maxWidth: 330 }} key={plant.id}>
-                        <CardContent>
-                            <Typography variant="body1" color="text.primary">
-                                <img src={plant.image} />
-                                <ul>
-                                    <li>Common name: {plant.common_name}</li>
-                                    <li>Botanical name: {plant.botanical_name}</li>
-                                </ul>
-                            </Typography>
-                        </CardContent>
-                        <CardActions disableSpacing>
-                            <IconButton onClick={()=> removePlant(plant)} size ="large" aria-label="add to garden">
-                                <DeleteIcon />
-                            </IconButton>
-
-                            {/* <IconButton onClick={()=> editPlant(plant)} size ="large" aria-label="edit plant note">
-                                <EditIcon />
-                            </IconButton> */}
-
-                            <ExpandMore
-                                expand={expanded}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more"
-                            >
-                                <ExpandMoreIcon />
-                            </ExpandMore>
-                        </CardActions>
-                        <Collapse in={expanded} timeout="auto" unmountOnExit>
-                            <CardContent>
-                                <Typography paragraph color="text.secondary">
-                                    <ul>
-                                        <li>Soil Type: {plant.soil_type}</li>
-                                        <li>Spacing: {plant.spacing}</li>
-                                        <li>Location in Rain Garden: {plant.plant_location}</li>
-                                        <li>Inundation Tolerance: {plant.inundation_amount} inches</li>
-                                    </ul>
-                                    <AddNoteForm plant ={plant} />
-                                </Typography>
-                            </CardContent>
-                        </Collapse>
-                    </Card>
+                      <Card sx={{ maxWidth: 330 }} key = {plant.id}>
+                      <CardContent>
+                          <Typography variant="body1" color="text.primary">
+                              <img src={plant.image} />
+                              <ul>
+                                  <li>Common name: {plant.common_name}</li>
+                                  <li>Botanical name: {plant.botanical_name}</li>
+                              </ul>
+                          </Typography>
+                      </CardContent>
+                      <CardActions disableSpacing>
+                          <IconButton onClick={() => removePlant(plant)} size="large" aria-label="add to garden">
+                              <DeleteIcon />
+                          </IconButton>
+          
+                          {/* <IconButton onClick={()=> editPlant(plant)} size ="large" aria-label="edit plant note">
+                                          <EditIcon />
+                                      </IconButton> */}
+          
+                          <ExpandMore
+                              expand={expanded}
+                              onClick={handleExpandClick}
+                              aria-expanded={expanded}
+                              aria-label="show more"
+                          >
+                              <ExpandMoreIcon />
+                          </ExpandMore>
+                      </CardActions>
+                      <Collapse in={expanded} timeout="auto" unmountOnExit>
+                          <CardContent>
+                              <Typography paragraph color="text.secondary">
+                                  <ul>
+                                      <li>Soil Type: {plant.soil_type}</li>
+                                      <li>Spacing: {plant.spacing}</li>
+                                      <li>Location in Rain Garden: {plant.plant_location}</li>
+                                      <li>Inundation Tolerance: {plant.inundation_amount} inches</li>
+                                  </ul>
+                                  <AddNoteForm plant={plant} />
+                              </Typography>
+                          </CardContent>
+                      </Collapse>
+                      </Card>
                 ))}
-
-            </div>
-
-
 
     <button onClick={goToMap}>See Topo Map</button>
     </>
@@ -147,3 +140,45 @@ function MyGarden() {
 
 
 export default MyGarden;
+
+
+
+/*
+function PlantItem({ plant }) {
+    const activePlant = useSelector(store => store.activePlant)
+
+    return (
+        <h2>{plant.name}</h2>
+        <img src={plant.image} />
+
+        {editMode ?
+            <textarea onChange={() => {
+                dispatch({
+                    type: 'UPDATE_ACTIVE_PLANT',
+                    payload: {
+                        notes: evt.target.value
+                    }
+                })
+            }}>
+                {activePlant.notes}
+            </textarea>
+            <button onClick={() => dispatch({ 
+                type: 'SAVE_PLANT',
+                payload: activePlant
+            })}>Save</button>
+            :
+            <p>
+                {plant.notes}
+            </p>
+        }
+        <button onClick={() => {
+            setEditMode(true);
+
+            dispatch({
+                type: 'SET_ACTIVE_PLANT',
+                payload: plant
+            })
+        }}>Edit</button>
+    )
+}
+*/
