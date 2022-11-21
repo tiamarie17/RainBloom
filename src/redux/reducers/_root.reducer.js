@@ -5,6 +5,7 @@ import gallery from './gallery.reducer';
 import deleteImage from './deleteImage.reducer';
 import plantList from './plantlist.reducer';
 import myGardenPlants from './mygardenplant.reducer';
+import deletePlant from './deletePlant.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   deleteImage,
   plantList,
   myGardenPlants,
+  deletePlant,
 });
 
 export default rootReducer;
