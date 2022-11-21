@@ -75,6 +75,13 @@ function MyGarden() {
       })
   }
 
+  const editNote = (plant) => {
+      console.log('in editNote');
+      setPlantClicked(plant.id);
+      history.push('/edit');
+  }
+
+  const [plantClicked, setPlantClicked] = useState('');
 
   return (
     <>
@@ -94,7 +101,7 @@ function MyGarden() {
                                 <ul>
                                     <li>Common name: {plant.common_name}</li>
                                     <li>Botanical name: {plant.botanical_name}</li>
-                                    <li><button onClick={() => addNote(plant)}>Add Note</button></li>
+                                    <li><button onClick={() => editNote(plant)}>Edit Note</button></li>
                                 </ul>
                             </Typography>
                         </CardContent>
