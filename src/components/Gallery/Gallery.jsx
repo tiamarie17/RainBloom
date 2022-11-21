@@ -85,12 +85,12 @@ function Upload(){
                     {gallery.map(galleryItem => (
                         <tr key={galleryItem.id}>
                             <td><img src={galleryItem.image_url.replace("public/", "")}/></td>
+                            <td>{galleryItem.description}</td>
                             {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
                             <td>{user.id === galleryItem.user_id && 
                                 <IconButton onClick = {() => removeImage(galleryItem)} size ="large" aria-label="add to favorites">
                                 <DeleteIcon />
                                 </IconButton>}
-                                {/* <button onClick={() => removeImage(galleryItem)}>Remove</button> */}
                             </td>
                         </tr>
                     ))}

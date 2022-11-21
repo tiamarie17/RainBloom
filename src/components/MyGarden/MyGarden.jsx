@@ -65,6 +65,16 @@ function MyGarden() {
     }));
 
 
+    
+    const removePlant = (plant) => {
+      console.log('in removePlant');
+      dispatch({
+          type:'REMOVE_PLANT',
+          payload: plant.id
+      })
+  }
+
+
   return (
     <>
     <h1>My Garden</h1>
@@ -88,7 +98,7 @@ function MyGarden() {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <IconButton size ="large" aria-label="add to favorites">
+                            <IconButton onClick={()=> removePlant(plant)} size ="large" aria-label="add to favorites">
                                 <DeleteIcon />
                             </IconButton>
 

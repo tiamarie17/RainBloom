@@ -65,4 +65,28 @@ router.post('/', rejectUnauthenticated, function (req, res) {
 
 });
 
+
+ //Delete a plant from My Garden
+ router.delete('/:id', (req, res) => {
+    console.log('in /mygarden DELETE router');
+
+  if (req.isAuthenticated()) {
+    const sqlText = `
+    DELETE FROM "plants_user"
+    WHERE "id" = $1;
+    `;
+
+    pool.query(sqlText, [req.params.id])
+      .then(result => res.sendStatus(200))
+      .catch(err => res.sendStatus(500));
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+
+
+
+
 module.exports = router;
+
