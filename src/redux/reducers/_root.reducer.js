@@ -7,6 +7,7 @@ import plantList from './plantlist.reducer';
 import myGardenPlants from './mygardenplant.reducer';
 import deletePlant from './deletePlant.reducer';
 import editNote from './editNote.reducer';
+import weather from './weather.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   myGardenPlants,
   deletePlant,
   editNote,
+  weather,
 });
 
 export default rootReducer;
