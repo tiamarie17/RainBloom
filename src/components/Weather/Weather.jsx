@@ -9,11 +9,6 @@ function Weather() {
 
     const dispatch = useDispatch();
 
-    const weather = useSelector((store) => {
-        return store.weather;
-    })
-    console.log('weather is', weather);
-
 
     useEffect(() => {
         axios({
@@ -21,7 +16,7 @@ function Weather() {
             url: '/api/mygarden/weather'
         })
             .then(response => {
-                console.log('response is', response);
+                console.log('in .then of useeffect, response is', response);
 
                 dispatch({
                     type: 'SET_WEATHER',
@@ -34,16 +29,19 @@ function Weather() {
             })
     }, []);
 
+    const weather = useSelector((store) => {
+        return store.weather;
+    })
+    console.log('weather is', weather);
+
 
     return (
         <>
-        
-            
-            {weather.data.temperature}   
-            {weather.data.text}
-            <img src={weather.data.icon}/>
-            {weather.data.windMph}
-            
+    
+            {weather.data[0].temperature}   
+            {weather.data[0].text}
+            <img src={weather.data[0].icon}/>
+            {weather.data[0].windMph}
             
         </>
     );

@@ -1,5 +1,5 @@
 
-const weather = (state = {}, action) => {
+const weather = (state = [], action) => {
     if(action.type === 'SET_WEATHER') {
         return action.payload;
     }
