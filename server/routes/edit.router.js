@@ -7,7 +7,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //PUT request to update note on plant clicked on
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log('in edit PUT route');
-    console.log('req.params is', req.params);
     console.log('req.body is', req.body);
 
     const sqlText = `UPDATE "plants_user" SET "notes" = $1 WHERE "plants_user"."plant_id" = $2`;

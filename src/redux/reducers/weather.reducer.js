@@ -1,7 +1,10 @@
 
 const weather = (state = [], action) => {
-    if(action.type === 'SET_WEATHER') {
-        return action.payload;
+    switch(action.type) {
+        case 'SET_WEATHER':
+            return action.payload;
+         case 'FETCH_WEATHER':
+                return action.payload; 
     }
     return state;
 }

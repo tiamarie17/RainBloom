@@ -21,7 +21,11 @@ function Weather() {
                 dispatch({
                     type: 'SET_WEATHER',
                     payload: response
-                })
+                });
+
+                dispatch({
+                    type: 'FETCH_WEATHER'
+                });
 
             })
             .catch(err => {
@@ -37,12 +41,12 @@ function Weather() {
 
     return (
         <>
-    
-            {weather.data[0].temperature}   
-            {weather.data[0].text}
+        <div className="weather">
+            {weather.data[0].temperature}°F 
             <img src={weather.data[0].icon}/>
-            {weather.data[0].windMph}
-            
+            {weather.data[0].text}
+            Wind {weather.data[0].windMph} mph
+        </div>
         </>
     );
 
