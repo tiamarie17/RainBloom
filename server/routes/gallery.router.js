@@ -21,25 +21,48 @@ const upload = multer({
 });
 
 
-router.get('/', (req, res) => {
-  if (req.isAuthenticated()) {
+// router.get('/', (req, res) => {
+//   if (req.isAuthenticated()) {
+//     console.log('/gallery GET route');
+//     console.log('is authenticated?', req.isAuthenticated());
+//     console.log('user', req.user);
+    
+//     let queryText = `SELECT * FROM "uploads" WHERE "user_id" =$1;`;
+//     pool.query(queryText, [req.user.id]).then((result) => {
+//         res.send(result.rows);
+//     }).catch((error) => {
+//         console.log(error);
+//         res.sendStatus(500);
+//     });
+
+// }else {
+//     res.sendStatus(403);
+// }
+  
+// });
+
+router.get('/', async (req, res) => {
     console.log('/gallery GET route');
     console.log('is authenticated?', req.isAuthenticated());
-    console.log('user', req.user);
-    
-    let queryText = `SELECT * FROM "uploads" WHERE "user_id" =$1;`;
-    pool.query(queryText, [req.user.id]).then((result) => {
-        res.send(result.rows);
-    }).catch((error) => {
-        console.log(error);
-        res.sendStatus(500);
-    });
+    if (req.isAuthenticated){
+    try {
+      let sqlText = `SELECT * FROM "uploads" WHERE "user_id" =$1;`;
+      let sqlParams = [req.user.id];
 
-}else {
-    res.sendStatus(403);
-}
+      let dbRes = await pool.query (sqlText, sqlParams);
+      res.send(dbRes.rows);
+    }
+    
+    catch (err) {
+      console.error('GET /gallery error', err);
+      res.sendStatus(500);
+    }
+  } else{
+    res.sendStatus(401);
+  }
+  })
   
-});
+    
 
 router.post('/', rejectUnauthenticated, upload.single('uploaded_file'), function (req, res) {
        console.log('in /gallery POST router');
