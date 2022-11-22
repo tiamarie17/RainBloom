@@ -58,6 +58,7 @@ function AddNoteForm({ plant }) {
     } else {
         return (
             <>
+            <p>Notes: {plant.notes}</p>
                 <button onClick={() => {
                     setEditMode(true);
                 }}>Edit</button>
