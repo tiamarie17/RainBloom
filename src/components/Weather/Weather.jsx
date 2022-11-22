@@ -23,9 +23,9 @@ function Weather() {
                     payload: response
                 });
 
-                dispatch({
-                    type: 'FETCH_WEATHER'
-                });
+                // dispatch({
+                //     type: 'FETCH_WEATHER'
+                // });
 
             })
             .catch(err => {
@@ -39,16 +39,23 @@ function Weather() {
     console.log('weather is', weather);
 
 
+    //only returning weather info if it is defined
+    if (weather.data != undefined){
+    
     return (
         <>
-        <div className="weather">
-            {weather.data[0].temperature}°F 
-            <img src={weather.data[0].icon}/>
-            {weather.data[0].text}
-            Wind {weather.data[0].windMph} mph
-        </div>
+    <div className="weather">
+    
+        {weather.data[0].temperature}°F 
+        <img src={weather.data[0].icon}/>
+        {weather.data[0].text}
+        Wind {weather.data[0].windMph} mph
+    </div>
         </>
     );
+        }else{
+            return null;
+        }
 
 }
 

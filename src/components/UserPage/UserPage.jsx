@@ -1,6 +1,7 @@
 import React, {useHistory} from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
+import Weather from '../Weather/Weather';
 
 function UserPage() {
   const user = useSelector((store) => store.user);
@@ -23,6 +24,8 @@ const goToMyGarden = () =>{
 }
 
   return (
+    <>
+    <Weather />
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
@@ -31,6 +34,7 @@ const goToMyGarden = () =>{
       <button onClick= {buildRainGarden}>Build a Rain Garden</button>
       <button onClick = {goToMyGarden}>My Garden</button>
     </div>
+    </>
   );
 }
 
