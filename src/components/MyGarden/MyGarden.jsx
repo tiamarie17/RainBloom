@@ -14,6 +14,7 @@ import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 // import EditIcon from '@mui/icons-material/Edit';
 import AddNoteForm from '../AddNoteForm/AddNoteForm';
+import Weather from '../Weather/Weather';
 
 
 
@@ -86,6 +87,8 @@ function MyGarden() {
   return (
     <>
     <h1>My Garden</h1>
+    <h2>Weather</h2>
+    <Weather />
     <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
                 {myPlants.map(plant => (
