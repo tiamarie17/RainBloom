@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
-require('dotenv').config();
 
 function Weather() {
     console.log('in weather API');
