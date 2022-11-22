@@ -14,6 +14,7 @@ const searchRouter = require('./routes/search.router');
 const mygardenRouter = require('./routes/mygarden.router');
 const editRouter = require('./routes/edit.router');
 const addNoteRouter = require('./routes/addnote.router');
+const weatherRouter=require('./routes/weather.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use('/api/search', searchRouter);
 app.use('/api/mygarden', mygardenRouter);
 app.use('/api/edit', editRouter);
 app.use('/api/add', addNoteRouter);
+app.use('/api/weather', weatherRouter);
 
 // Serve static files
 app.use(express.static('build'));
