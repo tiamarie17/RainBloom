@@ -2,6 +2,9 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const axios = require('axios');
+require('dotenv').config();
+
 
 // GET router to fetch plants selected
 router.get('/', (req, res) => {
@@ -66,32 +69,74 @@ router.post('/', rejectUnauthenticated, function (req, res) {
 });
 
 
- //Delete a plant from My Garden
- router.delete('/:id', (req, res) => {
+//Delete a plant from My Garden
+router.delete('/:id', (req, res) => {
     console.log('in /mygarden DELETE router');
     console.log('req.params.id is', req.params.id);
 
-  if (req.isAuthenticated()) {
-    const sqlText = `
+    if (req.isAuthenticated()) {
+        const sqlText = `
     DELETE FROM "plants_user"
     WHERE "plants_user"."plant_id" = $1;
     `;
 
-    const sqlParams = [req.params.id];
+        const sqlParams = [req.params.id];
 
-    pool.query(sqlText, sqlParams)
-      .then((result) => {
-        res.sendStatus(200)
-      }) 
-      .catch((err) => {
-        console.log('in delete my garden error, error is', err);
-        res.sendStatus(500);
-      })
-  } else {
-    res.sendStatus(401);
-  }
+        pool.query(sqlText, sqlParams)
+            .then((result) => {
+                res.sendStatus(200)
+            })
+            .catch((err) => {
+                console.log('in delete my garden error, error is', err);
+                res.sendStatus(500);
+            })
+    } else {
+        res.sendStatus(401);
+    }
 });
 
+
+//Weather API router
+router.get('/weather', (req, res) => {
+    console.log('in weather router');
+    const options = {
+        method: 'GET',
+        url: 'https://weatherapi-com.p.rapidapi.com/current.json',
+        params: { q: '44.986656, -93.258133' },
+        headers: {
+            'X-RapidAPI-Key': process.env.KEY,
+            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        }
+    };
+
+    axios.request(options).then(function (response) {
+        console.log('response.data is', response.data);
+        let weatherArray = [];
+        let temperature = {
+            temperature: response.data.current.temp_f
+        }
+
+        let text = {
+            text: response.data.current.condition.text
+        }
+        let icon = {
+            icon: response.data.current.condition.icon
+        }
+        let windMph = {
+            windMph: response.data.current.wind_mph
+        }
+
+        weatherArray.push(temperature, text, icon, windMph);
+        console.log('weatherArray is', weatherArray);
+
+        res.send(weatherArray);
+
+    }).catch(function (error) {
+        console.error('Weather API request failed, error is', error);
+    });
+})
+
+module.exports = router;
 
 
 

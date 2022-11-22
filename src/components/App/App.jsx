@@ -25,11 +25,12 @@ import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
 import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
-import EditNote from '../EditNote/EditNote';
+
 
 
 
 import './App.css';
+import Weather from '../Weather/Weather';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,13 +78,13 @@ function App() {
             <Gallery />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
             path="/edit/:id"
           >
             <EditNote />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
@@ -105,14 +106,6 @@ function App() {
             // logged in shows Map else shows LoginPage
             exact
             path="/location"
-          >
-            <Location />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows Map else shows LoginPage
-            exact
-            path="/weather"
           >
             <Location />
           </ProtectedRoute>

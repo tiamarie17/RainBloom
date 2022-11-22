@@ -3,26 +3,28 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
 
+
 function Weather() {
     console.log('in weather API');
+
     const dispatch = useDispatch();
+
     const weather = useSelector((store) => {
         return store.weather;
     })
-    console.log('weather is', weather);
 
 
     useEffect(() => {
         axios({
             method: 'GET',
-            url: '/weather'
+            url: '/api/mygarden/weather'
         })
-            .then(res => {
-                console.log('response is', res);
+            .then(response => {
+                console.log('response is', response);
 
                 dispatch({
                     type: 'SET_WEATHER',
-                    payload: res
+                    payload: response
                 })
 
             })
@@ -36,14 +38,10 @@ function Weather() {
         <>
             <div>
                 <p>Weather</p>
-                {/* <ul>
-        <li>
-        {random.data && random.data.map(item =>{
-        <img src={item.images.downsized_medium.url} />
-      })}
-         </li>
-
-      </ul> */}
+                
+                
+            
+     
             </div>
         </>
     );
