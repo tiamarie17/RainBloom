@@ -25,6 +25,7 @@ import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
 import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
+import MapBox from '../MapBox/Mapbox';
 
 
 
@@ -76,6 +77,14 @@ function App() {
             path="/gallery"
           >
             <Gallery />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/mapbox"
+          >
+            <MapBox />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
