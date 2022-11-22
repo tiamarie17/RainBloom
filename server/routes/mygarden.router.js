@@ -122,7 +122,7 @@ router.get('/weather', (req, res) => {
         weatherArray.push(weatherObject);
         console.log('weatherArray is', weatherArray);
 
-        res.send(weatherArray);
+        res.send(weatherObject);
 
     }).catch(function (error) {
         console.error('Weather API request failed, error is', error);
