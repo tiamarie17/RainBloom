@@ -8,6 +8,8 @@ const editNote = (state  = {}, action) => {
             };
          case 'SET_ACTIVE_PLANT':
                 return action.payload;
+         case 'CLEAR_ACTIVE_PLANT':
+             return {};
         
     }
     return state;

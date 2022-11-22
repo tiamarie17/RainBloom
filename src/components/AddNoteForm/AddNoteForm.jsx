@@ -4,16 +4,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
+
+
 function AddNoteForm({ plant }) {
     console.log('in AddNoteForm');
-
     const dispatch = useDispatch();
-
     const notes = useSelector((store) => {
         return store.editNote;
     })
-
     const [editMode, setEditMode] = useState(false);
+
+    const handleSave = (event) =>{
+        event.preventDefault();
+        console.log('in handleSave');
+    
+        dispatch({
+            type: 'SET_ACTIVE_PLANT',
+            payload: notes
+        });
+        dispatch({
+            type: 'CLEAR_ACTIVE_PLANT'
+        });
+
+        setEditMode(false);
+    }
+
 
     //Show text area with edit button if edit mode is on
     //Show plant notes if edit mode is off
@@ -27,17 +42,15 @@ function AddNoteForm({ plant }) {
                     dispatch({
                         type: 'ACTIVE_PLANT_LISTEN',
                         payload: {
-                            notes: event.target.value
+                            notes: event.target.value,
+                            id: plant.id
                         }
                     })
                 }}>
                 </textarea>
 
                 {/* When the save button is clicked, the user input is stored in the reducer */}
-                <button onClick={() => dispatch({
-                    type: 'SET_ACTIVE_PLANT',
-                    payload: notes
-                })}>Save</button>
+                <button onClick={handleSave}>Save</button>
 
             </>
         );
@@ -47,37 +60,13 @@ function AddNoteForm({ plant }) {
             <>
                 <button onClick={() => {
                     setEditMode(true);
-
-                    // dispatch({
-                    //     type: 'SET_ACTIVE_PLANT',
-                    //     payload: 
-                    // })
                 }}>Edit</button>
 
             </>
         );
     }
-
 }
 
 
-/* <form onSubmit = {handleSubmitNote}>
- <input 
- onChange={(event) => setNotes({notes: event.target.value})}
- type="text" 
- placeholder = "Add notes here!"
- value = {plant.notes}
- />
- <button type="submit">Add Note</button>
-</form> */
-
 export default AddNoteForm;
 
-/*
-function PlantItem({ plant }) {
-    const activePlant = useSelector(store => store.activePlant)
-
-    return (
-
-
-*/
