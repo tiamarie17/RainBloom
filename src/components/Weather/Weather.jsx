@@ -39,10 +39,10 @@ function Weather() {
         <>
     <div className="weather">
     
-        {weather.temperature}°F 
-        <img src={weather.icon}/>
-        {weather.text}
-        Wind {weather.windMph} mph
+        <div>{weather.temperature}°F</div>
+        <div><img src={weather.icon}/></div>
+        <div>{weather.text}</div>
+        <div>{weather.windMph} mph</div>
     </div>
         </>
     );

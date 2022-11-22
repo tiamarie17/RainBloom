@@ -111,7 +111,6 @@ router.get('/weather', (req, res) => {
 
     axios.request(options).then(function (response) {
         console.log('response.data is', response.data);
-        let weatherArray = [];
         let weatherObject = {
             temperature: response.data.current.temp_f,
             text: response.data.current.condition.text,
@@ -119,8 +118,6 @@ router.get('/weather', (req, res) => {
             windMph: response.data.current.wind_mph
         }
         console.log('weather object is', weatherObject);
-        weatherArray.push(weatherObject);
-        console.log('weatherArray is', weatherArray);
 
         res.send(weatherObject);
 

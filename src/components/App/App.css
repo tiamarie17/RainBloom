@@ -124,5 +124,7 @@ html, body, #map {
 
 .weather{
   display: flex;
+  flex-direction: column;
+  margin-left: 1em;
 
 }
