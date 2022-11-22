@@ -11,7 +11,7 @@ function Weather() {
         return store.weather;
     })
     console.log('weather is', weather);
-    
+
 
     useEffect(() => {
         axios({
@@ -35,9 +35,7 @@ function Weather() {
 
     return (
         <>
-
             <div>
-
                 <p>Weather</p>
                 {/* <ul>
         <li>
@@ -50,22 +48,6 @@ function Weather() {
             </div>
         </>
     );
-
-    // const options = {
-    //     method: 'GET',
-    //     url: 'https://weatherapi-com.p.rapidapi.com/current.json',
-    //     params: {q: '44.986656, -93.258133'},
-    //     headers: {
-    //       'X-RapidAPI-Key': process.env.KEY,
-    //       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-    //     }
-    //   };
-
-    //   axios.request(options).then(function (response) {
-    //       console.log(response.data);
-    //   }).catch(function (error) {
-    //       console.error(error);
-    //   });
 
 }
 
