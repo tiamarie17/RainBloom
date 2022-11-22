@@ -7,8 +7,10 @@ import { useEffect } from 'react';
 function AddNoteForm({ plant }) {
     console.log('in AddNoteForm');
 
+    const dispatch = useDispatch();
+
     const notes = useSelector((store) => {
-        return store.notes;
+        return store.editNote;
     })
 
     const [editMode, setEditMode] = useState(false);
@@ -29,8 +31,8 @@ function AddNoteForm({ plant }) {
                         }
                     })
                 }}>
-                    {notes.notes}
                 </textarea>
+
                 {/* When the save button is clicked, the user input is stored in the reducer */}
                 <button onClick={() => dispatch({
                     type: 'SET_ACTIVE_PLANT',
@@ -43,16 +45,12 @@ function AddNoteForm({ plant }) {
     } else {
         return (
             <>
-
-                <p>
-                    {plant.notes}
-                </p>
                 <button onClick={() => {
                     setEditMode(true);
 
                     // dispatch({
                     //     type: 'SET_ACTIVE_PLANT',
-                    //     payload: plant.notes
+                    //     payload: 
                     // })
                 }}>Edit</button>
 

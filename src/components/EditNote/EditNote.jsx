@@ -5,39 +5,39 @@ import {useEffect} from 'react';
 import { Notes } from '@material-ui/icons';
 
 function EditNote() {
-    console.log('in EditNote');
-    const dispatch = useDispatch();
-    const params = useParams();
-    console.log('params is', params);
+    // console.log('in EditNote');
+    // const dispatch = useDispatch();
+    // const params = useParams();
+    // console.log('params is', params);
 
-    //to do: make a reducer for this
-    const notes = useSelector((store)=> {
-        return store.notes;
-    })
+    // //to do: make a reducer for this
+    // const notes = useSelector((store)=> {
+    //     return store.notes;
+    // })
 
 
-    useEffect(()=>{
-        if (params.id){
-        dispatch({
-            type: 'FETCH_EDIT_NOTES',
-            payload: params.id
-        })
-    }
-    }, [params.id]);
+    // useEffect(()=>{
+    //     if (params.id){
+    //     dispatch({
+    //         type: 'FETCH_EDIT_NOTES',
+    //         payload: params.id
+    //     })
+    // }
+    // }, [params.id]);
 
-    const onEditSubmit = (event) => {
-        dispatch({
-            type: 'SAVE_NOTES',
-            payload: notes
-        });
-    }
+    // const onEditSubmit = (event) => {
+    //     dispatch({
+    //         type: 'SAVE_NOTES',
+    //         payload: notes
+    //     });
+    // }
   
 
 
    
     return(
     <>
-    <h1>{params.id ?'Edit':'Add'} Notes: {notes.notes}</h1>
+    {/* <h1>{params.id ?'Edit':'Add'} Notes: {notes.notes}</h1>
     <form onSubmit={onEditSubmit}>
         <input 
         value={notes.notes} 
@@ -47,7 +47,7 @@ function EditNote() {
         })}
         />
         <button type="submit">Save</button>
-    </form>
+    </form> */}
     </>);
 }
 
