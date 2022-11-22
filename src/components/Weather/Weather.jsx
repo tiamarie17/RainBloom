@@ -12,6 +12,7 @@ function Weather() {
     const weather = useSelector((store) => {
         return store.weather;
     })
+    console.log('weather is', weather);
 
 
     useEffect(() => {
@@ -36,13 +37,14 @@ function Weather() {
 
     return (
         <>
-            <div>
-                <p>Weather</p>
-                
-                
+        
             
-     
-            </div>
+            {weather.data.temperature}   
+            {weather.data.text}
+            <img src={weather.data.icon}/>
+            {weather.data.windMph}
+            
+            
         </>
     );
 
