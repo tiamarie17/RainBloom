@@ -112,6 +112,14 @@ function App() {
           <ProtectedRoute
             // logged in shows Map else shows LoginPage
             exact
+            path="/weather"
+          >
+            <Location />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Map else shows LoginPage
+            exact
             path="/size"
           >
             <Size />
