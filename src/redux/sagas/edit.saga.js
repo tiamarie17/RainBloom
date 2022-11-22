@@ -3,12 +3,12 @@ import axios from 'axios';
 
 
 function* editSaga() {
-    yield takeLatest('SAVE_NOTE', saveNote);
+    yield takeLatest('SET_ACTIVE_PLANT', saveNoteEdit);
     
 }
 
-function* saveNote(action) {
-    console.log('in saveNote');
+function* saveNoteEdit(action) {
+    console.log('in saveNoteEdit');
 
         try {
             console.log('in try, action.payload is', action.payload);

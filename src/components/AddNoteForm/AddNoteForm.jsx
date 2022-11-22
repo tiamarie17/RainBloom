@@ -15,7 +15,7 @@ function AddNoteForm({ plant }) {
 
     //Show text area with edit button if edit mode is on
     //Show plant notes if edit mode is off
-    
+
     if (editMode) {
 
         return (
@@ -23,7 +23,7 @@ function AddNoteForm({ plant }) {
                 <textarea onChange={(event) => {
                     // This dispatch listens to changes as the user types
                     dispatch({
-                        type: 'ACTIVE_PLANT',
+                        type: 'ACTIVE_PLANT_LISTEN',
                         payload: {
                             notes: event.target.value
                         }
@@ -33,7 +33,7 @@ function AddNoteForm({ plant }) {
                 </textarea>
                 {/* When the save button is clicked, the user input is stored in the reducer */}
                 <button onClick={() => dispatch({
-                    type: 'SAVE_PLANT_NOTE',
+                    type: 'SET_ACTIVE_PLANT',
                     payload: notes
                 })}>Save</button>
 
@@ -50,10 +50,10 @@ function AddNoteForm({ plant }) {
                 <button onClick={() => {
                     setEditMode(true);
 
-                    dispatch({
-                        type: 'SET_ACTIVE_PLANT',
-                        payload: plant
-                    })
+                    // dispatch({
+                    //     type: 'SET_ACTIVE_PLANT',
+                    //     payload: plant.notes
+                    // })
                 }}>Edit</button>
 
             </>
