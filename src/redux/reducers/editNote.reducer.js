@@ -1,8 +1,8 @@
 const editNote = (state  = {}, action) => {
     switch(action.type) {
-        case 'SET_EDIT_NOTE':
+        case 'SET_ACTIVE_PLANT':
         return action.payload;
-        case 'UPDATE_EDIT_NOTE':
+        case 'ACTIVE_PLANT_LISTEN':
             // Merging two objects together
             return {
                 ...state,
