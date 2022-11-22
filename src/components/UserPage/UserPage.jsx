@@ -14,7 +14,7 @@ function UserPage() {
 
   const buildRainGarden = () =>{
     console.log('in buildRainGarden');
-    history.push('/build');
+    history.push('/search');
 }
 
 const goToMyGarden = () =>{

@@ -143,42 +143,4 @@ export default MyGarden;
 
 
 
-/*
-function PlantItem({ plant }) {
-    const activePlant = useSelector(store => store.activePlant)
 
-    return (
-        <h2>{plant.name}</h2>
-        <img src={plant.image} />
-
-        {editMode ?
-            <textarea onChange={() => {
-                dispatch({
-                    type: 'UPDATE_ACTIVE_PLANT',
-                    payload: {
-                        notes: evt.target.value
-                    }
-                })
-            }}>
-                {activePlant.notes}
-            </textarea>
-            <button onClick={() => dispatch({ 
-                type: 'SAVE_PLANT',
-                payload: activePlant
-            })}>Save</button>
-            :
-            <p>
-                {plant.notes}
-            </p>
-        }
-        <button onClick={() => {
-            setEditMode(true);
-
-            dispatch({
-                type: 'SET_ACTIVE_PLANT',
-                payload: plant
-            })
-        }}>Edit</button>
-    )
-}
-*/
