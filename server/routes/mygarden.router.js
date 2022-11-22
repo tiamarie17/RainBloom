@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         let sqlText = `
                     
             SELECT "plants"."common_name", "plants"."botanical_name", "plants"."image", "plants"."soil_type", "plants"."spacing", 
-            "plants"."inundation_amount", "plants"."plant_location", "plants"."sunlight_amount", "plants"."id" 
+            "plants"."inundation_amount", "plants"."plant_location", "plants"."sunlight_amount", "plants"."id", "plants_user"."notes" 
             FROM "plants" 
             JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
             JOIN "user" ON "user"."id" = "plants_user"."user_id"
