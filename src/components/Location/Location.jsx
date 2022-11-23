@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { MapContainer, useMap} from 'react-leaflet';
+import { MapContainer, useMap, useMapEvent} from 'react-leaflet';
 import {useHistory} from 'react-router-dom';
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 import "leaflet/dist/leaflet.css";
@@ -21,8 +21,17 @@ function Location(){
 
       // Map search box
       function LeafletGeoSearch() {
+
+          const map = useMapEvent({
+            click: () => {
+              map.locate();
+            },
+            locationfound: (location) => {
+              console.log('location found:', location)
+            },
+          })
       
-        const map = useMap(); //here use useMap hook
+        // const map = useMap(); //here use useMap hook
 
         let icon = L.icon({
           iconSize: [25, 41],
@@ -31,6 +40,7 @@ function Location(){
           iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
           shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
         });
+  
 
         useEffect(() => {
           const provider = new OpenStreetMapProvider();
@@ -51,7 +61,8 @@ function Location(){
       
         return null;
       }
-
+      
+    
       return (
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
@@ -64,6 +75,8 @@ function Location(){
         <Layers/>
 
         <LeafletGeoSearch/>
+
+        {/* <GeoLocation /> */}
          
         </MapContainer>
       
@@ -71,5 +84,7 @@ function Location(){
         
     );
     }
+  
+
       
 export default Location;
