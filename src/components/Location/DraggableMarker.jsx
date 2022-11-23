@@ -28,10 +28,11 @@ function DraggableMarker() {
     }, [])
 
     let icon = L.icon({
-        iconSize: [25, 41],
+        iconSize: [45, 45],
         iconAnchor: [10, 41],
         popupAnchor: [2, -40],
-        iconUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png",
+        iconUrl: "https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/null/external-flower-gardening-vitaliy-gorbachev-flat-vitaly-gorbachev-1.png",
+        // https://icons8.com/icon/3d6f7EVgce1s/flower
         shadowUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-shadow.png"
       });
   
