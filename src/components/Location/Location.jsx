@@ -1,9 +1,14 @@
+
+
 import React, {useState, useEffect} from 'react';
 import { MapContainer, TileLayer, useMap, useMapEvents, Marker, Popup, LayersControl} from 'react-leaflet';
 import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import {useHistory} from 'react-router-dom';
 import VectorTileLayer from 'react-leaflet-vector-tile-layer';
+
+
+
 
 function Location(){
 
@@ -41,7 +46,7 @@ function Location(){
           {/* Import custom MapBox style in a vector tyle from MapBox */}
             <VectorTileLayer
                   styleUrl="mapbox://styles/tt17/classs3qb000515puopf36dp7"
-                  accessToken={process.env.MABOX_KEY}
+                  accessToken={process.env.REACT_APP_MAPBOX_KEY}
                 />
           </LayersControl.BaseLayer>
 
