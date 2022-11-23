@@ -26,18 +26,27 @@ function DraggableMarker() {
     const toggleDraggable = useCallback(() => {
       setDraggable((d) => !d)
     }, [])
+
+    let icon = L.icon({
+        iconSize: [25, 41],
+        iconAnchor: [10, 41],
+        popupAnchor: [2, -40],
+        iconUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png",
+        shadowUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-shadow.png"
+      });
   
     return (
       <Marker
         draggable={draggable}
         eventHandlers={eventHandlers}
         position={position}
-        ref={markerRef}>
+        ref={markerRef}
+        icon={icon}>
         <Popup minWidth={90}>
             My ideal rain garden location!
           <span onClick={toggleDraggable}>
             {draggable
-              ? 'Marker is draggable'
+              ? ' Marker is draggable'
               : ' Click here to make marker draggable'}
           </span>
         </Popup>
