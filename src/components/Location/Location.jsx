@@ -8,6 +8,7 @@ import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import L from 'leaflet';
+import { Input } from '@mui/material';
 
 
 
@@ -22,8 +23,7 @@ function Location(){
     }
 
       // Map search box
-
-      function LeafletgeoSearch() {
+      function LeafletGeoSearch() {
       
         const map = useMap(); //here use useMap hook
 
@@ -42,7 +42,8 @@ function Location(){
             provider,
             marker: {
               icon
-            }
+            },
+            autocomplete: true,
           });
       
           map.addControl(searchControl);
@@ -95,7 +96,7 @@ function Location(){
       
         </LayersControl>
 
-        <LeafletgeoSearch/>
+        <LeafletGeoSearch/>
          
         </MapContainer>
       
