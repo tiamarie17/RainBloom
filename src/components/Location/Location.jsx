@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { MapContainer, useMap, useMapEvent} from 'react-leaflet';
+import { MapContainer, useMap, useMapEvent, Marker, Popup} from 'react-leaflet';
 import {useHistory} from 'react-router-dom';
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 import "leaflet/dist/leaflet.css";
@@ -7,6 +7,7 @@ import "leaflet-geosearch/dist/geosearch.css";
 import L from 'leaflet';
 import { Input } from '@mui/material';
 import Layers from './Layers';
+import DraggableMarker from './DraggableMarker';
 
 
 
@@ -22,16 +23,16 @@ function Location(){
       // Map search box
       function LeafletGeoSearch() {
 
-          const map = useMapEvent({
-            click: () => {
-              map.locate();
-            },
-            locationfound: (location) => {
-              console.log('location found:', location)
-            },
-          })
+          // const map = useMapEvent({
+          //   click: () => {
+          //     map.locate();
+          //   },
+          //   locationfound: (location) => {
+          //     console.log('location found:', location)
+          //   },
+          // })
       
-        // const map = useMap(); //here use useMap hook
+        const map = useMap(); //here use useMap hook
 
         let icon = L.icon({
           iconSize: [25, 41],
@@ -51,6 +52,7 @@ function Location(){
               icon
             },
             autocomplete: true,
+            Popup: true,
             
           });
       
@@ -67,7 +69,7 @@ function Location(){
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
         <MapContainer 
-          center={[44.9773, -93.2655]} 
+          center={[44.99, -93.26]} 
           zoom={5} 
           zoomControl={false} 
           style={{ height: '100vh', width: '100%' }}
@@ -75,8 +77,7 @@ function Location(){
         <Layers/>
 
         <LeafletGeoSearch/>
-
-        {/* <GeoLocation /> */}
+        <DraggableMarker />
          
         </MapContainer>
       
