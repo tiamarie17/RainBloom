@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
+    "autoprefixer": "10.4.5",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
@@ -57,5 +58,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "overrides": {
+    "autoprefixer": "10.4.5"
+},
   "heroku-run-build-script": true
 }

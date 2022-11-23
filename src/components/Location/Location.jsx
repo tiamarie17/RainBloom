@@ -44,6 +44,7 @@ function Location(){
               icon
             },
             autocomplete: true,
+            
           });
       
           map.addControl(searchControl);
