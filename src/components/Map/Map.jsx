@@ -9,7 +9,7 @@ import Layers from './Layers';
 import DraggableMarker from './DraggableMarker';
 
 
-function Location(){
+function Map(){
 
     const history = useHistory();
 
@@ -39,7 +39,6 @@ function Location(){
       iconUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png",
       shadowUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-shadow.png"
     });
-
 
 
     useEffect(() => {
@@ -86,4 +85,4 @@ function Location(){
   
 
       
-export default Location;
+export default Map;

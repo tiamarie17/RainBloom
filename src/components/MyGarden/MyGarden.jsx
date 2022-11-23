@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import Map from '../Location/Location';
+import Map from '../Map/Map';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
@@ -18,15 +18,11 @@ import Weather from '../Weather/Weather';
 
 
 
-
-
 function MyGarden() {
 
     console.log('in MyGarden function');
 
     const dispatch = useDispatch(); 
-
-  // TODO: Render weather API info here
 
   //Load user's plants in garden on page load
   useEffect(() => {

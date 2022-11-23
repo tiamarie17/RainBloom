@@ -19,13 +19,13 @@ import MyGarden from '../MyGarden/MyGarden';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import Location from '../Location/Location';
+import Map from '../Map/Map';
 import Faq from '../Faq/Faq';
 import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
 import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
-import MapBox from '../MapBox/Mapbox';
+
 
 
 
@@ -82,22 +82,6 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/mapbox"
-          >
-            <MapBox />
-          </ProtectedRoute>
-
-          {/* <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/edit/:id"
-          >
-            <EditNote />
-          </ProtectedRoute> */}
-
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
             path="/search"
           >
             <PlantList />
@@ -116,7 +100,7 @@ function App() {
             exact
             path="/location"
           >
-            <Location />
+            <Map />
           </ProtectedRoute>
 
           <ProtectedRoute
