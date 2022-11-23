@@ -104,7 +104,7 @@ router.get('/weather', (req, res) => {
         url: 'https://weatherapi-com.p.rapidapi.com/current.json',
         params: { q: '44.986656, -93.258133' },
         headers: {
-            'X-RapidAPI-Key': process.env.KEY,
+            'X-RapidAPI-Key': process.env.WEATHER_API_KEY,
             'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
         }
     };

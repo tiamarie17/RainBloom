@@ -38,14 +38,10 @@ function Location(){
           </LayersControl.BaseLayer>
 
           <LayersControl.BaseLayer name="Topo Map 2">
-            {/* <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            /> */}
-
+          {/* Import custom MapBox style in a vector tyle from MapBox */}
             <VectorTileLayer
                   styleUrl="mapbox://styles/tt17/classs3qb000515puopf36dp7"
-                  accessToken="pk.eyJ1IjoidHQxNyIsImEiOiJjbGFma2ZseWMwY25jM3BvN2pwN3hhNHZ0In0.gzQmSpyAwkDAOw_uTit6kw"
+                  accessToken={process.env.MABOX_KEY}
                 />
           </LayersControl.BaseLayer>
 
