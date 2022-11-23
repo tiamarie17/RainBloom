@@ -1,11 +1,13 @@
 
 
-import React, {useState, useEffect} from 'react';
-import { MapContainer, TileLayer, useMap, useMapEvents, Marker, Popup, LayersControl} from 'react-leaflet';
-import { Icon } from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
+import React, {useEffect} from 'react';
+import { MapContainer, TileLayer, useMap, LayersControl} from 'react-leaflet';
 import {useHistory} from 'react-router-dom';
 import VectorTileLayer from 'react-leaflet-vector-tile-layer';
+import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
+import "leaflet/dist/leaflet.css";
+import "leaflet-geosearch/dist/geosearch.css";
+import L from 'leaflet';
 
 
 
@@ -17,8 +19,40 @@ function Location(){
     const size = () =>{
       console.log('in size function');
       history.push('/size');
-
     }
+
+      // Map search box
+
+      function LeafletgeoSearch() {
+      
+        const map = useMap(); //here use useMap hook
+
+        let icon = L.icon({
+          iconSize: [25, 41],
+          iconAnchor: [10, 41],
+          popupAnchor: [2, -40],
+          iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
+          shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png"
+        });
+
+        useEffect(() => {
+          const provider = new OpenStreetMapProvider();
+
+          const searchControl = new GeoSearchControl({
+            provider,
+            marker: {
+              icon
+            }
+          });
+      
+          map.addControl(searchControl);
+      
+          return () => map.removeControl(searchControl)
+        }, []);
+      
+        return null;
+      }
+
       return (
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
@@ -60,14 +94,14 @@ function Location(){
           
       
         </LayersControl>
+
+        <LeafletgeoSearch/>
          
         </MapContainer>
       
         </>
         
     );
-
-  }
-
+    }
       
 export default Location;
