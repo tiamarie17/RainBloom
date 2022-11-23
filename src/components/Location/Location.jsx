@@ -65,11 +65,7 @@ function Location(){
           style={{ height: '100vh', width: '100%' }}
         >
            <LayersControl position="topright">
-          {/* 
-            Give the layer a name that will be displayed inside of the layers control.
-            We also want to pass the checked prop to whichever map tile we want
-            displayed as the default:
-          */}
+  
 
           <LayersControl.BaseLayer checked name="Topo Map 1">
             <TileLayer
