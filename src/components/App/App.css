@@ -132,3 +132,11 @@ html, body, #map {
 .map-container {
   height: 400px;
   }
+
+  .easyPrintHolder{ 
+    background-image: url(data:image/svg+xml;utf8;base64,PD9...go=);
+  } 
+
+  .easyPrint{ 
+    background-image: url(data:image/svg+xml;utf8;base64,PD9...go=);
+  } 

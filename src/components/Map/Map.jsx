@@ -7,20 +7,24 @@ import "leaflet-geosearch/dist/geosearch.css";
 import L from 'leaflet';
 import Layers from './Layers';
 import DraggableMarker from './DraggableMarker';
+import 'leaflet-easyprint';
+import domtoimage from 'dom-to-image';
 
 
 function Map(){
 
     const history = useHistory();
-
+     
+    //on click go to Rain Garden Size page
     const size = () =>{
       console.log('in size function');
       history.push('/size');
     }
 
-    // Map search box
+    // Map search box function
     function LeafletGeoSearch() {
-
+      const map = useMap();
+      
       // const map = useMapEvent({
       //   click: () => {
       //     map.locate();
@@ -30,8 +34,8 @@ function Map(){
       //   },
       // })
   
-    const map = useMap(); //here use useMap hook
-
+  
+    //declare marker icon that will render on search
     let icon = L.icon({
       iconSize: [25, 41],
       iconAnchor: [10, 41],
@@ -39,7 +43,6 @@ function Map(){
       iconUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png",
       shadowUrl: "https://unpkg.com/leaflet@1.8.0/dist/images/marker-shadow.png"
     });
-
 
     useEffect(() => {
       const provider = new OpenStreetMapProvider();
@@ -62,6 +65,23 @@ function Map(){
     return null;
   }
 
+    //export map as PNG function
+    function SaveMap(props) {
+      const map = useMap();
+      useEffect(() => {
+        const control = L.easyPrint({
+          ...props
+        });
+        map.addControl(control)
+        return () => {
+          map.removeControl(control);
+        }
+      }, [map]);
+    
+    
+      return null;
+    }
+
       return (
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
@@ -75,14 +95,12 @@ function Map(){
 
         <LeafletGeoSearch/>
         <DraggableMarker />
-         
+        <SaveMap className = "easyPrint" position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} exportOnly="true" filename="Map" hideControlContainer={false}/>
         </MapContainer>
       
         </>
         
     );
     }
-  
-
       
 export default Map;

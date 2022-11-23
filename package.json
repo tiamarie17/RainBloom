@@ -14,16 +14,18 @@
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
+    "@watergis/mapbox-gl-export": "^1.2.21",
     "autoprefixer": "10.4.5",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
+    "dom-to-image": "^2.6.0",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "leaflet": "^1.8.0",
+    "leaflet-easyprint": "^2.1.9",
     "leaflet-geosearch": "^3.7.0",
     "leaflet-searchbox": "^1.0.6",
-    "mapbox-gl": "^2.11.0",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
@@ -60,6 +62,6 @@
   ],
   "overrides": {
     "autoprefixer": "10.4.5"
-},
+  },
   "heroku-run-build-script": true
 }
