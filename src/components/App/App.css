@@ -128,3 +128,7 @@ html, body, #map {
   margin-left: 1em;
 
 }
+
+.map-container {
+  height: 400px;
+  }
