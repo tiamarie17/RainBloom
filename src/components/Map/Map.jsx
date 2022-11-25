@@ -8,12 +8,28 @@ import L from 'leaflet';
 import Layers from './Layers';
 import DraggableMarker from './DraggableMarker';
 import 'leaflet-easyprint';
-import domtoimage from 'dom-to-image';
+import 'leaflet-measure';
+import 'leaflet-measure/dist/leaflet-measure.css';
+
+
+
+
 
 
 function Map(){
 
     const history = useHistory();
+    
+
+    // const measureOptions = {
+    //   position: 'topright',
+    //   primaryLengthUnit: 'meters',
+    //   secondaryLengthUnit: 'kilometers',
+    //   primaryAreaUnit: 'sqmeters',
+    //   secondaryAreaUnit: 'acres',
+    //   activeColor: '#db4a29',
+    //   completedColor: '#9b2d14'
+    // };
      
     //on click go to Rain Garden Size page
     const size = () =>{
@@ -78,10 +94,39 @@ function Map(){
         }
       }, [map]);
     
-    
       return null;
     }
 
+    const addLeafletMeasureControl = (map) =>{
+      let measureControl = new L.Control.Measure({
+      position: 'topright',
+      lineColor: 'blue',
+      primaryLengthUnit: 'feet',
+      secondaryLengthUnit: 'miles',
+      primaryAreaUnit: 'sqfeet',
+      secondaryAreaUnit: 'sqmiles',
+      activeColor: '#db4a29',
+      completedColor: '#9b2d14',
+      });
+      measureControl.addTo(map);
+      
+      }
+
+      L.Control.Measure.include({
+        // set icon on the capture marker
+        _setCaptureMarkerIcon: function () {
+          // disable autopan
+          this._captureMarker.options.autoPanOnFocus = false;
+      
+          // default function
+          this._captureMarker.setIcon(
+            L.divIcon({
+              iconSize: this._map.getSize().multiplyBy(2)
+            })
+          );
+        },
+      });
+      
       return (
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
@@ -90,12 +135,19 @@ function Map(){
           zoom={5} 
           zoomControl={false} 
           style={{ height: '100vh', width: '100%' }}
+          whenCreated={(map) => addLeafletMeasureControl(map)}
         >
         <Layers/>
-
         <LeafletGeoSearch/>
         <DraggableMarker />
-        <SaveMap className = "easyPrint" position="topleft" sizeModes={['Current', 'A4Portrait', 'A4Landscape']} exportOnly="true" filename="Map" hideControlContainer={false}/>
+        <SaveMap 
+          className = "easyPrint" 
+          position="topleft" 
+          sizeModes={['Current', 'A4Portrait', 'A4Landscape']} 
+          exportOnly="true" 
+          filename="Map" 
+          hideControlContainer={false}
+        />
         </MapContainer>
       
         </>

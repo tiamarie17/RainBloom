@@ -25,6 +25,7 @@
     "leaflet": "^1.8.0",
     "leaflet-easyprint": "^2.1.9",
     "leaflet-geosearch": "^3.7.0",
+    "leaflet-measure": "^3.1.0",
     "leaflet-searchbox": "^1.0.6",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.4.1",
