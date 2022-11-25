@@ -111,7 +111,7 @@ function Map(){
       measureControl.addTo(map);
       
       }
-
+      
       L.Control.Measure.include({
         // set icon on the capture marker
         _setCaptureMarkerIcon: function () {
