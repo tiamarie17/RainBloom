@@ -124,8 +124,6 @@ function MyGarden() {
                       </Collapse>
                       </Card>
                 ))}
-
-    <button onClick={goToMap}>See Topo Map</button>
     </>
   );
 }
