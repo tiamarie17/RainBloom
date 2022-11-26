@@ -19,25 +19,22 @@ import Weather from '../Weather/Weather';
 
 
 function MyGarden() {
-
-    console.log('in MyGarden function');
-
     const dispatch = useDispatch(); 
+    const history = useHistory();
+    const myPlants= useSelector((store) =>{
+        return store.myGardenPlants;
+    })
+    const size = useSelector((store) =>{
+        return store.size;
+    })
 
-  //Load user's plants in garden on page load
-  useEffect(() => {
-    dispatch({
-        type: 'FETCH_MY_GARDEN'
-    });
-}, []);
+    //Load user's plants in garden on page load
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_MY_GARDEN'
+        });
+    }, []);
 
-  const history = useHistory();
-
-
-  const myPlants= useSelector((store) =>{
-      return store.myGardenPlants;
-  })
-  console.log('myPlants is', myPlants);
 
     //add mui cards and variable to track click of expand button on card
 
@@ -58,11 +55,6 @@ function MyGarden() {
             duration: theme.transitions.duration.shortest,
         }),
     }));
-
-    const goToMap = () => {
-      console.log('in goToMap');
-      history.push('/location');
-  }
     
     const removePlant = (plant) => {
       console.log('in removePlant');
@@ -72,12 +64,11 @@ function MyGarden() {
       })
   }
 
-  
   return (
     <>
     <h1>My Garden</h1>
-    <h2>Weather</h2>
     <Weather />
+    <h4>Rain Garden Size: {size} ft² </h4>
     <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
                 {myPlants.map(plant => (

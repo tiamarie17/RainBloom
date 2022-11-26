@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { MapContainer, useMap} from 'react-leaflet';
+import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { OpenStreetMapProvider, GeoSearchControl } from 'leaflet-geosearch';
 import "leaflet/dist/leaflet.css";
@@ -10,14 +11,17 @@ import DraggableMarker from './DraggableMarker';
 import 'leaflet-easyprint';
 import 'leaflet-measure';
 import 'leaflet-measure/dist/leaflet-measure.css';
+import SizeForm from './SizeForm';
 
 
 
 function Map(){
 
     const history = useHistory();
+    const size = useSelector((store)=>{
+      return store.size;
+  })
     
-     
     //on click go to Rain Garden Size page
     const installation = () =>{
       console.log('in installation function');
@@ -28,15 +32,6 @@ function Map(){
     function LeafletGeoSearch() {
       const map = useMap();
       
-      // const map = useMapEvent({
-      //   click: () => {
-      //     map.locate();
-      //   },
-      //   locationfound: (location) => {
-      //     console.log('location found:', location)
-      //   },
-      // })
-  
   
     //declare marker icon that will render on search
     let icon = L.icon({
@@ -84,6 +79,7 @@ function Map(){
       return null;
     }
 
+    //add measure distance and area tool to map
     const addLeafletMeasureControl = (map) =>{
       let measureControl = new L.Control.Measure({
       position: 'topright',
@@ -116,6 +112,9 @@ function Map(){
       
       return (
         <>
+        <h4>Calculate Rain Garden Size</h4>
+        <SizeForm/>
+        <h4>Rain garden size is {size} ft²</h4>
         <button onClick={installation}>Go to Installation</button>
 
         <MapContainer 

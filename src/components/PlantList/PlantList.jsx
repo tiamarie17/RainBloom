@@ -58,17 +58,18 @@ function PlantList() {
     const searchResults = useSelector((store) => {
         return store.plantList;
     })
+    console.log('searchResults is', searchResults);
+
 
     const dispatch = useDispatch();
 
     const history = useHistory();
 
-
-    console.log('searchResults is', searchResults);
-
-
     //declaring variables to track input of soil, sunlight, and goals
     const [soil, setSoil] = useState('');
+    const [sunlight, setSunlight] = useState('');
+    const theme = useTheme();
+    const [goalName, setGoalName] = useState([]);
 
     const handleSoilChange = (event) => {
         setSoil(event.target.value);
@@ -76,16 +77,11 @@ function PlantList() {
     console.log('soil is', soil);
 
 
-    const [sunlight, setSunlight] = useState('');
-
     const handleSunlightChange = (event) => {
         setSunlight(event.target.value);
     };
     console.log('sunlight is', sunlight);
 
-
-    const theme = useTheme();
-    const [goalName, setGoalName] = useState([]);
 
     const handleGoalChange = (event) => {
         const {
