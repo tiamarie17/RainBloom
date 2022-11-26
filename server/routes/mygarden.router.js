@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
             FROM "plants" 
             JOIN "plants_user" ON "plants"."id" = "plants_user"."plant_id"
             JOIN "user" ON "user"."id" = "plants_user"."user_id"
-            WHERE "user"."id" = $1;`;
+            WHERE "user"."id" = $1
+            ORDER BY "plants_user"."plant_id";`;
 
         let sqlParams = [req.user.id];
 

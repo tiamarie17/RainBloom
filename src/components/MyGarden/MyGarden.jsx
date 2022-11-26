@@ -72,13 +72,6 @@ function MyGarden() {
       })
   }
 
-
-//   const editNote = () => {
-//      console.log('in editNote');
-//      history.push(`/edit/${plant.id}`);
-
-//   }
-
   
   return (
     <>
