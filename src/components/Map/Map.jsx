@@ -13,23 +13,10 @@ import 'leaflet-measure/dist/leaflet-measure.css';
 
 
 
-
-
-
 function Map(){
 
     const history = useHistory();
     
-
-    // const measureOptions = {
-    //   position: 'topright',
-    //   primaryLengthUnit: 'meters',
-    //   secondaryLengthUnit: 'kilometers',
-    //   primaryAreaUnit: 'sqmeters',
-    //   secondaryAreaUnit: 'acres',
-    //   activeColor: '#db4a29',
-    //   completedColor: '#9b2d14'
-    // };
      
     //on click go to Rain Garden Size page
     const size = () =>{
@@ -131,7 +118,7 @@ function Map(){
         <>
         <button onClick={size}>Go to Rain Garden Size</button>
         <MapContainer 
-          center={[44.99, -93.26]} 
+          center={[44.786, -93.128]} 
           zoom={5} 
           zoomControl={false} 
           style={{ height: '100vh', width: '100%' }}

@@ -3,8 +3,8 @@ import {Marker, Popup} from 'react-leaflet';
 
 
 const center = {
-    lat: 44.829500,
-    lng: -93.083380,
+    lat: 44.786346,
+    lng: -93.128455,
   }
 
 function DraggableMarker() {
