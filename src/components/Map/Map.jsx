@@ -19,9 +19,9 @@ function Map(){
     
      
     //on click go to Rain Garden Size page
-    const size = () =>{
-      console.log('in size function');
-      history.push('/size');
+    const installation = () =>{
+      console.log('in installation function');
+      history.push('/installation');
     }
 
     // Map search box function
@@ -116,7 +116,8 @@ function Map(){
       
       return (
         <>
-        <button onClick={size}>Go to Rain Garden Size</button>
+        <button onClick={installation}>Go to Installation</button>
+
         <MapContainer 
           center={[44.786, -93.128]} 
           zoom={5} 
