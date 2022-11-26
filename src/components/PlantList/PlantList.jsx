@@ -263,7 +263,7 @@ function PlantList() {
 
             </div>
 
-            <button onClick={handleNext}>Go to Location</button>
+            <button onClick={handleNext}>Go to Location and Size</button>
 
         </>
     );
