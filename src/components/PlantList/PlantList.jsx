@@ -18,7 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import { useHistory } from 'react-router-dom';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
-import { Button } from "@mui/material";
+import { Button, ListItem, List } from "@mui/material";
 import './Plantlist.css';
 
 
@@ -113,8 +113,6 @@ function PlantList() {
             payload: searchInput,
 
         });
-
-
     }
 
     //add plant to garden when user click 'Add to Garden' button
@@ -222,7 +220,8 @@ function PlantList() {
                         color: 'black',
                     }}
                     
-                >Search</Button>
+                    >Search
+                </Button>
                 </div>
                 
             </form>
@@ -234,16 +233,17 @@ function PlantList() {
 
                 {searchResults.map(result => (
 
-                    <div style={{ display:'flex', justifyContent:'center'}}>
-                    <Card sx={{ maxWidth: 330 }} key={result.id}>
+                    <div style={{ display:'flex', justifyContent:'center'}} key ={result.id}>
+                    <Card 
+                        sx={{ maxWidth: 330 }} 
+                     >
                         <CardContent>
                             <Typography variant="body1" color="text.primary">
                                 <img src={result.image} />
-                                <ul>
-                                    <li>Common name: {result.common_name}</li>
-                                    <li>Botanical name: {result.botanical_name}</li>
-                                    {/* <li><button onClick={() => addToGarden(result)}>Add to Garden</button></li> */}
-                                </ul>
+                                <List>
+                                    <ListItem>Common name: {result.common_name}</ListItem>
+                                    <ListItem>Botanical name: {result.botanical_name}</ListItem>
+                                </List>
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
@@ -266,12 +266,12 @@ function PlantList() {
                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Typography paragraph color="text.secondary">
-                                    <ul>
-                                        <li>Soil Type: {result.soil_type}</li>
-                                        <li>Spacing: {result.spacing}</li>
-                                        <li>Location in Rain Garden: {result.plant_location}</li>
-                                        <li>Inundation Tolerance: {result.inundation_amount} inches</li>
-                                    </ul>
+                                    <List>
+                                        <ListItem>Soil Type: {result.soil_type}</ListItem>
+                                        <ListItem>Spacing: {result.spacing}</ListItem>
+                                        <ListItem>Location in Rain Garden: {result.plant_location}</ListItem>
+                                        <ListItem>Inundation Tolerance: {result.inundation_amount} inches</ListItem>
+                                    </List>
                                 </Typography>
                             </CardContent>
                         </Collapse>
@@ -292,7 +292,8 @@ function PlantList() {
                     backgroundColor: 'goldenrod',
                     color: 'black'
                 }}
-            >Go to Location</Button>
+                >Go to Location
+            </Button>
             </div>
         
 
