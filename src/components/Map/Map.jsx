@@ -10,6 +10,7 @@ import DraggableMarker from './DraggableMarker';
 import 'leaflet-easyprint';
 import 'leaflet-measure';
 import 'leaflet-measure/dist/leaflet-measure.css';
+import './Map.css';
 
 
 

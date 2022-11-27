@@ -1,5 +1,9 @@
 footer {
-  margin-top: 33vh;
+  
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
   padding: 20px;
   text-align: center;
   background-color: darkseagreen;

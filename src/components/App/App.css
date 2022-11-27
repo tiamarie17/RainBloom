@@ -84,7 +84,7 @@ Form Treatment
   width: 300px;
   max-width: 100%;
   padding: 15px;
-  background-color: #efefef;
+  background-color: mistyrose;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
   margin: 0 auto;
@@ -95,6 +95,7 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 body {
