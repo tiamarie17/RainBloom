@@ -104,10 +104,18 @@ function Map(){
           );
         },
       });
+
+      //handle back button
+       //handle Back To Plant Search button
+      const backToPlants = () => {
+      console.log('in backToPlants');
+      history.push('/search');
+  }
       
       return (
         <>
         <button onClick={installation}>Go to Installation</button>
+        <button onClick={backToPlants}>Back to Plant Search</button>
 
         <MapContainer 
           center={[44.786, -93.128]} 

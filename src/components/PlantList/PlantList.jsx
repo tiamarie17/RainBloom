@@ -53,13 +53,13 @@ function getStyles(goal, goalName, theme) {
     };
 }
 
+
 function PlantList() {
 
     const searchResults = useSelector((store) => {
         return store.plantList;
     })
     console.log('searchResults is', searchResults);
-
 
     const dispatch = useDispatch();
 
@@ -148,10 +148,12 @@ function PlantList() {
         }),
     }));
 
+    //handle Go To Installation button
     const handleNext = () => {
         console.log('in handleNext');
         history.push('/location');
     }
+   
 
     return (
         <>
@@ -259,7 +261,7 @@ function PlantList() {
 
             </div>
 
-            <button onClick={handleNext}>Go to Location and Size</button>
+            <button onClick={handleNext}>Go to Location</button>
 
         </>
     );
