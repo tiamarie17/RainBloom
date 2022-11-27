@@ -1,0 +1,24 @@
+
+body {
+    background-image: url("/public/background/purple.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+/* This line makes the "Register" and "Login" buttons look like links */
+.btn_asLink {
+    padding: 0;
+    border-width: 0;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 0;
+    background: none;
+    font: inherit;
+    color: #ffffff;
+  }
+  
+  .btn_asLink:hover {
+    background-color: transparent;
+    border-color: darkgoldenrod;
+    color: darkgoldenrod;
+  }

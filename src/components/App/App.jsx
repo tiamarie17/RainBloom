@@ -5,14 +5,13 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
+import './App.css';
+import '../Map/Map.css';
+import '../LoginPage/LoginPage.css';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import MyGarden from '../MyGarden/MyGarden';
@@ -27,11 +26,6 @@ import Size from '../Size/Size';
 import Installation from '../Installation/Installation';
 
 
-
-
-
-import './App.css';
-import Weather from '../Weather/Weather';
 
 function App() {
   const dispatch = useDispatch();
@@ -177,6 +171,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    
   );
 }
 
