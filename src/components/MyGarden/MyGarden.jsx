@@ -68,7 +68,6 @@ function MyGarden() {
     <>
     <h1>My Garden</h1>
     <Weather />
-    <h4>Rain Garden Size: {size} ft² </h4>
     <h2>My Plants</h2>
      {/* Render plants added to user's garden below */}
                 {myPlants.map(plant => (
