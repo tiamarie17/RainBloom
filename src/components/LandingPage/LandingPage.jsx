@@ -14,6 +14,7 @@ function LandingPage() {
   };
 
   return (
+    <div className = "full-screen bg-landing">
     <div className="container">
           <RegisterForm />
           <center>
@@ -22,6 +23,7 @@ function LandingPage() {
               Login
             </button>
           </center>
+        </div>
         </div>
   );
 }

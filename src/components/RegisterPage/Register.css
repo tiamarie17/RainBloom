@@ -1,0 +1,11 @@
+.full-screen {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+  }
+  
+  .bg-register {
+    background-image: url("/public/background/purple.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

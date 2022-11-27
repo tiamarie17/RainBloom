@@ -82,3 +82,15 @@ Grid
 h4{
   color: #ffffff;
 }
+
+.full-screen {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+}
+
+.bg-landing {
+  background-image: url("/public/background/purple.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

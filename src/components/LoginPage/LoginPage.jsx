@@ -7,7 +7,9 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <>
+    <div className = "full-screen bg-login">
+    <div className = "login">
       <LoginForm />
 
       <center>
@@ -22,6 +24,9 @@ function LoginPage() {
         </button>
       </center>
     </div>
+    </div>
+    </>
+    
   );
 }
 
