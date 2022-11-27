@@ -253,7 +253,24 @@ function Faq() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph color="text.secondary">
-            Answer
+          Contact suppliers before you go to make sure they have the plants you are looking for before you head out or order online.
+
+          <ul>
+              <li>Blazing Star Gardens- Owatonna, MN</li>
+              <li>South Cedar Greenhouse- Farmington, MN</li>
+              <li>Ecoscapes Native Nursery- Elko, MN</li>
+              <li>Glacial Ridge Growers- Glenwood, MN</li>
+              <li>Landscape Alternatives, Inc. Shafer, MN</li>
+              <li>Minnesota Native Landscapes- Otsego, MN</li>
+              <li>Morning Sky Greenery- Morris, MN</li>
+              <li>Native Sun Seed and Plants- St. Croix Valley, MN</li>
+              <li>Natural Shore Technologies- Maple Plain, MN</li>
+              <li>Naturally WILD- Minneapolis, MN</li>
+              <li>Out Back Nursery- Hastings, MN</li>
+              <li>Prairie Moon Nursery- Winona, MN</li>
+              <li>Prairie Restorations, Inc - Scandia, MN</li>
+              <li>Sogn Valley Farm - Cannon Falls, MN</li>
+            </ul>
           </Typography>
         </CardContent>
       </Collapse>
@@ -264,7 +281,18 @@ function Faq() {
     <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
-        Where can I purchase compost, mulch and erosion control products locally?
+        Where can I purchase compost, mulch and erosion control products?
+        Compost and mulch stores:
+        <ul>
+          <li>Gertens Green House - Inver Grove Heights, MN</li>
+          <li>B&D Wood Recycling Compost- Northfield, MN</li>
+          <li>The Mulch Store- Locations in Burnsville, Rosemount, and Shakopee</li>
+      
+        Erosion control:
+       
+          <li>Brock White- Eagan, MN</li>
+          <li>Ramy Turf Products- St. Paul, MN</li>
+        </ul>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -280,7 +308,8 @@ function Faq() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph color="text.secondary">
-            Answer
+
+
           </Typography>
         </CardContent>
       </Collapse>
@@ -308,7 +337,9 @@ function Faq() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph color="text.secondary">
-            Answer
+            In Minnesota, contact <a href = "https://www.gopherstateonecall.org"> Gopher State One Call</a>:
+             651-454-0002 or 800-252-1166
+
           </Typography>
         </CardContent>
       </Collapse>
