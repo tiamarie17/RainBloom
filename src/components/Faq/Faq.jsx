@@ -33,10 +33,9 @@ function Faq() {
 
     return (
         <>
-        <div className = "full-screen bg-faq">
         <h1>FAQs</h1>
         <div style={{ display:'flex', justifyContent:'center'}}>
-        <Card sx={{ width: 330, maxWidth: 330 }}>
+        <Card sx={{ width: 330, maxWidth: 330}} style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What is a rain garden?
@@ -68,7 +67,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How do rain gardens benefit the environment?
@@ -100,7 +99,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What are the benefits of planting native plants in my garden?
@@ -131,7 +130,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How much does it cost to build a rain garden? Are there grants available to help me with the cost? 
@@ -174,7 +173,7 @@ function Faq() {
     
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How much work is involved in creating the rain garden? How long will it take to install?
@@ -206,7 +205,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "mistyrose"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How can I find out what type of soil I have?
@@ -235,7 +234,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "mistyrose"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase native plants locally?
@@ -287,11 +286,26 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "mistyrose"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase compost, mulch and erosion control products?
-        Compost and mulch stores:
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph color="text.secondary">
+          Compost and mulch stores:
         <List
           sx = {{
             listStyleType: 'disc',
@@ -311,22 +325,6 @@ function Faq() {
           <ListItem>Ramy Turf Products- St. Paul, MN</ListItem>
         </List>
 
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph color="text.secondary">
-
 
           </Typography>
         </CardContent>
@@ -336,7 +334,7 @@ function Faq() {
 
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "mistyrose"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Who should I call before I start digging?
@@ -362,7 +360,6 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
-    </div>
     </div>
         
         </>

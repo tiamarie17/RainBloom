@@ -19,6 +19,7 @@ import IconButton from '@mui/material/IconButton';
 import { useHistory } from 'react-router-dom';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import { Button } from "@mui/material";
+import './Plantlist.css';
 
 
 
@@ -157,8 +158,7 @@ function PlantList() {
 
     return (
         <>
-            <h3>Choose Plants For Your Garden:</h3>
-
+            <h3>Step 1: Choose Plants For Your Garden:</h3>
             <form onSubmit={handleFormSubmit}>
                 <select onChange={handleSoilChange}>
                     <option defaultValue="all soils">Soil Type</option>
@@ -177,9 +177,11 @@ function PlantList() {
                     <option value="mixed sun shade">Mixed sun shade</option>
                 </select>
                 {/* Goals multiple select dropdown menu */}
-                <FormControl sx={{ m: 1, width: 300 }}>
+                <div style={{ display:'flex', justifyContent:'center'}}>
+                <FormControl sx={{ m: 1, width: 300}}>
                     <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
                     <Select
+                        sx={{borderRadius: 3}}
                         labelId="demo-multiple-chip-label"
                         id="demo-multiple-chip"
                         multiple
@@ -188,7 +190,7 @@ function PlantList() {
                         onChange={handleGoalChange}
                         input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                         renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
                                 {selected.map((value) => (
                                     <Chip key={value} label={value} />
                                 ))}
@@ -207,15 +209,32 @@ function PlantList() {
                         ))}
                     </Select>
                 </FormControl>
-                <button type="submit">Search</button>
+                </div>
+                <div style={{ display:'flex', justifyContent:'center'}}>
+                <Button 
+                    variant = "contained" 
+                    type="submit"
+                    sx={{
+                        borderRadius: 3,
+                      }}
+                    style={{
+                        backgroundColor: 'goldenrod',
+                        color: 'black',
+                    }}
+                    
+                >Search</Button>
+                </div>
+                
             </form>
+           
 
             {/* Render search results below */}
             <div>
-                <h1>Suggested Plants:</h1>
+                <h3>Suggested Plants:</h3>
 
                 {searchResults.map(result => (
 
+                    <div style={{ display:'flex', justifyContent:'center'}}>
                     <Card sx={{ maxWidth: 330 }} key={result.id}>
                         <CardContent>
                             <Typography variant="body1" color="text.primary">
@@ -257,11 +276,25 @@ function PlantList() {
                             </CardContent>
                         </Collapse>
                     </Card>
+                    </div>
                 ))}
 
             </div>
 
-            <button onClick={handleNext}>Go to Location</button>
+            <div style={{ display:'flex', justifyContent:'center'}}>
+            <Button 
+                variant = "contained" 
+                onClick={handleNext}
+                sx={{
+                    borderRadius: 3
+                  }}
+                style={{
+                    backgroundColor: 'goldenrod',
+                    color: 'black'
+                }}
+            >Go to Location</Button>
+            </div>
+        
 
         </>
     );
