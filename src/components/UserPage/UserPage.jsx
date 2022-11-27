@@ -28,7 +28,7 @@ const goToMyGarden = () =>{
     <Weather />
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
       <button onClick = {goToFaq}>FAQs</button>
       <button onClick= {buildRainGarden}>Build a Rain Garden</button>
