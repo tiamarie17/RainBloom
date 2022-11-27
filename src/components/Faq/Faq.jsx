@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
+import './faq.css';
+import { autocompleteClasses } from '@mui/material';
 
 function Faq() {
 
@@ -32,7 +34,8 @@ function Faq() {
     return (
         <>
         <h1>FAQs</h1>
-        <Card sx={{ maxWidth: 330 }}>
+        <div style={{ display:'flex', justifyContent:'center'}}>
+        <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What is a rain garden?
@@ -57,9 +60,12 @@ function Faq() {
           </Typography>
         </CardContent>
       </Collapse>
+      
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How do rain gardens benefit the environment?
@@ -83,8 +89,10 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What are the benefits of planting native plants in my garden?
@@ -108,8 +116,10 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What are some local programs that support people with building rain gardens?
@@ -133,8 +143,11 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
+    
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How much manual labor is involved in creating the rain garden?
@@ -158,8 +171,10 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What are some additional resources for calculating the size and depth of my rain garden?
@@ -183,8 +198,10 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase native plants locally?
@@ -208,9 +225,10 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-
-    <Card sx={{ maxWidth: 330 }}>
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase compost, mulch and erosion control products locally?
@@ -234,8 +252,11 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
 
-    <Card sx={{ maxWidth: 330 }}>
+
+    <div style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Who should I call before I start digging?
@@ -259,6 +280,7 @@ function Faq() {
         </CardContent>
       </Collapse>
     </Card>
+    </div>
         
         </>
     );
