@@ -2,6 +2,8 @@ import { useState } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/IconButton';
+import ModeEditRoundedIcon from '@mui/icons-material/ModeEditRounded';
+import { ModeEdit } from '@mui/icons-material';
 
 
 
@@ -84,8 +86,9 @@ function AddNoteForm({ plant }) {
                         color: 'black',
                         margin: 5,
                     }}
+
                      
-                     >Edit
+                     ><ModeEditRoundedIcon/>
                 
                 </Button>
 
