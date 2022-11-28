@@ -14,6 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 // import EditIcon from '@mui/icons-material/Edit';
 import AddNoteForm from '../AddNoteForm/AddNoteForm';
 import Weather from '../Weather/Weather';
+import swal from 'sweetalert';
 
 
 
@@ -57,10 +58,26 @@ function MyGarden() {
     
     const removePlant = (plant) => {
       console.log('in removePlant');
-      dispatch({
-          type:'REMOVE_PLANT',
-          payload: plant.id
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this plant!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
       })
+      .then((willDelete) => {
+        if (willDelete) {
+          dispatch({
+                type:'REMOVE_PLANT',
+                payload: plant.id
+            })
+          swal("Poof! Your plant has been removed from the garden!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your plant has been saved!");
+        }
+      });
   }
 
   return (
