@@ -15,7 +15,7 @@ function UserPage() {
 
   const buildRainGarden = () =>{
     console.log('in buildRainGarden');
-    history.push('/search');
+    history.push('/steps');
 }
 
 const goToMyGarden = () =>{
@@ -25,11 +25,12 @@ const goToMyGarden = () =>{
 
   return (
     <>
-    <Weather />
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
+      <Weather />
       {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
+
       <button onClick = {goToFaq}>FAQs</button>
       <button onClick= {buildRainGarden}>Build a Rain Garden</button>
       <button onClick = {goToMyGarden}>My Garden</button>

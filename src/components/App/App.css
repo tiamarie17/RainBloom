@@ -111,14 +111,14 @@ html, body, #map {
 }
 
 /* --------------------------------------------------------------------------------
-Weather information
+Weather API info
 -------------------------------------------------------------------------------- */
 
 .weather{
   display: flex;
   flex-direction: column;
   margin-left: 1em;
-
+  margin-bottom: 2em;
 }
 
 

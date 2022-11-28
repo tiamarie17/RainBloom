@@ -222,7 +222,7 @@ function PlantList() {
                         borderRadius: 3,
                       }}
                     style={{
-                        backgroundColor: 'goldenrod',
+                        backgroundColor: 'darkseagreen',
                         color: 'black',
                     }}
                     
@@ -255,7 +255,18 @@ function PlantList() {
                         <CardActions disableSpacing>
 
                             {/* Add to Garden button */}
-                            <Button onClick = {() => addToGarden(result)}>Add to Garden
+                            <Button 
+                                onClick = {() => addToGarden(result)}
+                                sx={{
+                                    borderRadius: 3
+                                  }}
+                                style={{
+                                    backgroundColor: 'darkseagreen',
+                                    color: 'black',
+                                    margin: 5,
+                                }}
+                                
+                                >Add to Garden
                             <IconButton size ="large" aria-label="add to favorites">
                                 <LocalFloristIcon />
                             </IconButton>
@@ -296,7 +307,7 @@ function PlantList() {
                     borderRadius: 3
                   }}
                 style={{
-                    backgroundColor: 'darkseagreen',
+                    backgroundColor: 'goldenrod',
                     color: 'black'
                 }}
                 >Go to Location

@@ -1,6 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import { Button} from "@mui/material";
+import FormControl from '@mui/material/FormControl';
 
 
 function SizeForm() {
@@ -37,7 +39,8 @@ function SizeForm() {
 
     return(
     <>
-    <form onSubmit={handleSubmit}>
+    <FormControl onSubmit={handleSubmit}
+    style={{width: 200}}>
         <input 
             type = "float" 
             placeholder="total area in ft²"
@@ -48,8 +51,21 @@ function SizeForm() {
             placeholder = "depth in inches" 
             onChange = {handleDepthChange}
         />
-        <button>Calculate Size</button>
-    </form>
+        <Button
+            onClick={handleSubmit}
+            type="submit"
+            variant="container"
+             sx={{
+                borderRadius: 3
+              }}
+            style={{
+                backgroundColor: 'darkseagreen',
+                color: 'black',
+                margin: 5
+            }}
+            >Calculate Size
+        </Button>
+    </FormControl>
     </>);
 }
 

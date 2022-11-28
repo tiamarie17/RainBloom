@@ -20,7 +20,7 @@ import Map from '../Map/Map';
 import Faq from '../Faq/Faq';
 import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
-import Size from '../Size/Size';
+import Steps from '../Steps/Steps';
 import Installation from '../Installation/Installation';
 
 
@@ -98,9 +98,9 @@ function App() {
           <ProtectedRoute
             // logged in shows Map else shows LoginPage
             exact
-            path="/size"
+            path="/steps"
           >
-            <Size />
+            <Steps />
           </ProtectedRoute>
 
           <ProtectedRoute

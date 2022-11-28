@@ -123,7 +123,7 @@ function Map(){
             borderRadius: 3
           }}
           style={{
-              backgroundColor: 'darkseagreen',
+              backgroundColor: 'goldenrod',
               color: 'black',
               fontSize: 14,
               margin: 5

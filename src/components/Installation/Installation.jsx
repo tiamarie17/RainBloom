@@ -11,6 +11,7 @@ function Installation(){
     const size = useSelector((store)=>{
         return store.size;
     })
+    console.log('size is', size);
 
     const myGarden = () => {
         console.log('in myGarden');
@@ -32,7 +33,7 @@ function Installation(){
 
     <h3>Step 3: Calculate Rain Garden Size</h3>
     <SizeForm/>
-        <h4>Rain garden size is {size} ft²</h4>
+    <h3>Your rain garden size is {size} ft²</h3>
 
     <Button 
                 variant = "contained" 
@@ -41,7 +42,7 @@ function Installation(){
                     borderRadius: 3
                   }}
                 style={{
-                    backgroundColor: 'darkseagreen',
+                    backgroundColor: 'goldenrod',
                     color: 'black',
                     margin: 5
                 }}
