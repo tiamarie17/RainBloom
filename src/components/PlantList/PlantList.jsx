@@ -296,7 +296,7 @@ function PlantList() {
                     borderRadius: 3
                   }}
                 style={{
-                    backgroundColor: 'goldenrod',
+                    backgroundColor: 'darkseagreen',
                     color: 'black'
                 }}
                 >Go to Location

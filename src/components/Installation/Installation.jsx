@@ -1,6 +1,7 @@
 import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import SizeForm from './SizeForm';
+import { Button} from "@mui/material";
 
 
 function Installation(){
@@ -29,13 +30,40 @@ function Installation(){
     <>
 
 
-    <h4>Calculate Rain Garden Size</h4>
-        <SizeForm/>
+    <h3>Step 3: Calculate Rain Garden Size</h3>
+    <SizeForm/>
         <h4>Rain garden size is {size} ft²</h4>
 
-    <button onClick={myGarden}>Go To My Garden</button>
-    <button onClick={backLocation}>Back to Location</button>
-    </>);
+    <Button 
+                variant = "contained" 
+                onClick={myGarden}
+                sx={{
+                    borderRadius: 3
+                  }}
+                style={{
+                    backgroundColor: 'darkseagreen',
+                    color: 'black',
+                    margin: 5
+                }}
+                >Go to My Garden
+    </Button>
+
+    <Button 
+                variant = "contained" 
+                onClick={backLocation}
+                sx={{
+                    borderRadius: 3
+                  }}
+                style={{
+                    backgroundColor: 'darkseagreen',
+                    color: 'black',
+                    margin: 5
+                }}
+                >Back To Location
+    </Button>
+
+    </>
+    );
 }
 
 export default Installation;

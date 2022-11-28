@@ -7,6 +7,7 @@ import "leaflet-geosearch/dist/geosearch.css";
 import L from 'leaflet';
 import Layers from './Layers';
 import DraggableMarker from './DraggableMarker';
+import Button from '@mui/material/IconButton';
 import 'leaflet-easyprint';
 import 'leaflet-measure';
 import 'leaflet-measure/dist/leaflet-measure.css';
@@ -115,8 +116,36 @@ function Map(){
       
       return (
         <>
-        <button onClick={installation}>Go to Installation</button>
-        <button onClick={backToPlants}>Back to Plant Search</button>
+        <Button 
+          variant="contained"
+          onClick={installation}
+          sx={{
+            borderRadius: 3
+          }}
+          style={{
+              backgroundColor: 'darkseagreen',
+              color: 'black',
+              fontSize: 14,
+              margin: 5
+          }}
+          >Go to Installation
+        </Button>
+
+        <Button 
+          variant="contained"
+          onClick={backToPlants}
+          sx={{
+            borderRadius: 3
+          }}
+          style={{
+            
+            backgroundColor: 'darkseagreen',
+            color: 'black',
+            fontSize: 14,
+            margin: 5,
+           }}
+          >Back to Plant Search
+        </Button>
 
         <MapContainer 
           center={[44.786, -93.128]} 
