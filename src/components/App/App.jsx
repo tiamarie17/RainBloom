@@ -22,6 +22,8 @@ import Gallery from '../Gallery/Gallery';
 import PlantList from '../PlantList/PlantList';
 import Steps from '../Steps/Steps';
 import Installation from '../Installation/Installation';
+import Design from '../Design/Design';
+import Depth from '../Depth/Depth';
 
 
 
@@ -85,6 +87,22 @@ function App() {
             path="/mygarden"
           >
             <MyGarden />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyGarden else shows LoginPage
+            exact
+            path="/design"
+          >
+            <Design />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyGarden else shows LoginPage
+            exact
+            path="/depth"
+          >
+            <Depth />
           </ProtectedRoute>
 
           <ProtectedRoute

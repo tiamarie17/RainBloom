@@ -156,13 +156,13 @@ function PlantList() {
     //handle Go To Installation button
     const handleNext = () => {
         console.log('in handleNext');
-        history.push('/location');
+        history.push('/design');
     }
    
 
     return (
         <>
-            <h3>Step 1: Choose Plants For Your Garden:</h3>
+            <h3>Step 4: Choose Plants For Your Garden:</h3>
             <form onSubmit={handleFormSubmit}>
                 <select onChange={handleSoilChange}>
                     <option defaultValue="all soils">Soil Type</option>
@@ -310,7 +310,7 @@ function PlantList() {
                     backgroundColor: 'goldenrod',
                     color: 'black'
                 }}
-                >Go to Location
+                >Design Layout
             </Button>
             </div>
         
