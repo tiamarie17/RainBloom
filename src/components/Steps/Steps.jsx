@@ -1,5 +1,8 @@
 
 import { useHistory } from "react-router-dom";
+import './Steps.css';
+import { Button } from "@mui/material";
+import { Box} from '@mui/system';
 
 
 
@@ -41,6 +44,7 @@ function Steps(){
 
     <h1>Steps to Build a Rain Garden</h1>
 
+    <Box textAlign='center'>
     <div className="Step1">
     <h3>Step 1: Choose Garden Location</h3>
     <p>When it rains outside, notice where the water flows around your house and yard. Try to place it whereever water is draining away from (examples: from driveways, sump pmump outlets, or downspouts). 
@@ -52,13 +56,37 @@ function Steps(){
         <a href="https://www.youtube.com/watch?v=CoVcRxza8nI" > how to use a topo map</a>.
 
     </p>
-    <button onClick = {location}>Go To Map</button>
+    <Button 
+        onClick={location}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Go to Map
+    </Button>
     </div>
 
     <div className="Step2">
     <h3>Step 2: Select Garden Depth</h3>
     <p> Go to the Garden Depth page to learn more about how to perform an infiltration test at your desired garden location.</p>
-    <button onClick = {depth}>Go To Garden Depth</button>
+    <Button 
+        onClick={depth}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Go to Garden Depth
+    </Button>
     </div>
 
     <div className="Step3">
@@ -67,28 +95,90 @@ function Steps(){
         that produce run-off water. If you need help estimating the square footage of this area, open the map on the location page, search for your address, and click the measure icon. This will allow you to draw a polygon
         on the map and give you a rough estimate of the area. On the Size page, enter in the total area and depth, and it will calculate the size your rain garden should be in order to capture 1 inch of run-off water.
     </p>
-    <button onClick = {location}>Go To Map</button>
+    <Button 
+        onClick={location}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Go to Map
+    </Button>
     </div>
 
     <div className="Step4">
     <h3>Step 4: Choose Plants</h3>
     <p>Use the search feature to select plants for your rain garden based on your soil, sunlight, and garden goals. Add plants that you like to your garden.</p>
-    <button onClick = {search}>Go To Plant Search</button>
+    <Button 
+        onClick={search}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Go to Plant Search
+    </Button>
     </div>
 
     <div className="Step5">
     <h3>Step 5: Design the Layout</h3>
     <p>Learn how to design a layout for your garden, determine how many plants you'll need, and upload a picture of your layout to reference as you build.</p>
-    <button onClick = {search}>Design Layout</button>
+    <Button 
+        onClick={design}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Design Layout
+    </Button>
     </div>
 
     <div className="Step6">
     <h3>Step 6: Installation</h3>
-    <p>Use the search feature to select plants for your rain garden based on your soil, sunlight, and garden goals. Add plants that you like to your garden.</p>
-    <button onClick = {installation}>Go To Installation</button>
+    <p>Learn important tips on how to install a rain garden</p>
+    <Button 
+        onClick={installation}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'darkseagreen',
+                color: 'black',
+            }}
+            >Go to Installation
+    </Button>
     </div>
 
-    <button onClick= {backHome}>Back to Home</button>
+    <Button 
+        onClick={backHome}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+             }}
+            style={{
+            backgroundColor: 'goldenrod',
+                color: 'black',
+            }}
+            >Back to Home
+    </Button>
+    </Box>
+    
     </>);
 }
 
