@@ -3,6 +3,15 @@ import { useHistory } from "react-router-dom";
 import './Steps.css';
 import { Button } from "@mui/material";
 import { Box} from '@mui/system';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import Typography from '@mui/material/Typography';
+import { red } from '@mui/material/colors';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
 
 
 
