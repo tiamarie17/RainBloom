@@ -19,7 +19,7 @@ function AboutPage() {
         </h3>
 
       
-        <img src="/images/raingarden.png" alt="picture of a rain garden with yellow conflowers and showy goldenrod" />
+        <img src="background/raingarden.png" alt="picture of a rain garden with yellow conflowers and showy goldenrod" />
         <label>Our rain garden just turned 2 years old!</label>
       
 

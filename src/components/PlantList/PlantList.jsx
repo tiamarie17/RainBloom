@@ -19,6 +19,7 @@ import IconButton from '@mui/material/IconButton';
 import { useHistory } from 'react-router-dom';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import { Button, ListItem, List } from "@mui/material";
+import Swal from 'sweetalert2';
 import './Plantlist.css';
 
 
@@ -119,13 +120,18 @@ function PlantList() {
     const addToGarden = (result) => {
         console.log('in addToGarden');
         console.log('result is', result);
-        alert('Plant added!');
-
+        Swal.fire(
+            'Plant added to Garden!',
+            'You clicked the button!',
+            'Success'
+          )
         dispatch({
-            type: 'ADD_TO_GARDEN',
-            payload: result
-        })
+                type: 'ADD_TO_GARDEN',
+                payload: result
+        }); 
     }
+      
+
 
     //add mui cards and variable to track click of expand button on card
 
@@ -247,6 +253,7 @@ function PlantList() {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
+
                             {/* Add to Garden button */}
                             <Button onClick = {() => addToGarden(result)}>Add to Garden
                             <IconButton size ="large" aria-label="add to favorites">
@@ -301,6 +308,8 @@ function PlantList() {
     );
 
 }
+
+
 export default PlantList;
 
 

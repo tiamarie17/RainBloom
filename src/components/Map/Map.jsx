@@ -122,7 +122,7 @@ function Map(){
           center={[44.786, -93.128]} 
           zoom={5} 
           zoomControl={false} 
-          style={{ height: '100vh', width: '100%' }}
+          style={{ height: '70vh', width: '100%' }}
           whenCreated={(map) => addLeafletMeasureControl(map)}
         >
         <Layers/>

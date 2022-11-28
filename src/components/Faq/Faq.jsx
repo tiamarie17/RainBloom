@@ -58,7 +58,7 @@ function Faq() {
             and other bodies of water. Run-off water often comes from rooves, streets, sidewalks, patios, sump pump drains, downspouts, or driveways. 
             Rain gardens typically have a depression in the middle and contains plants that can tolerate being flooded occassionally. They also have a berm, which is a raised bank
             that surrounds the rain garden and keeps the water inside. 
-            <img src="./faq/raingarden.png"/>
+            <img src="./faq/diagram.png"/>
           </Typography>
         </CardContent>
       </Collapse>
