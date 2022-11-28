@@ -12,7 +12,7 @@ import './faq.css';
 import { autocompleteClasses, List, ListItem } from '@mui/material';
 
 function Faq() {
-
+  //declaring variables for mui expand card feature
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -35,7 +35,7 @@ function Faq() {
         <>
         <h1>FAQs</h1>
         <div style={{ display:'flex', justifyContent:'center'}}>
-        <Card sx={{ width: 330, maxWidth: 330}} style={{backgroundColor: "tan"}}>
+        <Card sx={{ width: 330, maxWidth: 330}} style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What is a rain garden?
@@ -67,7 +67,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "tan"}}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How do rain gardens benefit the environment?
@@ -99,7 +99,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "tan"}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           What are the benefits of planting native plants in my garden?
@@ -130,7 +130,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "tan"}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How much does it cost to build a rain garden? Are there grants available to help me with the cost? 
@@ -173,7 +173,7 @@ function Faq() {
     
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "tan"}}>
+    <Card sx={{ width: 330, maxWidth: 330 }}  style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How much work is involved in creating the rain garden? How long will it take to install?
@@ -205,7 +205,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "tan"}} >
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "lavender"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
           How can I find out what type of soil I have?
@@ -234,7 +234,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "tan"}} >
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "lavender"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase native plants locally?
@@ -286,7 +286,7 @@ function Faq() {
     </div>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "tan"}}>
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "lavender"}}>
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Where can I purchase compost, mulch and erosion control products?
@@ -334,7 +334,7 @@ function Faq() {
 
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "tan"}} >
+    <Card sx={{ width: 330, maxWidth: 330 }} style={{backgroundColor: "lavender"}} >
       <CardContent>
         <Typography variant="body1" color="text.primary">
         Who should I call before I start digging?
