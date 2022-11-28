@@ -76,7 +76,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ width: 330, maxWidth: 330}}>
+    <Card sx={{ width: 330, maxWidth: 330}} style={{backgroundColor: "#FFF0F5"}}>
       <CardContent>
       <Typography gutterBottom variant="h5" component="div">Step 1: Choose Garden Location</Typography>
         <Typography variant="body1" color="text.primary">
@@ -127,7 +127,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330 }}>
+    <Card sx={{ maxWidth: 330 }} style={{backgroundColor: "#FFF0F5"}}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Step 2: Select Garden Depth
@@ -157,7 +157,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center' }}>
+    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center', backgroundColor: "#FFF0F5" }} >
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Step 3: Determine Garden Size
@@ -194,7 +194,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center'}}>
+    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center', backgroundColor: "#FFF0F5"}}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Step 4: Choose Plants
@@ -224,7 +224,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330 }}>
+    <Card sx={{ maxWidth: 330 }} style={{backgroundColor: "#FFF0F5"}}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Step 5: Design the Layout
@@ -255,7 +255,7 @@ function Steps(){
 
     <Box textAlign='center'>
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center' }}>
+    <Card sx={{ maxWidth: 330 }} style={{ display:'flex', justifyContent:'center', backgroundColor: "#FFF0F5" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Step 6: Installation
