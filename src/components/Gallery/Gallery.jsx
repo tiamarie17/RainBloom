@@ -4,6 +4,9 @@ import FormData from 'form-data';
 import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import swal from 'sweetalert';
+
+
 
 function Upload(){
 
@@ -58,10 +61,28 @@ function Upload(){
 
     const removeImage = (galleryItem) => {
         console.log('in removeImage');
-        dispatch({
-            type:'REMOVE_IMAGE',
-            payload: galleryItem.id
-        })
+    
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this photo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                dispatch({
+                    type:'REMOVE_IMAGE',
+                    payload: galleryItem.id
+                })
+              swal("Poof! Your photo has been deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Your photo was saved!");
+            }
+          });
+    
     }
 
     const gallery = useSelector((store) => {
