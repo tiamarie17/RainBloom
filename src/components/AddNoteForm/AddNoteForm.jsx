@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@mui/material/IconButton';
 
 
 
@@ -49,7 +50,19 @@ function AddNoteForm({ plant }) {
                 </textarea>
 
                 {/* When the save button is clicked, the user input is stored in the reducer */}
-                <button onClick={handleSave}>Save</button>
+                <Button 
+                    variant="contained"
+                    onClick={handleSave}
+                    sx={{
+                        borderRadius: 3
+                      }}
+                    style={{
+                        backgroundColor: 'darkseagreen',
+                        color: 'black',
+                        margin: 5,
+                    }}
+                    >Save
+                </Button>
 
             </>
         );
@@ -58,9 +71,23 @@ function AddNoteForm({ plant }) {
         return (
             <>
             <p>Notes: {plant.notes}</p>
-                <button onClick={() => {
+                <Button 
+                    variant="contained" 
+                    onClick={() => {
                     setEditMode(true);
-                }}>Edit</button>
+                     }}
+                     sx={{
+                        borderRadius: 3
+                      }}
+                    style={{
+                        backgroundColor: 'darkseagreen',
+                        color: 'black',
+                        margin: 5,
+                    }}
+                     
+                     >Edit
+                
+                </Button>
 
             </>
         );
