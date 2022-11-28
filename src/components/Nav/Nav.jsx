@@ -41,7 +41,7 @@ function Nav() {
           FAQ
         </Link>
 
-        <Link className="navLink" to="/search">
+        <Link className="navLink" to="/steps">
           Build A Garden
         </Link>
 
