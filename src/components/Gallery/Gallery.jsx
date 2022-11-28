@@ -5,6 +5,7 @@ import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import swal from 'sweetalert';
+import './Gallery.css';
 
 
 
@@ -93,10 +94,10 @@ function Upload(){
     return(
 
         <>
-        <form onSubmit={handleUpload}>
+        <form onSubmit={handleUpload} style={{maxWidth: 200, justifyContent: 'center'}}>
         <input type="file" className="form-control-file" name="uploaded_file" onChange = {fileChangeHandler}/>
-        <input type="text" className="form-control" placeholder="description" name="description" onChange = {descriptionChangeHandler}/>
-        <input type="submit" value="Upload" className="btn btn-default"/>            
+        <input id="description" type="text" className="form-control" placeholder="description" name="description" onChange = {descriptionChangeHandler}/>
+        <input id= "uploadButton" type="submit" value="Upload" className="btn btn-default"/>            
         </form>
 
         <div>
