@@ -15,6 +15,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddNoteForm from '../AddNoteForm/AddNoteForm';
 import Weather from '../Weather/Weather';
 import swal from 'sweetalert';
+import './MyGarden.css';
+import {List, ListItem } from '@mui/material';
 
 
 
@@ -82,19 +84,24 @@ function MyGarden() {
 
   return (
     <>
+    <div className="myGardenIntro">
     <h1>My Garden</h1>
     <Weather />
     <h2>My Plants</h2>
+    </div>
+
      {/* Render plants added to user's garden below */}
                 {myPlants.map(plant => (
-                      <Card sx={{ maxWidth: 330 }} key = {plant.id}>
+                    <div style={{ display:'flex', justifyContent:'center'}}>
+                      <Card sx={{ maxWidth: 330 }} style={{backgroundColor: "#CAE1FF"}} key = {plant.id}>
                       <CardContent>
                           <Typography variant="body1" color="text.primary">
                               <img src={plant.image} />
-                              <ul>
-                                  <li>Common name: {plant.common_name}</li>
-                                  <li>Botanical name: {plant.botanical_name}</li>
-                              </ul>
+                              <List>
+                                  <ListItem>Common name: {plant.common_name}</ListItem>
+                                  <ListItem>Botanical name: {plant.botanical_name}</ListItem>
+                              </List>
+                              <AddNoteForm plant={plant} />
                           </Typography>
                       </CardContent>
                       <CardActions disableSpacing>
@@ -118,17 +125,17 @@ function MyGarden() {
                       <Collapse in={expanded} timeout="auto" unmountOnExit>
                           <CardContent>
                               <Typography paragraph color="text.secondary">
-                                  <ul>
-                                      <li>Soil Type: {plant.soil_type}</li>
-                                      <li>Spacing: {plant.spacing}</li>
-                                      <li>Location in Rain Garden: {plant.plant_location}</li>
-                                      <li>Inundation Tolerance: {plant.inundation_amount} inches</li>
-                                  </ul>
-                                  <AddNoteForm plant={plant} />
+                                  <List>
+                                      <ListItem>Soil Type: {plant.soil_type}</ListItem>
+                                      <ListItem>Spacing: {plant.spacing}</ListItem>
+                                      <ListItem>Location in Rain Garden: {plant.plant_location}</ListItem>
+                                      <ListItem>Inundation Tolerance: {plant.inundation_amount} inches</ListItem>
+                                  </List>
                               </Typography>
                           </CardContent>
                       </Collapse>
                       </Card>
+                      </div>
                 ))}
     </>
   );

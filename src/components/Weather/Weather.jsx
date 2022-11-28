@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from "axios";
 
 
+
 function Weather() {
     console.log('in weather API');
 
@@ -39,7 +40,7 @@ function Weather() {
         <>
     <div className="weather">
     
-        <div>{weather.temperature}°F</div>
+        <div className="temperature">{weather.temperature}°F</div>
         <div><img src={weather.icon}/></div>
         <div>{weather.text}</div>
         <div>{weather.windMph} mph</div>
