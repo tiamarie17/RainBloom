@@ -24,6 +24,7 @@ import Steps from '../Steps/Steps';
 import Installation from '../Installation/Installation';
 import Design from '../Design/Design';
 import Depth from '../Depth/Depth';
+import Size from '../Size/Size';
 
 
 
@@ -87,6 +88,14 @@ function App() {
             path="/mygarden"
           >
             <MyGarden />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows MyGarden else shows LoginPage
+            exact
+            path="/size"
+          >
+            <Size />
           </ProtectedRoute>
 
           <ProtectedRoute

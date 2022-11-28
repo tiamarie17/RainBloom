@@ -1,36 +1,37 @@
 import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import SizeForm from '../Size/SizeForm';
+import SizeForm from './SizeForm';
 import { Button} from "@mui/material";
+import { SearchOffRounded } from '@mui/icons-material';
 
 
-function Installation(){
+function Size() {
 
     const history = useHistory();
 
-    const myGarden = () => {
-        console.log('in myGarden');
-        history.push('/mygarden');
+    const size = useSelector((store)=>{
+        return store.size;
+    })
+    console.log('size is', size);
 
+    const map = () => {
+        history.push('/location');
     }
 
-
-    const design = () => {
-        console.log('in design');
-        history.push('/design');
-
+    const search = () => {
+        history.push('/search');
     }
 
 
     return(
     <>
+        <h3>Step 3: Calculate Rain Garden Size</h3>
+    <SizeForm/>
+    <h3>Your rain garden size is {size} ft²</h3>
 
-
-    <h3>Step 6: Installation Tips</h3>
-    
     <Button 
                 variant = "contained" 
-                onClick={design}
+                onClick={map}
                 sx={{
                     borderRadius: 3
                   }}
@@ -39,12 +40,12 @@ function Installation(){
                     color: 'black',
                     margin: 5
                 }}
-                >Back To Design Layout
-    </Button> 
+                >Back To Map
+    </Button>
 
     <Button 
                 variant = "contained" 
-                onClick={myGarden}
+                onClick={search}
                 sx={{
                     borderRadius: 3
                   }}
@@ -53,12 +54,9 @@ function Installation(){
                     color: 'black',
                     margin: 5
                 }}
-                >Go to My Garden
+                >Search for Plants
     </Button>
-
-
-    </>
-    );
+    </>);
 }
 
-export default Installation;
+export default Size;

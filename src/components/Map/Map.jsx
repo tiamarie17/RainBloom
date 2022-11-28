@@ -107,33 +107,29 @@ function Map(){
         },
       });
 
-      //handle back button
+      //handle depth button
+      const depth = () => {
+        console.log('in depth');
+        history.push('/depth');
+      }
+
+
        //handle Back To Plant Search button
-      const backToPlants = () => {
-      console.log('in backToPlants');
-      history.push('/search');
+      const backToSteps = () => {
+      console.log('in backToSteps');
+      history.push('/steps');
+  }
+
+  const size = () => {
+    console.log('in size');
+    history.push('/size');
   }
       
       return (
         <>
-        <Button 
+          <Button 
           variant="contained"
-          onClick={installation}
-          sx={{
-            borderRadius: 3
-          }}
-          style={{
-              backgroundColor: 'goldenrod',
-              color: 'black',
-              fontSize: 14,
-              margin: 5
-          }}
-          >Go to Installation
-        </Button>
-
-        <Button 
-          variant="contained"
-          onClick={backToPlants}
+          onClick={backToSteps}
           sx={{
             borderRadius: 3
           }}
@@ -144,7 +140,38 @@ function Map(){
             fontSize: 14,
             margin: 5,
            }}
-          >Back to Plant Search
+          >Back
+        </Button>
+
+        <Button 
+          variant="contained"
+          onClick={depth}
+          sx={{
+            borderRadius: 3
+          }}
+          style={{
+              backgroundColor: 'goldenrod',
+              color: 'black',
+              fontSize: 14,
+              margin: 5
+          }}
+          >Go to Depth
+        </Button>
+
+        <Button 
+          variant="contained"
+          onClick={size}
+          sx={{
+            borderRadius: 3
+          }}
+          style={{
+            
+            backgroundColor: 'goldenrod',
+            color: 'black',
+            fontSize: 14,
+            margin: 5,
+           }}
+          >Calculate Garden Size
         </Button>
 
         <MapContainer 

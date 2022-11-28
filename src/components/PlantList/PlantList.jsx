@@ -153,11 +153,17 @@ function PlantList() {
         }),
     }));
 
-    //handle Go To Installation button
+    //handle design button
     const handleNext = () => {
         console.log('in handleNext');
         history.push('/design');
     }
+
+        //handle back to Map button
+        const size = () => {
+            console.log('in size');
+            history.push('/size');
+        }
    
 
     return (
@@ -300,7 +306,24 @@ function PlantList() {
             </div>
 
             <div style={{ display:'flex', justifyContent:'center'}}>
-            <Button 
+        
+        <Button 
+          variant="contained"
+          onClick={size}
+          sx={{
+            borderRadius: 3
+          }}
+          style={{
+            
+            backgroundColor: 'darkseagreen',
+            color: 'black',
+            fontSize: 14,
+            margin: 5,
+           }}
+          >Back to Garden Size
+        </Button>
+
+        <Button 
                 variant = "contained" 
                 onClick={handleNext}
                 sx={{
