@@ -1,0 +1,30 @@
+
+.userButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.full-screen {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+  }
+  
+  .bg-user {
+    background-image: url("/public/background/psmoke3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .userWeather {
+    background-color: mistyrose;
+    margin: 0px;
+    text-align: center;
+  }
+
+ 
+  
+ 

@@ -2,6 +2,9 @@ import React, {useHistory} from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import Weather from '../Weather/Weather';
+import { Button } from "@mui/material";
+import './User.css';
+
 
 function UserPage() {
   const user = useSelector((store) => store.user);
@@ -13,8 +16,8 @@ function UserPage() {
       history.push('/faq');
   }
 
-  const buildRainGarden = () =>{
-    console.log('in buildRainGarden');
+  const steps = () =>{
+    console.log('in steps');
     history.push('/steps');
 }
 
@@ -25,16 +28,72 @@ const goToMyGarden = () =>{
 
   return (
     <>
+    <div className="userWeather">
+     <h2>Welcome, {user.username}!</h2>
+     <Weather />
+    </div>
+    <div className = "full-screen bg-user"></div>
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <Weather />
+      
       {/* <p>Your ID is: {user.id}</p> */}
       {/* <LogOutButton className="btn" /> */}
 
-      <button onClick = {goToFaq}>FAQs</button>
-      <button onClick= {buildRainGarden}>Build a Rain Garden</button>
-      <button onClick = {goToMyGarden}>My Garden</button>
+
+     <div className="userButtons">
+      <Button 
+        onClick={goToFaq}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+            margin: 3
+             }}
+            style={{
+            backgroundColor: 'mistyrose',
+                color: 'black',
+            }}
+            >FAQs
+    </Button>
+
+
+    
+    <Button 
+        onClick={steps}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+            margin: 3
+             }}
+            style={{
+            backgroundColor: 'mistyrose',
+                color: 'black',
+            }}
+            >Build a Rain Garden
+    </Button>
+    
+    
+    
+    <Button 
+        onClick={goToMyGarden}
+        variant = "contained" 
+        type="submit"
+        sx={{
+            borderRadius: 3,
+            margin: 3
+          
+             }}
+            style={{
+            backgroundColor: 'mistyrose',
+                color: 'black',
+            }}
+            >My Garden
+    </Button>
+    
     </div>
+  
+    </div>
+    
     </>
   );
 }
