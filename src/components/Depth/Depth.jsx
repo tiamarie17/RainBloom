@@ -7,6 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {List, ListItem } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import './Depth.css';
+
+
 
 
 function Depth(){
@@ -22,7 +26,7 @@ function Depth(){
     return(<>
 
     <div style={{ display:'flex', justifyContent:'center'}}>
-    <Card sx={{ maxWidth: 330, height: 1100 }} >
+    <Card sx={{ maxWidth: 330, height: 1300 }} >
       <CardMedia
         component="img"
         height="160"
@@ -45,18 +49,36 @@ function Depth(){
             <ListItem>Example: If you notice that it lowers 1 inch every 6 hours, in 24 hours it will lower 4 inches. So, inches would be the depth of your rain garden.</ListItem>
             <ListItem>Tip: Do not make your rain garden deeper than 12 inches, even if the test indicates it soaks in more than that. This is to prevent mosquitoes from hatching.</ListItem>
           </List>
-          
-          
         </Typography>
       </CardContent>
       <CardActions>
+      <FormControl style={{margin: 'auto'}}>
+      <input id="depthForm" type="number" placeholder="Enter depth in inches"/>
+      <Button 
+        variant="container"
+        sx={{
+          borderRadius: 3
+        }}
+        style={{
+          
+          backgroundColor: 'darkseagreen',
+          color: 'black',
+          fontSize: 14,
+          margin: 5,
+         }}
+        >Save
+      </Button>
+      </FormControl>
       </CardActions>
     </Card>
     </div>
+
+
+   
         
 
          
-
+    <div style={{ display:'flex', justifyContent:'center'}}>
         <Button 
           variant="contained"
           onClick={area}
@@ -65,16 +87,14 @@ function Depth(){
           }}
           style={{
             
-            backgroundColor: 'darkseagreen',
+            backgroundColor: 'goldenrod',
             color: 'black',
             fontSize: 14,
             margin: 5,
            }}
           >Find Area with Map
         </Button>
-    
-
-
+        </div>
     </>);
 }
 

@@ -33,7 +33,10 @@ CREATE TABLE "uploads" (
 CREATE TABLE "plants_user" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" serial NOT NULL,
-	"plant_id" serial NOT NULL
+	"plant_id" serial NOT NULL,
+	"notes" VARCHAR 1000,
+	"depth" INT,
+	"design" VARCHAR 1000
 );
 
 CREATE TABLE "user" (

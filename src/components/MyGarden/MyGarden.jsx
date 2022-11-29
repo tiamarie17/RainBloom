@@ -11,7 +11,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import EditIcon from '@mui/icons-material/Edit';
 import AddNoteForm from '../AddNoteForm/AddNoteForm';
 import Weather from '../Weather/Weather';
 import swal from 'sweetalert';
@@ -92,7 +91,7 @@ function MyGarden() {
 
      {/* Render plants added to user's garden below */}
                 {myPlants.map(plant => (
-                    <div style={{ display:'flex', justifyContent:'center'}}>
+                    <div style={{ display:'flex', justifyContent:'center'}} key = {plant.id}>
                       <Card sx={{ maxWidth: 330 }} style={{backgroundColor: "#CAE1FF"}} key = {plant.id}>
                       <CardContent>
                           <Typography variant="body1" color="text.primary">
