@@ -1,9 +1,4 @@
 
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
-
 
  CREATE TABLE "plants" (
 	"id" SERIAL PRIMARY KEY,
@@ -16,7 +11,7 @@
 	"image" varchar(255) NOT NULL,
 	"sunlight_amount" varchar(255) NOT NULL,
 	"hummingbirds" BOOLEAN,
-	"deer_resistant" BOOLEAN,
+	"deerresistant" BOOLEAN,
 	"butterflies" BOOLEAN,
 	"birds" BOOLEAN,
 	"pollinators" BOOLEAN,
@@ -49,7 +44,7 @@ CREATE TABLE "user" (
 );
 
 
-INSERT INTO "plants" ("common_name", "botanical_name", "soil_type", "spacing", "plant_location", "inundation_amount", "image", "sunlight_amount", "hummingbirds", "deer-resistant", "butterflies", "birds", "pollinators")
+INSERT INTO "plants" ("common_name", "botanical_name", "soil_type", "spacing", "plant_location", "inundation_amount", "image", "sunlight_amount", "hummingbirds", "deerresistant", "butterflies", "birds", "pollinators")
 VALUES ('Maidenhair Fern', 'Adiantum pedatum', 'loam', '18"', 'bottom', 6, 'images/maidenhairfern.jpg', 'medium shade', false, false, false, false, false),
 ('Big Bluestem', 'Andropogon gerardii', 'loam', '24"', 'back', 6, 'images/bigbluestem.jpg', 'light shade', false, false, true, true, false),
 ('Columbine', 'Aguilegia canadensis', 'loam', '18"', 'front', 3, 'images/columbine.jpg', 'mixed sun shade', true, true, true, false, false),
