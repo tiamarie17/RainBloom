@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import FormData from 'form-data';
 import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -9,13 +9,13 @@ import './Gallery.css';
 
 
 
-function Upload(){
+function Upload() {
 
     const dispatch = useDispatch();
     const [selectedFile, setSelectedFile] = useState('');
     const [description, setDescription] = useState('');
 
-    const user = useSelector((store)=> {
+    const user = useSelector((store) => {
         return store.user;
     })
 
@@ -32,27 +32,27 @@ function Upload(){
 
         let formData = new FormData();
 
-        for (const file of selectedFile.files){
+        for (const file of selectedFile.files) {
             formData.append('uploaded_file', file);
             formData.append('description', description);
         }
-        
+
         axios.post("/api/gallery", formData)
-            .then(res =>{
+            .then(res => {
                 console.log('in post axios client, res is', res);
                 dispatch({
                     type: 'FETCH_GALLERY'
                 });
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log('error in axios post client, error is', err);
             })
 
     }
 
     const fileChangeHandler = (event) => {
-        setSelectedFile({files: event.target.files});
-    
+        setSelectedFile({ files: event.target.files });
+
     }
 
     const descriptionChangeHandler = (event) => {
@@ -62,69 +62,69 @@ function Upload(){
 
     const removeImage = (galleryItem) => {
         console.log('in removeImage');
-    
+
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this photo!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                dispatch({
-                    type:'REMOVE_IMAGE',
-                    payload: galleryItem.id
-                })
-              swal("Poof! Your photo has been deleted!", {
-                icon: "success",
-              });
-            } else {
-              swal("Your photo was saved!");
-            }
-          });
-    
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    dispatch({
+                        type: 'REMOVE_IMAGE',
+                        payload: galleryItem.id
+                    })
+                    swal("Poof! Your photo has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your photo was saved!");
+                }
+            });
+
     }
 
     const gallery = useSelector((store) => {
         return store.gallery;
     })
-    
 
-    return(
+
+    return (
 
         <>
-        <form onSubmit={handleUpload} style={{maxWidth: 200, justifyContent: 'center'}}>
-        <input type="file" className="form-control-file" name="uploaded_file" onChange = {fileChangeHandler}/>
-        <input id="description" type="text" className="form-control" placeholder="description" name="description" onChange = {descriptionChangeHandler}/>
-        <input id= "uploadButton" type="submit" value="Upload" className="btn btn-default"/>            
-        </form>
+            <form onSubmit={handleUpload} style={{ maxWidth: 200, justifyContent: 'center' }}>
+                <input type="file" className="form-control-file" name="uploaded_file" onChange={fileChangeHandler} />
+                <input id="description" type="text" className="form-control" placeholder="description" name="description" onChange={descriptionChangeHandler} />
+                <input id="uploadButton" type="submit" value="Upload" className="btn btn-default" />
+            </form>
 
-        <div>
-            <h1>My Garden Gallery</h1>
-            <table>
-                <tbody>
-                    {gallery.map(galleryItem => (
-                        <tr key={galleryItem.id}>
-                            <td><img src={galleryItem.image_url.replace("public/", "")}/></td>
-                            <td>{galleryItem.description}</td>
-                            {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
-                            <td>{user.id === galleryItem.user_id && 
-                                <IconButton onClick = {() => removeImage(galleryItem)} size ="large" aria-label="add to favorites">
-                                <DeleteIcon />
-                                </IconButton>}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+            <div>
+                <h1>My Garden Gallery</h1>
+                <table>
+                    <tbody>
+                        {gallery.map(galleryItem => (
+                            <tr key={galleryItem.id}>
+                                <td><img src={galleryItem.image_url.replace("public/", "")} /></td>
+                                <td>{galleryItem.description}</td>
+                                {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
+                                <td>{user.id === galleryItem.user_id &&
+                                    <IconButton onClick={() => removeImage(galleryItem)} size="large" aria-label="add to favorites">
+                                        <DeleteIcon />
+                                    </IconButton>}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
         </>
 
 
-        
-    
+
+
     );
 
 }

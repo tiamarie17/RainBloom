@@ -43,7 +43,7 @@ function Map(){
       const provider = new OpenStreetMapProvider();
 
       const searchControl = new GeoSearchControl({
-        provider,
+                provider,
         marker: {
           icon
         },
