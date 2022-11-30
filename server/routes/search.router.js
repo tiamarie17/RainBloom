@@ -26,21 +26,21 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     //adding onto SQL string if the goals array contains certain goals
     //pushing strings into an array
 
-    if (goals.includes('Butterflies')){
+    if (goals.includes('Butterflies')) {
         goalsArray.push('Butterflies = True');
     }
 
-    if (goals.includes('Hummingbirds')){
+    if (goals.includes('Hummingbirds')) {
         goalsArray.push('Hummingbirds = True');
     }
-    if (goals.includes('Pollinators')){
+    if (goals.includes('Pollinators')) {
         goalsArray.push('Pollinators = True');
     }
 
-    if (goals.includes('deerresistant')){
+    if (goals.includes('deerresistant')) {
         goalsArray.push('deerresistant = True');
     }
-    if (goals.includes('Birds')){
+    if (goals.includes('Birds')) {
         goalsArray.push('Birds = True');
     }
 
@@ -63,7 +63,7 @@ router.post('/', rejectUnauthenticated, function (req, res) {
     pool.query(sqlText, sqlParams)
         .then((result) => {
             res.status(200).send(result.rows);
-            
+
         })
         .catch((err) => {
             console.log('in search POST router error, error is', err);

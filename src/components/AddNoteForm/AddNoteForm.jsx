@@ -16,10 +16,10 @@ function AddNoteForm({ plant }) {
     })
     const [editMode, setEditMode] = useState(false);
 
-    const handleSave = (event) =>{
+    const handleSave = (event) => {
         event.preventDefault();
         console.log('in handleSave');
-    
+
         dispatch({
             type: 'SET_ACTIVE_PLANT',
             payload: notes
@@ -52,18 +52,18 @@ function AddNoteForm({ plant }) {
                 </textarea>
 
                 {/* When the save button is clicked, the user input is stored in the reducer */}
-                <Button 
+                <Button
                     variant="contained"
                     onClick={handleSave}
                     sx={{
                         borderRadius: 3
-                      }}
+                    }}
                     style={{
                         backgroundColor: 'darkseagreen',
                         color: 'black',
                         margin: 5,
                     }}
-                    >Save
+                >Save
                 </Button>
 
             </>
@@ -72,24 +72,24 @@ function AddNoteForm({ plant }) {
     } else {
         return (
             <>
-            <p>Notes: {plant.notes}</p>
-                <Button 
-                    variant="contained" 
+                <p>Notes: {plant.notes}</p>
+                <Button
+                    variant="contained"
                     onClick={() => {
-                    setEditMode(true);
-                     }}
-                     sx={{
+                        setEditMode(true);
+                    }}
+                    sx={{
                         borderRadius: 3
-                      }}
+                    }}
                     style={{
                         backgroundColor: 'darkseagreen',
                         color: 'black',
                         margin: 5,
                     }}
 
-                     
-                     ><ModeEditRoundedIcon/>
-                
+
+                ><ModeEditRoundedIcon />
+
                 </Button>
 
             </>

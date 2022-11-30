@@ -35,19 +35,19 @@ function Weather() {
     })
     console.log('weather is', weather);
 
-    
+
     return (
         <>
-    <div className="weather">
-    
-        <div className="temperature">{weather.temperature}°F</div>
-        <div><img src={weather.icon}/></div>
-        <div>{weather.text}</div>
-        <div>{weather.windMph} mph</div>
-    </div>
+            <div className="weather">
+
+                <div className="temperature">{weather.temperature}°F</div>
+                <div><img src={weather.icon} /></div>
+                <div>{weather.text}</div>
+                <div>{weather.windMph} mph</div>
+            </div>
         </>
     );
-      
+
 }
 
 export default Weather;

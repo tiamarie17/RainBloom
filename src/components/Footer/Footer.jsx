@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
   return (
-  <footer>&copy; Tia Theisen</footer>);
+    <footer>&copy; Tia Theisen</footer>);
 }
 
 export default Footer;

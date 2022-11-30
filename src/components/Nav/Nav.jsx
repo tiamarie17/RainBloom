@@ -20,20 +20,20 @@ function Nav() {
     }
   }
 
-// const[mobileMenu, setMobileMenu] = useState(false);
-// const onCLickHandler = () => {
-//     setMobileMenu(!mobileMenu)
-// }
+  // const[mobileMenu, setMobileMenu] = useState(false);
+  // const onCLickHandler = () => {
+  //     setMobileMenu(!mobileMenu)
+  // }
 
   return (
     <div className="topnav">
-        <Link className="navTitle" to="/home">
-          <h2>RainBloom</h2>
-        </Link>
+      <Link className="navTitle" to="/home">
+        <h2>RainBloom</h2>
+      </Link>
       {/* Navigation links (hidden by default) */}
       <div id="myLinks">
 
-      <Link className="navLink" to="/about">
+        <Link className="navLink" to="/about">
           About
         </Link>
 
@@ -73,8 +73,8 @@ function Nav() {
 
       </div>
       {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
-      <div className = "icon">
-      <ReorderIcon size="large" sx={({fontSize: "3rem"})} onClick={onClickHandler}></ReorderIcon>
+      <div className="icon">
+        <ReorderIcon size="large" sx={({ fontSize: "3rem" })} onClick={onClickHandler}></ReorderIcon>
       </div>
     </div>
 

@@ -14,17 +14,17 @@ function LandingPage() {
   };
 
   return (
-    <div className = "full-screen bg-landing">
-    <div className="container">
-          <RegisterForm />
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
-        </div>
+    <div className="full-screen bg-landing">
+      <div className="container">
+        <RegisterForm />
+        <center>
+          <h4>Already a Member?</h4>
+          <button className="btn btn_sizeSm" onClick={onLogin}>
+            Login
+          </button>
+        </center>
+      </div>
+    </div>
   );
 }
 

@@ -8,7 +8,7 @@ function* removeImage(action) {
         const deletedImage = action.payload;
 
         console.log('deletedImage is', deletedImage);
-        
+
         yield axios.delete(`/api/gallery/${deletedImage}`);
 
         // trigger a GET request

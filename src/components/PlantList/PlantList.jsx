@@ -124,13 +124,13 @@ function PlantList() {
             'Plant added to Garden!',
             'You clicked the button!',
             'Success'
-          )
+        )
         dispatch({
-                type: 'ADD_TO_GARDEN',
-                payload: result
-        }); 
+            type: 'ADD_TO_GARDEN',
+            payload: result
+        });
     }
-      
+
 
 
     //add mui cards and variable to track click of expand button on card
@@ -159,12 +159,12 @@ function PlantList() {
         history.push('/design');
     }
 
-        //handle back to Map button
-        const size = () => {
-            console.log('in size');
-            history.push('/size');
-        }
-   
+    //handle back to Map button
+    const size = () => {
+        console.log('in size');
+        history.push('/size');
+    }
+
 
     return (
         <>
@@ -187,57 +187,57 @@ function PlantList() {
                     <option value="mixed sun shade">Mixed sun shade</option>
                 </select>
                 {/* Goals multiple select dropdown menu */}
-                <div style={{ display:'flex', justifyContent:'center'}}>
-                <FormControl sx={{ m: 1, width: 300}}>
-                    <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
-                    <Select
-                        sx={{borderRadius: 3}}
-                        labelId="demo-multiple-chip-label"
-                        id="demo-multiple-chip"
-                        multiple
-                        // required
-                        value={goalName}
-                        onChange={handleGoalChange}
-                        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                        renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-                                {selected.map((value) => (
-                                    <Chip key={value} label={value} />
-                                ))}
-                            </Box>
-                        )}
-                        MenuProps={MenuProps}
-                    >
-                        {goals.map((goal) => (
-                            <MenuItem
-                                key={goal}
-                                value={goal}
-                                style={getStyles(goal, goalName, theme)}
-                            >
-                                {goal}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <FormControl sx={{ m: 1, width: 300 }}>
+                        <InputLabel id="demo-multiple-chip-label">Select Goals For Your Garden</InputLabel>
+                        <Select
+                            sx={{ borderRadius: 3 }}
+                            labelId="demo-multiple-chip-label"
+                            id="demo-multiple-chip"
+                            multiple
+                            // required
+                            value={goalName}
+                            onChange={handleGoalChange}
+                            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                            renderValue={(selected) => (
+                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                    {selected.map((value) => (
+                                        <Chip key={value} label={value} />
+                                    ))}
+                                </Box>
+                            )}
+                            MenuProps={MenuProps}
+                        >
+                            {goals.map((goal) => (
+                                <MenuItem
+                                    key={goal}
+                                    value={goal}
+                                    style={getStyles(goal, goalName, theme)}
+                                >
+                                    {goal}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
-                <div style={{ display:'flex', justifyContent:'center'}}>
-                <Button 
-                    variant = "contained" 
-                    type="submit"
-                    sx={{
-                        borderRadius: 3,
-                      }}
-                    style={{
-                        backgroundColor: 'darkseagreen',
-                        color: 'black',
-                    }}
-                    
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        sx={{
+                            borderRadius: 3,
+                        }}
+                        style={{
+                            backgroundColor: 'darkseagreen',
+                            color: 'black',
+                        }}
+
                     >Search
-                </Button>
+                    </Button>
                 </div>
-                
+
             </form>
-           
+
 
             {/* Render search results below */}
             <div>
@@ -245,98 +245,98 @@ function PlantList() {
 
                 {searchResults.map(result => (
 
-                    <div style={{ display:'flex', justifyContent:'center'}} key ={result.id}>
-                    <Card 
-                        sx={{ maxWidth: 330 }} 
-                     >
-                        <CardContent>
-                            <Typography variant="body1" color="text.primary">
-                                <img src={result.image} />
-                                <List>
-                                    <ListItem>Common name: {result.common_name}</ListItem>
-                                    <ListItem>Botanical name: {result.botanical_name}</ListItem>
-                                </List>
-                            </Typography>
-                        </CardContent>
-                        <CardActions disableSpacing>
-
-                            {/* Add to Garden button */}
-                            <Button 
-                                onClick = {() => addToGarden(result)}
-                                sx={{
-                                    borderRadius: 3
-                                  }}
-                                style={{
-                                    backgroundColor: 'darkseagreen',
-                                    color: 'black',
-                                    margin: 5,
-                                }}
-                                
-                                >Add to Garden
-                            <IconButton size ="large" aria-label="add to favorites">
-                                <LocalFloristIcon />
-                            </IconButton>
-                            </Button>
-
-                            <ExpandMore
-                                expand={expanded}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more"
-                            >
-                                <ExpandMoreIcon />
-                            </ExpandMore>
-                        </CardActions>
-                        <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <div style={{ display: 'flex', justifyContent: 'center' }} key={result.id}>
+                        <Card
+                            sx={{ maxWidth: 330 }}
+                        >
                             <CardContent>
-                                <Typography paragraph color="text.secondary">
+                                <Typography variant="body1" color="text.primary">
+                                    <img src={result.image} />
                                     <List>
-                                        <ListItem>Soil Type: {result.soil_type}</ListItem>
-                                        <ListItem>Spacing: {result.spacing}</ListItem>
-                                        <ListItem>Location in Rain Garden: {result.plant_location}</ListItem>
-                                        <ListItem>Inundation Tolerance: {result.inundation_amount} inches</ListItem>
+                                        <ListItem>Common name: {result.common_name}</ListItem>
+                                        <ListItem>Botanical name: {result.botanical_name}</ListItem>
                                     </List>
                                 </Typography>
                             </CardContent>
-                        </Collapse>
-                    </Card>
+                            <CardActions disableSpacing>
+
+                                {/* Add to Garden button */}
+                                <Button
+                                    onClick={() => addToGarden(result)}
+                                    sx={{
+                                        borderRadius: 3
+                                    }}
+                                    style={{
+                                        backgroundColor: 'darkseagreen',
+                                        color: 'black',
+                                        margin: 5,
+                                    }}
+
+                                >Add to Garden
+                                    <IconButton size="large" aria-label="add to favorites">
+                                        <LocalFloristIcon />
+                                    </IconButton>
+                                </Button>
+
+                                <ExpandMore
+                                    expand={expanded}
+                                    onClick={handleExpandClick}
+                                    aria-expanded={expanded}
+                                    aria-label="show more"
+                                >
+                                    <ExpandMoreIcon />
+                                </ExpandMore>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                                <CardContent>
+                                    <Typography paragraph color="text.secondary">
+                                        <List>
+                                            <ListItem>Soil Type: {result.soil_type}</ListItem>
+                                            <ListItem>Spacing: {result.spacing}</ListItem>
+                                            <ListItem>Location in Rain Garden: {result.plant_location}</ListItem>
+                                            <ListItem>Inundation Tolerance: {result.inundation_amount} inches</ListItem>
+                                        </List>
+                                    </Typography>
+                                </CardContent>
+                            </Collapse>
+                        </Card>
                     </div>
                 ))}
 
             </div>
 
-            <div style={{ display:'flex', justifyContent:'center'}}>
-        
-        <Button 
-          variant="contained"
-          onClick={size}
-          sx={{
-            borderRadius: 3
-          }}
-          style={{
-            
-            backgroundColor: 'darkseagreen',
-            color: 'black',
-            fontSize: 14,
-            margin: 5,
-           }}
-          >Back to Garden Size
-        </Button>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-        <Button 
-                variant = "contained" 
-                onClick={handleNext}
-                sx={{
-                    borderRadius: 3
-                  }}
-                style={{
-                    backgroundColor: 'goldenrod',
-                    color: 'black'
-                }}
+                <Button
+                    variant="contained"
+                    onClick={size}
+                    sx={{
+                        borderRadius: 3
+                    }}
+                    style={{
+
+                        backgroundColor: 'darkseagreen',
+                        color: 'black',
+                        fontSize: 14,
+                        margin: 5,
+                    }}
+                >Back to Garden Size
+                </Button>
+
+                <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{
+                        borderRadius: 3
+                    }}
+                    style={{
+                        backgroundColor: 'goldenrod',
+                        color: 'black'
+                    }}
                 >Design Layout
-            </Button>
+                </Button>
             </div>
-        
+
 
         </>
     );

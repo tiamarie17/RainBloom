@@ -8,20 +8,20 @@ import axios from "axios";
 function* retrieveSearchResults(action) {
 
     console.log('in retrieveSearchResults saga, action.payload is', action.payload);
-    
-    let searchQuery=action.payload;
-        
+
+    let searchQuery = action.payload;
+
     try {
-       
-        const response = yield axios.post('/api/search', {data: searchQuery});
+
+        const response = yield axios.post('/api/search', { data: searchQuery });
         console.log('response.data is', response.data);
 
-        yield put({ type:'STORE_RESULTS', payload: response.data});
+        yield put({ type: 'STORE_RESULTS', payload: response.data });
 
     } catch (err) {
         console.log('Error with posting new item to plantlist', err);
     }
-   
+
 }
 
 function* plantListSaga() {
