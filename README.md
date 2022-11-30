@@ -1,121 +1,65 @@
 
-# Prime Solo Project Starting Repo
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# RainBloom Solo Project Description
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
-
-## Use the Template for This Repository (Don't Clone)
-
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+A few years ago, I applied for a grant to build a rain garden through the Landscaping for Clean Water Program in Dakota County. Rain gardens have a depression in the middle of them and have a raised bank called a berm around its perimeter. This allows it to capture and soak in run-off water. Rain gardens are beneficial to the environment because they capture storm run-off water and filter out the pollutants in it before allowing that water to flow into other bodies of water like lakes, rivers, and streams. They also help prevent erosion and provide food and shelter for pollinators and other wildlife. Going through the process of building the rain garden is what inspired me to make this app. There is a lot of great information out there about how to build rain gardens, but I wanted to bring it as much of it as I could into one place, make it available online, and make it more specific to installing rain gardens in Minnesota. In this way, I wanted to make information about designing rain gardens and installing them more accessible to folks who are interested in learning more about them and might want to install one.
 
 
-## Prerequisites
+This app is a full stack React app that guides users through the steps of building and installing a rain garden, providing useful information along the way. Users can search for their location on a topographic map and use that elevation data to choose an ideal location for their rain garden by moving the icon marker on the map to the desired spot. They can also use an area measurement tool to get the area of surfaces nearby the garden that produce run-off water (such as a roof, driveway, parking lot, patio, or sidewalk). The app also guides the user through figuring out the adequate depth of their rain garden. Once they have that information, they can input those numbers into the app and it will calculate the size in square feet that their rain garden needs to be in order to adequately capture 1 inch of run-off water from the area surrounding the garden. Users can use a search feature to search for plants based on their microclimate and goals for the garden, and add those plants to their garden. Users can also add and edit observations about how the plants are faring once they've planted them. The app also guides users through the plant layout design and installation phases of the project. Finally, there is a picture gallery feature that allows users to upload photos of their garden to the app. This allows the user to keep track of valuable information about how the plants are doing. 
 
-Before you get started, make sure you have the following software installed on your computer:
+## Demo
+Will be posted soon!
+Currently deploying this project to Heroku
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+## Technologies Used
+JavaScript
+React
+Redux
+Redux-Saga
+Node.js
+Express
+HTML
+CSS
+SQL
+Postgres
+Material-UI
+Passport
+Figma
+dbDesigner
+Multer
+Leaflet JavaScript Libraries
+React-Leaflet
+MapBox Vector Tiles API
+Weather API
+Heroku
 
-## Create database and table
+## Challenges Overcome
 
-Create a new database called `prime_app` and create a `user` table:
+One of the main challenges I overcame in this app was dealing with functions that were very long and had many different functions inside of them. To solve that challenge, I refactored my code by using the Single Responsibility Principle as a guide and pulling out specific features or functions into their own components. For example, in my Map.jsx function, I ended up pulling out several features of the map into separate components. I also added code comments to document what specific lines of code or functions do. This made the code less overwhelming and much easier to read when I needed to go back and reference it or make changes.
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+Another challenege I overcame was making sure that the features of the map (such as the search feature, the download a PNG file feature, the draggable marker, the area and distance measurement tool, and the vector tile map layers) were all compatible with each other. To solve this, I first needed to determine that the versions of React, Leaflet, and React Leaflet that I had installed were compatible with each other. I checked my package.json and looked in my console log for errors about peer dependencies when I tried to npm install a package. Once I made sure those were compatible, when I added different features or plug-ins to the map from Leaflet and React Leaflet, I needed to make sure that those technologies or solutions I was searching for were compatible with the versions I had. I read the documentation, checked several Github Issues tabs, and checked my package.json file continually to ensure that the versions that I was using would be compatible with each other and with the features I wanted to add. This allowed me to get the map features to function and work together smoothly.
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
 
-## Development Setup Instructions
+## Next Steps
+In the future, I would like to get higher resolution topographic maps using MapBox or other map APIs that would allow the user to see a higher density of contour lines on their map. This would allow them to more easily choose a location for their garden.
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+I would also like to add a feature to this app that guides users through how to maintain the garden through the seasons once they've installed one, and gives them reminders for the tasks that are recommended at a given time of year. It would also allow them to add, edit, and delete notes about their garden within that feature. 
 
-## Debugging
+## Acknowledgements
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+Thank you to my wonderful instructors, Edan and Kris, at Prime Ditigal Academy, and the entire Ramirez cohort for being so supportive through the process of building this app.
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
 
-## Testing Routes with Postman
 
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
 
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
 
-1. Start the server - `npm run server`
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password
-   2. `POST /api/user/login` will login a user, see body to change username/password
-   3. `GET /api/user` will get user information, by default it's not very much
 
-After running the login route above, you can try any other route you've created that requires a logged in user!
 
-## Production Build
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
 
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm start`
-- Navigate to `localhost:5000`
 
-## Lay of the Land
 
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
 
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
 
-Directory Structure:
 
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
