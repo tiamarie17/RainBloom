@@ -7,8 +7,8 @@ A few years ago, I applied for a grant to build a rain garden through the Landsc
 This app is a full stack React app that guides users through the steps of building and installing a rain garden, providing useful information along the way. Users can search for their location on a topographic map and use that elevation data to choose an ideal location for their rain garden by moving the icon marker on the map to the desired spot. They can also use an area measurement tool to get the area of surfaces nearby the garden that produce run-off water (such as a roof, driveway, parking lot, patio, or sidewalk). The app also guides the user through figuring out the adequate depth of their rain garden. Once they have that information, they can input those numbers into the app and it will calculate the size in square feet that their rain garden needs to be in order to adequately capture 1 inch of run-off water from the area surrounding the garden. Users can use a search feature to search for plants based on their microclimate and goals for the garden, and add those plants to their garden. Users can also add and edit observations about how the plants are faring once they've planted them. The app also guides users through the plant layout design and installation phases of the project. Finally, there is a picture gallery feature that allows users to upload photos of their garden to the app. This allows the user to keep track of valuable information about how the plants are doing. 
 
 ## Demo
-Will be posted soon!
-Currently deploying this project to Heroku
+<a href="https://drive.google.com/file/d/1YeOxDlaoe0sW3yxb6jTim20J1jbvzf-F/view?usp=sharing">RainBloom Demo</a>
+
 
 ## Technologies Used
 JavaScript
