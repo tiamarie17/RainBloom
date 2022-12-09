@@ -20,6 +20,16 @@ function Design() {
   return (
     <>
       <h3>Step 5: Design Garden Layout</h3>
+      <ul>
+        <li>Design Tips and Considerations:</li>
+        <li>1. Consider using grid paper to draw out your garden layout.</li>
+        
+
+        <li>2. </li>
+          <li>Estimate how many plants you will need in your garden. To do this, you can look at the spacing of each plant</li>
+
+      </ul>
+      
       <Button
         variant="contained"
         onClick={search}
