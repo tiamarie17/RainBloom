@@ -23,10 +23,8 @@ function Design() {
       <ul>
         <li>Design Tips and Considerations:</li>
         <li>1. Consider using grid paper to draw out your garden layout.</li>
-        
-
-        <li>2. </li>
-          <li>Estimate how many plants you will need in your garden. To do this, you can look at the spacing of each plant</li>
+        <li>2. Put the big plants in the back and the small plants in the front. </li>
+        <li>3. Put tags next to your plants so you can more easily identify them when you need to weed the garden.</li>
 
       </ul>
       
