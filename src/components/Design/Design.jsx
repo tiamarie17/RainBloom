@@ -19,14 +19,12 @@ function Design() {
 
   return (
     <>
-      <h3>Step 5: Design Garden Layout</h3>
-      <ul>
-        <li>Design Tips and Considerations:</li>
-        <li>1. Consider using grid paper to draw out your garden layout.</li>
-        <li>2. Put the big plants in the back and the small plants in the front. </li>
-        <li>3. Put tags next to your plants so you can more easily identify them when you need to weed the garden.</li>
-
-      </ul>
+      <h3>Step 5: Design Garden Layout: Tips and Considerations</h3>
+      <ol>
+        <li>Consider using grid paper to draw out your garden layout.</li>
+        <li>Put the big plants in the back and the small plants in the front. </li>
+        <li>Put tags next to your plants so you can more easily identify them when you need to weed the garden.</li>
+      </ol>
       
       <Button
         variant="contained"
