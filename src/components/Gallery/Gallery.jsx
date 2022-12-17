@@ -106,7 +106,7 @@ function Upload() {
                     <tbody>
                         {gallery.map(galleryItem => (
                             <tr key={galleryItem.id}>
-                                <td><img src={galleryItem.image_url.replace("public/", "")} /></td>
+                                <td><img src={galleryItem.image_url.replace("public/", "").toLowerCase()} /></td>
                                 <td>{galleryItem.description}</td>
                                 {/* Only allow remove button to appear if user who uploaded the photo is logged in */}
                                 <td>{user.id === galleryItem.user_id &&
