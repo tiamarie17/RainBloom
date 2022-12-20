@@ -80,7 +80,7 @@ function Steps() {
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">Step 1: Choose Garden Location</Typography>
             <Typography variant="body1" color="text.primary">
-              When it rains outside, notice where the water flows around your house and yard. Try to place it whereever water is draining away from (examples: from driveways, sump pmump outlets, or downspouts).
+              When it rains outside, notice where the water flows around your house and yard. Try to place it where water is draining away from (examples: from driveways, sump pump outlets, or downspouts).
               Think about where the water will go if the rain garden overflows. Make sure it is not draining towards the foundation of your house or your neighbor's yard.
               Read extra tips below:
               <Button
@@ -113,7 +113,7 @@ function Steps() {
               <Typography>
                 Additional Tips:
                 Ideally, your rain garden should be about 20 feet away from your foundation, but could be as close as 10 feet away. Avoid placing rain gardens on buried utility lines, septic tanks, or wells.
-                Also avoid the buffer strip between streets and sidewalks, becuse those tend to have a lot of utility lines under them. If your house is located on a slope, avoid putting the rain garden uphill from your house.
+                Also avoid the buffer strip between streets and sidewalks, because those tend to have a lot of utility lines under them. If your house is located on a slope, avoid putting the rain garden uphill from your house.
                 Instead, divert the water around your house and place the rain garden down the slope from your house.
                 You can also use the topographic map to help you decide where to plant your rain garden, and move the flower icon around by clicking on it to make it draggable. Here is some more information about
                 <a href="https://www.youtube.com/watch?v=CoVcRxza8nI" > how to use a topo map</a>.
